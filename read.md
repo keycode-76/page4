@@ -15,13 +15,19 @@ rm .git
 base: '/你的repo名/', 
 npm run build
 git add dist -f
-git commit -m ‘adding dist’
+git commit -m ""
 git subtree push --prefix dist origin gh-pages
 
 再來到repo頁面 找setting > page
 點開網站網址
 完成!
 
+* *
+上傳報銼 
+git pull --rebase --autostash 先拉檔案 rebase友善合併
+
+git remote rm origin (删除关联的origin的远程库)
+git remote add origin git@github.keycode-76/page4.git
 ＊＊
 未安裝過vite 請輸入 
 npm install vite --save-dev
