@@ -1,0 +1,38 @@
+ // end_scene.scss
+
+@keyframes showEndScene_anim {
+    0%{ opacity: 0; }
+    100%{ opacity: 1; }
+}
+#endSceneDiv {
+    flex-direction: column;
+    transition: all .5s;
+    *{ 
+        transition: all .5s;
+    }
+}
+.end_scene {
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+#scoreText {
+    animation: showEndScene_anim 1s linear;
+}
+#scoreNum {
+    animation: showEndScene_anim 1s linear;
+    font-size: 40px;
+}
+#challengeText {
+    color: red;
+    animation: showEndScene_anim 3s linear;
+}
+.end_btn {
+    transition: all .5s;
+    animation: showEndScene_anim 1s linear;
+}
+.end_btn:hover {
+    opacity: 0.5;
+    scale: 1.2;
+}
+

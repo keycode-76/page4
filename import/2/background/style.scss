@@ -1,0 +1,8 @@
+ // background.scss
+$img: url("/assets/img/background.jpg");
+
+#backGround {
+    position: absolute;
+    background-image: $img;
+    transition: all .2s ease-out;
+}

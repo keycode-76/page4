@@ -1,0 +1,25 @@
+ // 3/computer.js
+$computer_icon: url("assets/img/icon/icon-2.png");
+
+#computerDiv {
+    flex-direction: column;
+    * {
+        border: none;
+    }
+    .screen_text {
+    }
+    #sleepyDiv {
+        color: red;
+    }
+}
+#wallPaper {
+    position: absolute;
+    // margin-top: -3%;
+    background-image: $computer_icon;
+    opacity: 0.4;
+    pointer-events: none;
+}
+#click_to_start {
+    color: red;
+    z-index: 1;
+}

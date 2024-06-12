@@ -1,0 +1,35 @@
+// transtion.js
+
+.show_trans{
+    position: absolute;
+    background: black;
+    inset: -100%;
+    // background-image: url("noise.png");
+    // pointer-events: none;
+    animation: showtrans_anim 5s linear;
+}
+.show_trans::after{
+    content: "";
+    position: absolute;
+    background: black;
+    inset: -100%;
+    // background-image: url("noise.png");
+    // pointer-events: none;
+    animation: showtrans_back_anim 5s linear;
+}
+@keyframes showtrans_anim {
+    0% {
+        // transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@keyframes showtrans_back_anim {
+    0% {
+        // transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(110%);
+    }
+}

@@ -1,0 +1,298 @@
+ // rwd
+
+
+// @media (max-width: 1920px) {
+//     // #app {
+//     //     width: 2750px;
+//     //     height: 1200px;
+//     //     border: solid green;
+//     // }
+//     // #viewPort {
+//     //     width: 1600px;
+//     // }
+//     // #backGround {
+//     //     height: 1200px;
+//     // }
+// }
+
+
+@media (min-width: 961px) { // 1.6比例
+    body {
+        * {
+            font-size: 32px;
+        }
+        
+    }
+    #app {
+        width: 1760px;
+        height: 768px;
+        #viewPort {
+            width: 1024px;
+            height: 768px;
+            // border: solid blue;
+            .fuzzy-overlay {
+                width: 1024px;
+                height: 768px;
+            }
+        }
+        #viewPort::before {
+            width: 736px;
+            margin-left: -1760px;
+        }
+        #viewPort::after {
+            width: 736px;
+            margin-left: 1760px;
+        }
+        #screenBtnDiv {
+            div {
+                width: 48px;
+                height: 80px;
+            }
+            #screenL {
+                margin-right: 800px;
+            }
+            
+        }
+    }
+    #menuArea {
+        width: 1024px;
+        height: 768px;
+        #menu_btns {
+            margin-top: 350px;
+            margin-left: 500px;
+        }
+        .menu_btn {
+            width: 100px;
+            height: 30px;
+        }
+        #pass_tutorial {
+            margin-top: 400px;
+        }
+    }
+    #backGround {
+        width: 1760px;
+        height: 768px;
+    }
+    #endSceneDiv {
+        *{ 
+            width: 800px;
+            margin-bottom: 48px;
+            font-size: 48px;
+        }
+        .end_btn {
+            height: 32px;
+        }
+    }
+    #doorArea {
+        width: 384px;
+        height: 592px;
+        #doorDiv {
+            #doorFrame {
+                width: 384px;
+                height: 592px;
+            }
+            #door_btns {
+                width: 160px;
+                height: 240px;
+                div {
+                    width: 160px;
+                    height: 64px;
+                }
+                #request_btn {
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+        }
+
+    }
+    #computerArea {
+        width: 520px;
+        height: 576px;
+        padding-bottom: 48px;
+        margin: 0px 128px 80px;
+        #computerDiv {
+            margin-bottom: 48px;
+            .screen_text {
+                width: 400px;
+                height: 80px;
+            }
+            #sleepyDiv {
+                height: 64px;
+                margin-bottom: 16px;
+            }
+        }
+        #wallPaper {
+            width: 240px;
+            height: 240px;
+        }
+        #click_to_start {
+            margin-top: 240px;
+            font-size: 48px;
+        }
+        
+    }
+    #tableArea {
+        width: 1600px;
+        height: 288px;
+        margin-top: 480px;
+        margin-left: 160px;
+    }
+    #windowArea {
+        width: 432px;
+        height: 464px;
+        margin-bottom: 224px;
+        #window_outLine {
+            width: 432px;
+            height: 464px;
+        }
+        #window_glass {
+            width: 432px;
+            height: 464px;
+        }
+        #roomDiv {
+            width: 432px;
+            height: 464px;
+        }
+    }
+}
+
+
+@media (max-width: 960px) {
+    body {
+        * {
+            font-size: 20px;
+        }
+        
+    }
+    #app {
+        width: 1100px;
+        height: 480px;
+        #viewPort {
+            width: 640px;
+            // height: 480px;
+            // border: solid yellow;
+            .fuzzy-overlay {
+                width: 640px;
+                height: 480px;
+            }
+        }
+        #viewPort::before {
+            width: 620px;
+            margin-left: -1260px;
+        }
+        #viewPort::after {
+            width: 620px;
+            margin-left: 1260px;
+        }
+        #screenBtnDiv {
+            div {
+                width: 30px;
+                height: 50px;
+            }
+            #screenL {
+                margin-right: 500px;
+            }
+        }
+    }
+    #menuArea {
+        width: 640px;
+        height: 480px;
+        #menu_btns {
+            margin-top: 350px;
+            margin-left: 500px;
+        }
+        .menu_btn {
+            width: 100px;
+            height: 30px;
+        }
+        #pass_tutorial {
+            margin-top: 400px;
+        }
+    }
+    #backGround {
+        width: 1100px;
+        height: 480px;
+    }
+    #endSceneDiv {
+        *{ 
+            width: 500px;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+        .end_btn {
+            height: 20px;
+        }
+    }
+    #doorArea {
+        width: 240px;
+        height: 370px;
+        #doorDiv {
+            #doorFrame {
+                width: 240px;
+                height: 370px;
+            }
+            #door_btns {
+                width: 100px;
+                height: 150px;
+                div {
+                    width: 100px;
+                    height: 40px;
+                }
+                #request_btn {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+
+    #computerArea {
+        width: 325px;
+        height: 360px;
+        padding-bottom: 30px;
+        margin: 0px 80px 50px;
+        #computerDiv {
+            margin-bottom: 30px;
+            .screen_text {
+                width: 250px;
+                height: 50px;
+            }
+            #sleepyDiv {
+                height: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        #wallPaper {
+            width: 150px;
+            height: 150px;
+        }
+        #click_to_start {
+            margin-top: 150px;
+            font-size: 30px;
+        }
+    }
+    #tableArea {
+        width: 1000px;
+        height: 180px;
+        margin-top: 300px;
+        margin-left: 100px;
+    }
+    #windowArea {
+        width: 270px;
+        height: 290px;
+        margin-bottom: 140px;
+        #window_outLine {
+            width: 270px;
+            height: 290px;
+        }
+        #window_glass {
+            width: 270px;
+            height: 290px;
+        }
+        #roomDiv {
+            width: 270px;
+            height: 290px;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+// snow.js
+
+.fuzzy-overlay {
+    position: absolute;
+    // inset: -200%;
+    background-image: url("noise.png");
+    background-size: auto;
+    // clip-path: inset(5% 20% 15% 10%);
+    opacity: 0.1; 
+    pointer-events: none;
+    animation: snow_anim .15s steps(3) infinite both;
+    // filter: blur(1);
+}
+
+@keyframes snow_anim {
+    0% {
+        background-position: 10% 10%;
+    }
+    100% {
+        background-position: -10% -10%;
+    }
+}
