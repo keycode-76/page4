@@ -1,7 +1,7 @@
  // 2/game.js
 
 import "/import/2/game/style.scss";
-import { initScreen, clearScreen } from "/import/2/screen/script.js";
+import { initScreen, endScreen, clearScreen } from "/import/2/screen/script.js";
 import { backGround } from "/import/2/background/script.js";
 import { initComputer } from "/import/3/computer/script.js";
 import { initWindow } from "/import/3/window/script.js";
@@ -23,8 +23,12 @@ const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     return itemModel;
 };
 const gameArea = createDiv("gameArea");
+const gameFilter = createDiv("gameFilter");
+
 const doorArea = createDiv("doorArea");
 const computerArea = createDiv("computerArea");
+const computerShadow = createDiv("computerShadow");
+
 const tableArea = createDiv("tableArea");
 const buttonsArea = createDiv("buttonsArea");
 const rulesArea = createDiv("rulesArea");
@@ -33,6 +37,7 @@ const lightArea = createDiv("lightArea");
 const fileArea = createDiv("fileArea");
 
 const windowArea = createDiv("windowArea");
+const windowShadow = createDiv("windowShadow");
 
 const importGame = (app) => {
     gameArea.innerHTML = "";
@@ -41,27 +46,24 @@ const importGame = (app) => {
     renderButtons(buttonsArea);
     initWindow(windowArea);
     initDoor(doorArea);
-    gameArea.append(doorArea, computerArea, windowArea, tableArea, ) //buttonsArea, rulesArea
-    gameArea.appendChild(backGround);
+    gameArea.append(doorArea, computerShadow, computerArea, windowShadow, windowArea, tableArea, ) //buttonsArea, rulesArea
+    gameArea.append(backGround, gameFilter);
     app.append(gameArea);
     initScreen(app);
-    startPlaytimer();
 }
 
 window.addEventListener("animationend", (event) => {
-    if (event.animationName === "end_screen_anim") {
+    
+    if (event.animationName === "bennet_anim") { // door lose
+        endScreen();
+    } else if (event.animationName === "staff_back_anim") { // door win
+        endScreen();
+    } else if (event.animationName === "end_screen_anim") { //screen
         clearScreen();
         gameArea.innerHTML = "";
         init_endScene(gameArea);
-        clearInterval(playtimer);
     }
 });
 
-let playtimer;
-const startPlaytimer = () => {
-    playtimer = setInterval(() => {
-        now_data.play_time += 15
-    }, 1000);
-};
 
 export { importGame }

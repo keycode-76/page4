@@ -11,9 +11,13 @@
     font-family: "SedanSC-Regular";
     src: url('/assets/font/SedanSC-Regular.ttf');
 }
-$font_cha: "ChakraPetch-Bold";
-$font_pea: "PeaberryBase";
-$font_sed: "SedanSC-Regular";
+@font-face {
+    font-family: "GochiHand";
+    src: url('/assets/font/GochiHand-Regular.ttf');
+}
+// $font_cha: "ChakraPetch-Bold";
+// $font_pea: "PeaberryBase";
+// $font_sed: "SedanSC-Regular";
 // window.resizeTo(800, 600);
 
 body {
@@ -31,7 +35,7 @@ body {
         align-items: center;
         box-sizing: border-box;
         // border: 3px solid white; 
-        font-family: $font_cha;
+        font-family: "ChakraPetch-Bold";
         background-size: cover;
     }
     

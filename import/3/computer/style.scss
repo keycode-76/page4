@@ -1,5 +1,19 @@
  // 3/computer.js
-$computer_icon: url("assets/img/icon/icon-2.png");
+$computer_icon: url("/assets/img/icon/icon-2.png");
+
+
+@keyframes click_start_anim {
+    // 0% { opacity: 1;}
+    50% { opacity: 0;}
+    // 100% { opacity: 1;}
+}
+@keyframes wall_paper_anim {
+    0% { transform: translate(10px, 30px); }
+    30% { transform: translate(70px, -20px); }
+    50% { transform: translate(10px, -50px); }
+    70% { transform: translate(-65px, -10px); }
+    100% { transform: translate(10px, 30px); }
+}
 
 #computerDiv {
     flex-direction: column;
@@ -12,6 +26,10 @@ $computer_icon: url("assets/img/icon/icon-2.png");
         color: red;
     }
 }
+.wallpaper_start {
+    animation: wall_paper_anim 6s linear infinite;
+    scale: 0.9;
+}
 #wallPaper {
     position: absolute;
     // margin-top: -3%;
@@ -20,6 +38,8 @@ $computer_icon: url("assets/img/icon/icon-2.png");
     pointer-events: none;
 }
 #click_to_start {
-    color: red;
+    position: absolute;
+    animation: click_start_anim 5s infinite;
+    // color: red;
     z-index: 1;
 }

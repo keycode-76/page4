@@ -1,10 +1,10 @@
 // 3/door.js
 
 import "/import/3/door/style.scss";
-import { now_data, body_values } from "/import/4/init/now.js";
+import { now_data, body_values, init_anim } from "/import/4/init/now.js";
 import { renderScreentext, valueStop } from "/import/3/computer/script.js";
 import { clearRequest } from "/import/3/window/script.js";
-import { SD_1, SD_2 } from "/import/1/sound/script.js";
+import { SD_1, SD_2, SD_7, SD_8 } from "/import/1/sound/script.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");
@@ -23,27 +23,35 @@ const staff_door = createDiv("staff_door");
 const doorFrame = createDiv("doorFrame");
 const doorDiv = createDiv("doorDiv");
 
-const feed_btn = createDiv("feed_btn", 0, "feed", () => {renderStaff("right", "hunger")});
-const clean_btn = createDiv("clean_btn", 0, "clean", () => {renderStaff("right", "sanity")});
-const play_btn = createDiv("playbtn", 0, "play", () => {renderStaff("right", "active")});
+const feed_btn = createDiv("feed_btn", "request_btn", 0, () => {renderStaff("right", "hunger")});
+const clean_btn = createDiv("clean_btn", "request_btn", 0, () => {renderStaff("right", "sanity")});
+const play_btn = createDiv("play_btn", "request_btn", 0, () => {renderStaff("right", "active")});
 const door_btns = createDiv("door_btns");
-const request_btn = createDiv("request_btn", 0, "request");
+const request_btns = createDiv("request_btns", "request_btn");
 
 const initDoor = (app) => { //初始 
     doorDiv.innerHTML = "";
     doorDiv.append(staff_door, door_btns, doorFrame);
-    doorDiv.className = "";
+    doorDiv.className = "door_start";
     staff_door.style.opacity = 1;
     doorIdle_loop();
+    if (init_anim === 0) {
+        staff_door.className = `right_1`;
+        setTimeout(() => {
+            staff_door.className = "bennet_jump";
+        }, 1000);
+        init_anim += 1;
+    }
     return app.appendChild(doorDiv);
 }
 const door_request = () => {
-    door_btns.appendChild(request_btn);
+    door_btns.appendChild(request_btns);
 }
 const endDoor = (num) => { //結束 
     stopDoorIdle_loop();
+    door_btns.innerHTML = "";
+    doorDiv.className = "door_black"
     if (now_data.win === false) {
-        doorDiv.className = "end_scene"
         if (num === 1) { 
             staff_door.className = "bennet_1";
         } else if (num === 2) { 
@@ -52,7 +60,7 @@ const endDoor = (num) => { //結束
             staff_door.className = "bennet_3";
         }
     } else {
-        staff_door.className = "back_1"
+        staff_door.className = "back_1"; // win
     }
 }
 let sp_Max = 8000;
@@ -74,7 +82,7 @@ const stopDoorIdle_loop = () => {
     clearTimeout(doorTimer_blink);
 };
 
-request_btn.addEventListener("click", () => { //點擊請求 
+request_btns.addEventListener("click", () => { //點擊請求 
     door_btns.innerHTML = "";
     door_btns.append(feed_btn, clean_btn, play_btn);
     SD_1.play();
@@ -83,12 +91,19 @@ const renderStaff = (text, action) => { //執行請求
     // if (now_data.request === 0) return;
     if (action) now_data.action = action;
     stopDoorIdle_loop();
-    staff_door.classList.value = "";
-    staff_door.classList.add(`${text}_1`);
-    door_btns.innerHTML = "";
-    if(text === "right") {
-        SD_2.play();
+    if(text === "left") {
+        staff_door.className = "";
+        setTimeout(() => {
+            staff_door.classList.add(`${text}_1`);
+            SD_7.play();
+        }, now_data.staff_work);
+        
+    } else if(text === "right") {
+        staff_door.className = `${text}_1`;   
+        // SD_2.play();
+        SD_8.play();
     }
+    door_btns.innerHTML = "";
 }
 const request_complete = () => { //完成請求
     if (now_data.action === "hunger") {
@@ -111,19 +126,18 @@ const request_complete = () => { //完成請求
     renderScreentext();
     now_data.action = "";
 }
-
 window.addEventListener("animationend", (event) => {
     if (event.animationName === "staff_right_anim") {
         renderStaff("left");
-        
-
     } else if (event.animationName === "staff_left_anim") {
         if (body_values.sleepy >= 5) return;
-        door_btns.appendChild(request_btn);
+        door_btns.appendChild(request_btns);
         doorIdle_loop();
         request_complete();
     } else if (event.animationName === "staff_back_anim") {
         staff_door.style.opacity = 0;
+    } else if (event.animationName === "bennet_anim") {
+        staff_door.className = "bennet_jump";
     }
 });
 

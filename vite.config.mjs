@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import commonjs from 'vite-plugin-commonjs';
 
 export default defineConfig({
-  base: "page4",
+  base: "/page4",
   // 防止 Vite 在編譯時清空螢幕，這樣你就可以看到 Rust 的錯誤訊息
   clearScreen: false,
 

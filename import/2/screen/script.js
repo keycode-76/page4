@@ -3,7 +3,7 @@
 import "/import/2/screen/style.scss"
 import { snow_overlay } from "/import/5/snow/script.js";
 import { now_data } from "/import/4/init/now.js";
-import { SD_3, SD_4, SD_5 } from "/import/1/sound/script.js";
+import { SD_3, SD_4, SD_5, SD_13, SD_16 } from "/import/1/sound/script.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");
@@ -19,19 +19,29 @@ const createDiv = (nameId, nameClass, text, func, child1, child2) => {
 };
  
 const viewPort = createDiv("viewPort");
+const view_lose_cover = createDiv("view_lose_cover");
+const view_lose_up = createDiv("view_lose_up");
+const view_lose_down = createDiv("view_lose_down");
 const view_lose = createDiv("view_lose");
 const view_win = createDiv("view_win");
+const view_border = createDiv("view_border");
+
 
 const screenBtnDiv = createDiv("screenBtnDiv");
 const screenL = createDiv("screenL");
 const screenR = createDiv("screenR");
 
 const initScreen  = (app) => {
-    screenBtnDiv.append(screenL, screenR, );
-    viewPort.append(snow_overlay, screenBtnDiv);
+    viewPort.innerHTML = "",
+    screenBtnDiv.innerHTML = "",
+    viewPort.append(view_border, snow_overlay);
     app.appendChild(viewPort);
 }
-export { initScreen, clearScreen }
+const startScreen = () => {
+    screenBtnDiv.append(screenL, screenR, );
+    viewPort.appendChild(screenBtnDiv);
+}
+export { initScreen, startScreen, clearScreen, endScreen }
 
 let e = 0;
 let screenLimit = 220;
@@ -42,23 +52,27 @@ let intervalId = null;
 const endScreen = () => {
     viewPort.removeChild(screenBtnDiv);
     if (now_data.win === false ) {
+        view_lose.innerHTML = "";
+        view_lose.append(view_lose_up, view_lose_down);
         viewPort.appendChild(view_lose);
+        SD_13.play();
     } else if (now_data.win === true ) {
         viewPort.appendChild(view_win);
     }
 }
 const clearScreen = () => {
-    viewPort.innerHTML = ""; 
+    viewPort.innerHTML = "",
+    screenBtnDiv.innerHTML = "",
+    viewPort.appendChild(snow_overlay);
     const gameArea = document.querySelector("#gameArea")
-    gameArea.style.transform = "translateX(0px)";
+    gameArea.style.transform = "translateX(0px)"; // 防止畫面偏移
 }
 window.addEventListener("animationend", (event) => {
-    if (event.animationName === "bennet_anim") {
-        endScreen();
-    } else if (event.animationName === "staff_back_anim") {
-        endScreen();
+    if (event.animationName === "lose_screenDown_anim") { // screen 牙齒的遮蔽物
+        view_lose.appendChild(view_lose_cover);
     }
 });
+
 screenL.addEventListener('mouseenter', () => {
 if (window.innerWidth > 960) 
     { screenLimit = 360; intervalTime = 30;
@@ -71,12 +85,14 @@ if (window.innerWidth > 960)
         gameArea.style.transform = `translateX(${e}px)`;
         }
     }, intervalTime);
+    SD_3.currentTime = 0;
     SD_3.play();
     SD_4.play();
 });
 screenL.addEventListener('mouseleave', () => {
     clearInterval(intervalId);
     SD_4.pause();
+    SD_5.currentTime = 0;
     SD_5.play();
 });
 screenR.addEventListener('mouseenter', () => {
@@ -92,13 +108,18 @@ if (window.innerWidth > 960)
         // } else {
         //     clearInterval(intervalId);
         }
+        if(e< -140 && now_data.request != "") {
+            SD_16.play();
+        }
     }, intervalTime);
+    SD_3.currentTime = 0;
     SD_3.play();
     SD_4.play();
 });
 screenR.addEventListener('mouseleave', () => {
     clearInterval(intervalId);
     SD_4.pause();
+    SD_5.currentTime = 0;
     SD_5.play();
 });
 

@@ -3,12 +3,13 @@
 import "/import/3/window/style.scss";
 import { now_data, body_values } from "/import/4/init/now.js";
 import { valueTimer, valueStop } from "/import/3/computer/script.js";
+import { SD_9, SD_14, SD_15 } from "/import/1/sound/script.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");
     itemModel.id = nameId;
     if (nameClass) { itemModel.className = nameClass; }
-    // if (text) { itemModel.textContent = text; }
+    if (text) { itemModel.textContent = text; }
     // if (func) { itemModel.addEventListener("click", func) }
     // if (child1 || child2) { 
     //     if (child1) itemModel.appendChild(child1);
@@ -17,33 +18,39 @@ const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     return itemModel;
 };
 
-const noteContent = createDiv("noteContent");
-const noteDiv = createDiv("noteDiv");
+const face_text = createDiv("face_text");
+const face_state = createDiv("face_state");
 
 const window_blink = createDiv("window_blink");
-const window_face = createDiv("window_face");
+const face_rg = createDiv("face_rg");
 
-const state_1_window = createDiv("state_1_window");
-// const state_2_window = createDiv("state_2_window");
-// const state_3_window = createDiv("state_3_window");
-// const state_4_window = createDiv("state_4_window");
-const window_glass = createDiv("window_glass");
+// const window_light = createDiv("window_light");
 const window_outLine = createDiv("window_outLine");
 
 const windowDiv = createDiv("windowDiv");
 
 const initWindow = (app) => {
-    noteDiv.appendChild(noteContent);
-    window_glass.appendChild(state_1_window);
+    face_state.appendChild(face_text);
     windowDiv.innerHTML = "";
-    windowDiv.className = "";
+    windowDiv.className = "window_start";
     window_blink.style.opacity = 0;
-    windowDiv.append(window_glass, window_face, window_blink, window_outLine);    
+    face_state.classList.value = "",
+    face_text.classList.value = "",
+    windowDiv.append(face_rg, face_state, window_blink, window_outLine);    
     windowIdle_loop();
     return app.appendChild(windowDiv);
 }
 const endWindow = () => {
-    windowDiv.className = "end_scene";
+    if( now_data.win === false ) {
+        windowDiv.innerHTML = "",
+        windowDiv.appendChild(window_outLine);
+        windowDiv.className = "window_endLose";
+        SD_9.play();
+    } else if ( now_data.win === true ) {
+        windowDiv.className = "window_start";
+        face_state.className = "window_endWin";
+        SD_14.play();
+    }
 }
 let sp_Max = 8000;
 let sp_Min = 100;
@@ -56,7 +63,7 @@ const windowIdle_loop = () => { //扎眼迴圈
         window_blink.style.opacity = 1;
         windowTimer_blink = setTimeout(() => {
             windowIdle_loop();
-        }, 300);
+        }, 150);
     }, interval);
 };
 const stopWindowIdle_loop = () => {
@@ -76,9 +83,9 @@ const window_request = () => {
 const randomGlass = () => {
     const interval = Math.floor(Math.random() * 2);
     if (interval === 0) {
-        noteDiv.className = "paper_1"
+        face_state.className = "paper_1"
     } else if (interval === 1) {
-        noteDiv.className = "paper_2"
+        face_state.className = "paper_2"
     }
 };
 const request_value = [
@@ -88,16 +95,22 @@ const request_value = [
 ]
 const renderRequest = () => {
     const randomIndex = Math.floor(Math.random() * request_value.length);
-    windowDiv.innerHTML = "";
-    windowDiv.append(noteDiv, window_glass, window_outLine);
-    noteContent.className = `window_${randomIndex}`
+    windowDiv.className = "window_state",
+    face_state.classList.value = "",
+    face_state.className = `window_${randomIndex}`
+    face_text.className = `face_text_${randomIndex}`
     now_data.request = request_value[randomIndex];
     valueStop(now_data.request);
     valueTimer(now_data.request, now_data.computer_fast);
-    return noteContent;
+    SD_15.pause();
+    SD_15.play();
+    return face_text;
 }
 const clearRequest =  () => {
-    windowDiv.removeChild(noteDiv);
+    windowDiv.className = "window_start",
+    face_state.classList.value = "",
+    face_text.classList.value = "",
+    SD_15.pause();
     window_request();
 }
 export { initWindow, randomGlass, window_request, clearRequest, endWindow,}

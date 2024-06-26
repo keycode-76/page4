@@ -1,44 +1,84 @@
  // 3/window.scss
-$window_room: url("/assets/img/window/window-start.png");
-$window_outLine: url("/assets/img/window/window-window.png");
-$cheatBox_1: url("/assets/img/window/window-1.png");
-$cheatBox_2: url("/assets/img/window/window-2.png");
-$glass_1: url("/assets/img/window/window-window.png");
-$glass_2: url("/assets/img/window/window-window.png");
+$window_state_1: url("/assets/img/window/window-start1.png");
+$window_state_2: url("/assets/img/window/window-start2.png");
+
+$window_outLine: url("/assets/img/window.png");
 
 $window_smile: url("/assets/img/window/window-7.png");
-$window_blink: url("/assets/img/window/blink.png");
-$state_active_1: url("/assets/img/window/window-13.png");
-// $state_active_2: url("/assets/img/window/window-9.png");
-$state_hunger_1: url("/assets/img/window/window-11.png");
-$state_sanity_1: url("/assets/img/window/window-12.png");
+$window_blink: url("/assets/img/window/window-blink.png");
+$window_end_win1: url("/assets/img/window/window-sleep1.png");
+$window_end_win2: url("/assets/img/window/window-sleep2.png");
 
-#windowDiv {
+$window_end_lose1: url("/assets/img/window/window-end1.png");
+$window_end_lose2: url("/assets/img/window/window-end2.png");
+
+$state_active_1: url("/assets/img/window/window-11.png");
+$state_hunger_1: url("/assets/img/window/window-9.png");
+$state_sanity_1: url("/assets/img/window/window-10.png");
+$face_text_active: url("/assets/img/window/window-4.png");
+$face_text_hunger: url("/assets/img/window/window-5.png");
+$face_text_sanity: url("/assets/img/window/window-6.png");
+
+@keyframes window_endWin_anim {
+    0% {background-image: $window_end_win1;}
+    50% {background-image: $window_end_win2;}
+    100% {background-image: $window_end_win1;}
+}
+@keyframes window_endLose_anim {
+    0% {background-image: $window_end_lose1;}
+    50% {background-image: $window_end_lose2;}
+    100% {background-image: $window_end_lose1;}
+}
+
+@keyframes window_state_anim {
+    0% {background-image: $window_state_1;}
+    50% {background-image: $window_state_2;}
+    100% {background-image: $window_state_1;}
+}
+
+.window_start {
     width: 100%;
     height: 100%;
-    background-image: $window_room;
+    background-image: $window_state_1;
+}
+.window_state {
+    width: 100%;
+    height: 100%;
+    animation: window_state_anim .2s infinite;
+}
+.window_endWin {
+    width: 100%;
+    height: 100%;
+    animation: window_endWin_anim 2s infinite;
+}
+.window_endLose {
+    width: 100%;
+    height: 100%;
+    animation: window_endLose_anim 0.5s infinite;
+
+    // animation: window_endLose_anim 0.2s infinite;
 }
 #window_outLine {
     position: absolute;
-    width: 270px;
-    height: 290px;
     background-image: $window_outLine;
-}
-#window_face {
-    // position: absolute; 
-    width: 100%;
-    height: 100%;
-    // margin-bottom: 40px;
 }
 #window_blink {
     position: absolute;
-    width: 270px;
-    height: 290px;
     background-image: $window_blink;
 }
-.window_face {
+#face_rg {
+    width: 270px;
+    height: 290px;
     background-image: $window_smile;
 }
+#face_state {
+    position: absolute;
+    #face_text {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .window_0 {
     background-image: $state_active_1;
 }
@@ -48,33 +88,12 @@ $state_sanity_1: url("/assets/img/window/window-12.png");
 .window_2 {
     background-image: $state_sanity_1;
 }
-
-.cheatBox_1 {
-    background-image: $cheatBox_1
-_1;
+.face_text_0 {
+    background-image: $face_text_active;
 }
-.cheatBox_2 {
-    background-image: $cheatBox_2;
+.face_text_1 {
+    background-image: $face_text_hunger;
 }
-
-#window_glass {
-    position: absolute;
-    width: 270px;
-    height: 290px;
-    background-image: $glass_1;
-    // opacity: 0.1;
-}
-#noteDiv {
-    width: 100%;
-    height: 100%;
-    #noteContent {
-        width: 100%;
-        height: 100%;
-    }
-}
-#roomDiv {
-    position: absolute;
-    width: 270px;
-    height: 290px;
-    opacity: 0.5;
+.face_text_2 {
+    background-image: $face_text_sanity;
 }

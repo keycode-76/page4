@@ -1,62 +1,97 @@
  // 3/door.scss
 $corridor: url("/assets/img/door/corridor-1.png");
 $doorframe: url("/assets/img/door/doorframe.png");
-$doorIdle: url("/assets/img/door/idle/door-4.png");
-$doorBlink: url("/assets/img/door/idle/door-5.png");
-$doorRight: url("/assets/img/door/right/walk.png");
-$doorLeft: url("/assets/img/door/left/walk.png");
-$doorBack: url("/assets/img/door/back/walk.png");
+$doorIdle: url("/assets/img/door/idle/door-18.png");
+$doorBlink: url("/assets/img/door/idle/door-8.png");
+$doorRight: url("/assets/img/door/right/spritesheet.png");
+$doorLeft: url("/assets/img/door/left/spritesheet.png");
+$doorBack: url("/assets/img/door/back/spritesheet.png");
+$door_black: url("/assets/img/door/door-black.png");
 
-$bennet_1: url("/assets/img/door/bennet/door-6.png");
-$bennet_2: url("/assets/img/door/bennet/door-7.png");
-$bennet_3: url("/assets/img/door/bennet/door-8.png");
 
-$staffRight_width: calc(960);
-$staffLeft_width: calc(720);
+$request_btns: url("/assets/img/door/request/slot-4.png");
+
+$request_clean: url("/assets/img/door/request/slot-1.png");
+$request_feed: url("/assets/img/door/request/slot-2.png");
+$request_play: url("/assets/img/door/request/slot-3.png");
+
+$bennet_1: url("/assets/img/door/bennet/door-11.png");
+$bennet_2: url("/assets/img/door/bennet/door-9.png");
+$bennet_3: url("/assets/img/door/bennet/door-10.png");
+
+$bennet_jump_1: url("/assets/img/door/bennet/door-7.png");
+$bennet_jump_2: url("/assets/img/door/bennet/door-8.png");
+
+// w: 600px 240px;
+// h: 920px 370px; = 2.486
+$staffRight_width: calc(1689.78); //4200
+$staffLeft_width: calc(1215.89); //3000
 
 @media (min-width: 961px) { // 1.6比例
-    @keyframes staff_back_anim {
-        to { background-position-x: -#{$staffRight_width*1.6}px; }}
     @keyframes staff_right_anim {
         to { background-position-x: -#{$staffRight_width*1.6}px; }}
     @keyframes staff_left_anim {
         to { background-position-x: -#{$staffLeft_width*1.6}px; }}
+    @keyframes staff_back_anim {
+        to { background-position-x: -#{$staffLeft_width*1.6}px; }}
 }
 
 @media (max-width: 960px) {
-    @keyframes staff_back_anim {
-        to { background-position-x: -#{$staffRight_width}px; }}
     @keyframes staff_right_anim {
         to { background-position-x: -#{$staffRight_width}px; }}
     @keyframes staff_left_anim {
+        to { background-position-x: -#{$staffLeft_width}px; }}
+    @keyframes staff_back_anim {
         to { background-position-x: -#{$staffLeft_width}px; }}
 }
 
 @keyframes bennet_anim {
     0% { opacity: 0;};
-    20% {opacity: 1;};
-    50% {opacity: 0;};
+    10% {opacity: 1;};
+    30% {opacity: 0;};
+    40% {opacity: 1;};
     100% { opacity: 1;};
 }
+
+@keyframes bennet_jump_anim {
+    0% {background-image: $bennet_jump_1;}
+    50% {background-image: $bennet_jump_2;}
+    100% {background-image: $bennet_jump_1;}
+}
+
 #doorDiv {
     width: 100%;
     height: 100%;
-    background-image: $corridor;
-    border: none;
     #doorFrame {
         position: absolute;
         background-image: $doorframe;
         pointer-events: none;
-        border: none;
     }
+}
+.door_start {
+    background-image: $corridor;
+}
+.door_black {
+    background-image: $door_black;
 }
 #door_btns {
     position: absolute;
-    flex-direction: column;
     border: none;
-    div {
+    #request_btns {
+        background-image: $request_btns;
     }
-    #request_btn {
+    #feed_btn {
+        background-image: $request_feed;
+    }
+    #clean_btn {
+        background-image: $request_clean;
+    }
+    #play_btn {
+        background-image: $request_play;
+    }
+    .request_btn:hover {
+       scale: 1.2;
+       opacity: 0.8;
     }
 }
 #staff_door {
@@ -70,28 +105,32 @@ $staffLeft_width: calc(720);
 .staff_blink {
     background-image: $doorBlink;
 }
-.bennet_1 {
-    background-image: $bennet_1;
-    animation: bennet_anim .5s linear;
-}
-.bennet_2 {
-    background-image: $bennet_2;
-    animation: bennet_anim .5s linear;
-}
-.bennet_3 {
-    background-image: $bennet_3;
-    animation: bennet_anim .5s linear;
-}
 .right_1 {
     background-image: $doorRight;
-    animation: staff_right_anim .6s steps(4);
+    animation: staff_right_anim 1s steps(7);
 }
 
 .left_1 {
     background-image: $doorLeft;
-    animation: staff_left_anim .6s steps(3);
+    animation: staff_left_anim 1s steps(5);
 }
 .back_1 {
     background-image: $doorBack;
-    animation: staff_back_anim .6s steps(4);
+    animation: staff_back_anim 1s steps(5);
+}
+
+.bennet_jump {
+    animation: bennet_jump_anim .3s infinite;
+}
+.bennet_1 {
+    background-image: $bennet_1;
+    animation: bennet_anim 2s linear;
+}
+.bennet_2 {
+    background-image: $bennet_2;
+    animation: bennet_anim 2s linear;
+}
+.bennet_3 {
+    background-image: $bennet_3;
+    animation: bennet_anim 2s linear;
 }

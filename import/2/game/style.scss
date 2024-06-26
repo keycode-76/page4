@@ -1,10 +1,21 @@
  // 2/game.scss
+$filter: url("/assets/img/filter.png");
+
 $table: url("/assets/img/table.png");
 $computer: url("/assets/img/computer.png");
+$computer-shadow: url("/assets/img/computer-shadow.png");
+$window-shadow: url("/assets/img/windowShadow.png");
 
 #gameArea {
     width: 100%;
     height: 100%;
+    #gameFilter {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0.8;
+        background-image: $filter;
+        // z-index: 3; // only 2
+    }
 }
 #backGround {
     z-index: -1;
@@ -16,45 +27,49 @@ $computer: url("/assets/img/computer.png");
     background-image: $computer;
     z-index: 1;
 }
+#computerShadow {
+    position: absolute;
+    background-image: $computer-shadow;
+    z-index: 1;
+}
+
 #tableArea {
     position: absolute;
     background-image: $table;
 }
 #windowArea {
-    * {
-        border: none;
-    }
-    border: none;
+    z-index: 0;
 }
-
-
-
-
-#buttonsArea {
+#windowShadow {
     position: absolute;
-    width: 250px;
-    height: 120px;
-    margin-top: 220px;
-    margin-left: 800px;
-}
-#lightArea {
-    position: absolute;
-    width: 40px;
-    height: 50px;
-    margin-top: 220px;
-    margin-left: 450px;
+    background-image: $window-shadow;
 }
 
+// #buttonsArea {
+//     position: absolute;
+//     width: 250px;
+//     height: 120px;
+//     margin-top: 220px;
+//     margin-left: 800px;
+// }
+// #lightArea {
+//     position: absolute;
+//     width: 40px;
+//     height: 50px;
+//     margin-top: 220px;
+//     margin-left: 450px;
+// }
 
-#rulesArea {
-    position: absolute;
-    width: 80px;
-    height: 100px;
-    margin-right: 480px;
-}
-#fileArea {
-    position: absolute;
-    width: 450px;
-    height: 400px;
-    margin-top: 80px;
-}
+
+// #rulesArea {
+//     position: absolute;
+//     width: 80px;
+//     height: 100px;
+//     margin-right: 480px;
+// }
+// #fileArea {
+//     position: absolute;
+//     width: 450px;
+//     height: 400px;
+//     margin-top: 80px;
+// }

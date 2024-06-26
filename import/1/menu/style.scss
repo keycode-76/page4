@@ -14,11 +14,30 @@ $tutor_1: url("/assets/img/menu/start-4.png");
 }
 
 #menuArea {
-    border: 3px blue solid;
     #menu_btns {
         position: absolute;
         flex-direction: column;
     }
+}
+#instruct_div {
+    flex-direction: column;
+    font-size: 25px;
+    div {
+        margin-top: 50px;
+        opacity: 0.5;
+        &:hover {
+            scale: 1.2;
+            opacity: 1;
+        }
+    }
+}
+#instruct_video {
+    position: absolute;
+    width: 640px;
+    height: 480px;
+    pointer-events: none;
+    // z-index: -1;
+    display: none;
 }
 #menu_img {
     width: 100%;

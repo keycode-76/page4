@@ -1,8 +1,23 @@
  // end_scene.scss
+$end_lock: url("/assets/img/end/slot-4.png");
+$end_unlock: url("/assets/img/end/spritesheet.png");
+$end_unlock_width: calc(4200/3.75); //14
+$end_unlock_height: calc(300/3.75); //80
+
+$end_retry: url("/assets/img/end/slot-3.png");
+$end_next_1: url("/assets/img/end/slot-10.png");
+$end_disk_1: url("/assets/img/end/slot-12.png");
+@keyframes end_unlock_anim {
+    to { background-position-x: -#{$end_unlock_width}px; }}
 
 @keyframes showEndScene_anim {
     0%{ opacity: 0; }
     100%{ opacity: 1; }
+}
+@keyframes lock_click_anim {
+    0%{ transform: rotate(-3deg); }
+    50%{ transform: rotate(3deg); }
+    100%{ transform: rotate(-3deg); }
 }
 #endSceneDiv {
     flex-direction: column;
@@ -16,23 +31,96 @@
     height: 100%;
     background: black;
 }
-#scoreText {
+
+#challengeText {
+    color: red;
+    font-size: 30px;
+    margin-bottom: 80px;
     animation: showEndScene_anim 1s linear;
 }
 #scoreNum {
+    font-size: 35px;
+    margin-top: -70px;
+    margin-bottom: 50px;
     animation: showEndScene_anim 1s linear;
-    font-size: 40px;
 }
-#challengeText {
-    color: red;
-    animation: showEndScene_anim 3s linear;
+#end_btns {
+    margin-bottom: 5px;
+    animation: showEndScene_anim 1s linear;
+}
+@font-face {
+    font-family: "GochiHand";
+    src: url('/assets/font/GochiHand-Regular.ttf');
+}
+#end_btnText {
+    font-size: 25px;
+    margin-bottom: 80px;
+    opacity: 0.5;
+    font-family: "GochiHand";
+
+    letter-spacing: 2px;
+    // color: orange;
+}
+#backtomenu_btn {
+    font-size: 30px;
+    opacity: 0.2;
+    &:hover {
+        scale: 1.2;
+        opacity: 0.8;
+    }
+}
+.end_lock {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: $end_lock;
+    // animation: end_unlock_anim 2s steps(14) infinite;
+}
+.end_unlock {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: $end_unlock;
+    animation: end_unlock_anim 3s steps(14);
+    pointer-events: none;
+}
+.end_lock_click {
+    animation: lock_click_anim .2s linear infinite;
 }
 .end_btn {
+    // position: absolute;
+    width: 80px;
+    height: 80px;
     transition: all .5s;
-    animation: showEndScene_anim 1s linear;
+    margin: 0 10px;
+    opacity: 0.7;
+
+    &:hover {
+        scale: 1.2;
+        opacity: 1;
+    }
+    // filter: blur(5px);
 }
-.end_btn:hover {
-    opacity: 0.5;
-    scale: 1.2;
+
+#retry_endBtn_1 {
+    background-image: $end_retry;
+}
+#next_endBtn_1 {
+    background-image: $end_next_1;
+}
+#disk_endBtn_1 {
+    background-image: $end_disk_1;
+}
+
+#diskDiv_1 {
+    position: absolute;
+    width: 640px;
+    height: 480px;
+    background-color: black;
+    // z-index: 1;
+    #disk_Xbtn {
+        width: 30px;
+        height: 30px;
+    }
 }
 
