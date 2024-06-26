@@ -33,6 +33,12 @@ git pull --rebase --autostash 先拉檔案 rebase友善合併
 git remote rm origin (删除关联的origin的远程库)
 git remote add origin git@github.keycode-76/page4.git
 
+* *
+出現無法追蹤的檔案 如下
+「 Changes not staged for commit: Untracked files: 」
+直接再加一次檔案
+git add . 
+
 ＊＊
 未安裝過vite 請輸入 
 npm install vite --save-dev
