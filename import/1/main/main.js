@@ -11,11 +11,13 @@ import { SD_10 } from "/import/1/sound/script.js";
 const app = document.querySelector("#app");
 
 initScreen(app);
-// renderMenu(app);
-importGame(app);
+renderMenu(app);
+// importGame(app);
 
 instruct_pass.addEventListener("click", () => {
-    app.removeChild(menuArea);
+    app.innerHTML = "";
+    initScreen(app);
+    // if (menuArea) { app.removeChild(menuArea); }
     importGame(app);
     init_trans(app);
     SD_10.play();

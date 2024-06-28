@@ -27,17 +27,26 @@ git subtree push --prefix dist origin gh-pages
 完成!
 
 * *
-上傳報銼 
+上傳報錯誤 
 git pull --rebase --autostash 先拉檔案 rebase友善合併
 
 git remote rm origin (删除关联的origin的远程库)
 git remote add origin git@github.keycode-76/page4.git
+或是直接用這一段也可以
+git remote set-url origin git@github.com:keycode-76/page4.git (最後這一段是SHH)
 
 * *
 出現無法追蹤的檔案 如下
 「 Changes not staged for commit: Untracked files: 」
 直接再加一次檔案
 git add . 
+
+* *
+本地和遠端分支之間的歷史不相關，需要強制合併 如下
+「 fatal: refusing to merge unrelated histories 」
+這條命令會強制推送本地 dist 目錄的內容到遠端 gh-pages 分支，覆蓋遠端的歷史。
+很強的咒語
+git push origin `git subtree split --prefix dist main`:gh-pages --force
 
 ＊＊
 未安裝過vite 請輸入 
