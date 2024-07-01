@@ -46,6 +46,7 @@ const importGame = (app) => {
     renderButtons(buttonsArea);
     initWindow(windowArea);
     initDoor(doorArea);
+    gameArea.style.transform = "translateX(0px)";
     gameArea.append(doorArea, computerShadow, computerArea, windowShadow, windowArea, tableArea, ) //buttonsArea, rulesArea
     gameArea.append(backGround, gameFilter);
     app.append(gameArea);

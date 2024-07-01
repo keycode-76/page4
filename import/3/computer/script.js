@@ -1,13 +1,12 @@
 // 3/computer.js
 
 import "/import/3/computer/style.scss";
-import { now_data, body_values } from "/import/4/init/now.js";
+import { now_data, body_values, init } from "/import/4/init/now.js";
 import { SD_6 } from "/import/1/sound/script.js";
 import { startScreen } from "/import/2/screen/script.js";
 import { endDoor } from "/import/3/door/script.js";
 import { randomGlass, window_request, endWindow } from "/import/3/window/script.js";
 import { door_request } from "/import/3/door/script.js";
-// import { lose_screen } from "/import/2/screen/script.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");
@@ -25,7 +24,7 @@ const hungerDiv = createDiv("hungerDiv","screen_text");
 const sanityDiv = createDiv("sanityDiv","screen_text");
 const sleepyDiv = createDiv("sleepyDiv","screen_text");
 
-const click_to_start = createDiv("click_to_start", 0, "click to start");
+const click_to_start = createDiv("click_to_start");
 const wallPaper = createDiv("wallPaper");
 const computerDiv = createDiv("computerDiv");
 
@@ -44,7 +43,6 @@ click_to_start.addEventListener("click", () => {
     valueTimer('active', now_data.computer_normal);
     valueTimer('hunger', now_data.computer_normal);
     valueTimer('sanity', now_data.computer_normal);
-    // now_data.start = true;
     renderScreentext();
     startScreen();
     randomGlass();
@@ -102,13 +100,40 @@ const stop＿all_timer = () => {
     valueStop('hunger');
     valueStop('sanity');
 }
+
+const which_language = (text) => {
+    switch (init.language) {
+        case "English":
+            return text.english;
+        case "Tradition-CN":
+            return text.traditional;
+        case "Simplified-CN":
+            return text.simplified;
+        case "Spanish":
+            return text.spanish;
+        // default:
+        //     return text.english; // 初始語言
+    }
+};
+
 const renderScreentext = () => {
-    sleepyDiv.textContent = "sleepy:" + body_values.sleepy;
-    activeDiv.textContent = "active: "+ body_values.active;
-    hungerDiv.textContent = "hunger: "+ body_values.hunger;
-    sanityDiv.textContent = "sanity: "+ body_values.sanity;
+    const texts = {
+        sleepy: { english: "sleepy:", traditional: "睡意:", simplified: "睡意:", spanish: "sueño:" },
+        active: { english: "active:", traditional: "活耀:", simplified: "活跃:", spanish: "activo:" },
+        hunger: { english: "hunger:", traditional: "飢餓:", simplified: "饥饿:", spanish: "hambre:" },
+        sanity: { english: "sanity:", traditional: "理智:", simplified: "理智:", spanish: "cordura:" }
+    };
+
+    sleepyDiv.textContent = `${which_language(texts.sleepy)} ${body_values.sleepy}`;
+    activeDiv.textContent = `${which_language(texts.active)} ${body_values.active}`;
+    hungerDiv.textContent = `${which_language(texts.hunger)} ${body_values.hunger}`;
+    sanityDiv.textContent = `${which_language(texts.sanity)} ${body_values.sanity}`;
+
     SD_6.currentTime = 0;
     SD_6.play();
-}
+};
 
-export { initComputer, valueTimer, valueStop, renderScreentext }
+export { initComputer, valueTimer, valueStop, renderScreentext, 
+    click_to_start
+ }
+ 

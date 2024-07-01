@@ -13,7 +13,7 @@
     "@tauri-apps/cli": "^1.5.14",
     "sass": "^1.77.2",
     "sass-loader": "^14.2.1",
-    "vite": "^5.2.12",
+    "vite": "^5.3.2",
     "vite-plugin-commonjs": "^0.10.1"
   }
 }

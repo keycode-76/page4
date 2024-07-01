@@ -31,9 +31,19 @@ const screenBtnDiv = createDiv("screenBtnDiv");
 const screenL = createDiv("screenL");
 const screenR = createDiv("screenR");
 
+
+let e = 0;
+let screenLimit = 220;
+let step = 10;
+let intervalTime = 80; // 时间间隔，单位毫秒
+let intervalId = null;
+let shock_sound = false; // 讓驚嚇音效不要一直觸發
+
 const initScreen  = (app) => {
     viewPort.innerHTML = "",
     screenBtnDiv.innerHTML = "",
+    e = 0;
+    intervalId = null;
     viewPort.append(view_border, snow_overlay);
     app.appendChild(viewPort);
 }
@@ -43,13 +53,9 @@ const startScreen = () => {
 }
 export { initScreen, startScreen, clearScreen, endScreen }
 
-let e = 0;
-let screenLimit = 220;
-let step = 10;
-let intervalTime = 80; // 时间间隔，单位毫秒
-let intervalId = null;
-
 const endScreen = () => {
+    SD_4.pause();
+    clearInterval(intervalId);
     viewPort.removeChild(screenBtnDiv);
     if (now_data.win === false ) {
         view_lose.innerHTML = "";
@@ -64,7 +70,7 @@ const clearScreen = () => {
     viewPort.innerHTML = "",
     screenBtnDiv.innerHTML = "",
     viewPort.appendChild(snow_overlay);
-    const gameArea = document.querySelector("#gameArea")
+    const gameArea = document.querySelector("#gameArea");
     gameArea.style.transform = "translateX(0px)"; // 防止畫面偏移
 }
 window.addEventListener("animationend", (event) => {
@@ -83,6 +89,7 @@ if (window.innerWidth > 960)
         e+=step;
         const gameArea = document.querySelector("#gameArea")
         gameArea.style.transform = `translateX(${e}px)`;
+        shock_sound = false;
         }
     }, intervalTime);
     SD_3.currentTime = 0;
@@ -101,15 +108,18 @@ if (window.innerWidth > 960)
 } else { screenLimit = 220; intervalTime = 50; }
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
-    //  console.log(e)
         if (e > -screenLimit) {
         e-=step;
+        const gameArea = document.querySelector("#gameArea");
         gameArea.style.transform = `translateX(${e}px)`;
         // } else {
         //     clearInterval(intervalId);
         }
         if(e< -140 && now_data.request != "") {
-            SD_16.play();
+            if(shock_sound === false) {
+                SD_16.play();
+                shock_sound = true;
+            }
         }
     }, intervalTime);
     SD_3.currentTime = 0;

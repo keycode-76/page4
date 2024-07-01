@@ -16,7 +16,31 @@ $tutor_1: url("/assets/img/menu/start-4.png");
 #menuArea {
     #menu_btns {
         position: absolute;
-        flex-direction: column;
+        // flex-direction: column;
+    }
+    .menu_btn:hover {
+        scale: 1.2;
+        transition: all .1s;
+        // margin: 0px 30px;
+    }
+    .menu_btn:hover::before {
+        content: "";
+        position: absolute;
+        background: white;
+        filter: blur(10px);
+        opacity: 0.3;
+    }
+}
+#menu_bottom { 
+    position: absolute;
+    .volume_slot {
+        font-size: 80%;
+    }
+    #volume_add {
+        font-size: 150%;
+    }
+    #volume_sub {
+        font-size: 150%;
     }
 }
 #instruct_div {
@@ -31,14 +55,7 @@ $tutor_1: url("/assets/img/menu/start-4.png");
         }
     }
 }
-#instruct_video {
-    position: absolute;
-    width: 640px;
-    height: 480px;
-    pointer-events: none;
-    // z-index: -1;
-    display: none;
-}
+
 #menu_img {
     width: 100%;
     height: 100%;

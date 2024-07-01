@@ -224,25 +224,27 @@
             width: 620px;
             margin-left: 1260px;
         }
-        #screenBtnDiv {
+        #screenBtnDiv { //
             div {
                 width: 40px;
                 height: 92px;
+                // margin-top: 300px;
+                z-index: 3;
             }
             #screenL {
-                margin-right: 560px; //
+                margin-right: 635px;
             }
         }
         #view_lose {
             &::before {
                 width: 1280px;
-                height: 100px;
-                margin-bottom: 580px;
+                height: 400px;
+                margin-bottom: 880px;
             }
             &::after {
                 width: 1280px;
-                height: 100px;
-                margin-top: 580px;
+                height: 400px;
+                margin-top: 880px;
             }
         }
         #view_lose_up {
@@ -254,16 +256,34 @@
             height: 480px;
         }
     }
-    #menuArea {
+    #menuArea { //
         width: 640px;
         height: 480px;
+        #menu_bottom { //
+            margin-top: 380px;
+            .volume_slot {
+                width: 10px;
+                margin: 0px 2px;
+            }
+            #volume_add {
+                margin-left: 20px;
+            }
+            #volume_sub {
+                margin-right: 20px;
+            }
+        }
         #menu_btns {
-            margin-top: 350px;
-            margin-left: 500px;
+            margin-top: 300px;
+            // margin-left: 500px;
         }
         .menu_btn {
             width: 100px;
             height: 30px;
+            margin: 0px 30px;
+        }
+        .menu_btn:hover::before {
+            width: 80px;
+            height: 20px;
         }
         #pass_tutorial {
             margin-top: 400px;

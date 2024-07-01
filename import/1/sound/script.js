@@ -1,5 +1,7 @@
  // 1/sound.js
 
+import { init } from "/import/4/init/now.js";
+
 import heyFile from "/assets/sound/click/hey.wav";
 import barbarFile from "/assets/sound/click/a burr bour.wav";
 import machine1File from "/assets/sound/click/machine_1.wav";
@@ -16,6 +18,8 @@ import horrorFile from "/assets/sound/ending/horror_1.wav";
 import snoozeFile from "/assets/sound/ending/snooze_2.wav";
 import heartbeatFile from "/assets/sound/heartbeat_2.wav";
 import suspenseFile from "/assets/sound/horror_2.wav";
+import tvSnowFile from "/assets/sound/tvSnow.wav";
+
 
 const SD_1 = new Audio(heyFile);
 const SD_2 = new Audio(barbarFile);
@@ -24,7 +28,7 @@ const SD_5 = new Audio(machine2File);
 const SD_4 = new Audio(workingFile); //screen
 const SD_6 = new Audio(beepFile); //computer
 const SD_7 = new Audio(footstepFile); //door
-const SD_8 = new Audio(walkRightFile); //window
+const SD_8 = new Audio(walkRightFile); //window need change and smaller
 const SD_9 = new Audio(squeezeFile); //window
 const SD_10 = new Audio(clickFile); //main, menu
 const SD_11 = new Audio(lockFile); //end_scene
@@ -33,14 +37,16 @@ const SD_13 = new Audio(horrorFile); //screen
 const SD_14 = new Audio(snoozeFile); //window
 const SD_15 = new Audio(heartbeatFile); //window
 const SD_16 = new Audio(suspenseFile); //screen
+const SD_17 = new Audio(tvSnowFile); //transition
+
 
 SD_4.loop = true; 
 SD_15.loop = true;
 SD_1.pause();
 SD_2.pause();
 SD_3.pause();
+// SD_4.pause();
 SD_5.pause();
-SD_4.pause();
 SD_6.pause();
 SD_7.pause(); //0620
 SD_8.pause();
@@ -52,12 +58,23 @@ SD_13.pause();
 SD_14.pause();
 // SD_15.pause();
 SD_16.pause();
+SD_17.pause();
 
-// const slotSD_1 = new Audio(slot1File);
-// btnSD_1.volume = 0.2;
-// hitSD_1.volume = 0.5;
+const instruct_video_0 = document.querySelector("#instruct_video_0");
+const instruct_video_1 = document.querySelector("#instruct_video_1");
 
-export { SD_1, SD_2, SD_3, SD_4, SD_5, SD_6,
-    SD_7, SD_8, SD_9, SD_10, SD_11, SD_12, SD_13, 
-    SD_14, SD_15, SD_16,
+const sound_array = [
+    instruct_video_0, instruct_video_1,
+    SD_1, SD_2, SD_3, SD_4, SD_5, SD_6,  SD_7, SD_8, SD_9, SD_10, 
+    SD_11, SD_12, SD_13, SD_14, SD_15, SD_16, SD_17, 
+]
+const render_sound = () => {
+    sound_array.forEach(sound => {
+        sound.volume = init.volume/5;
+    });
+}
+
+export { render_sound, 
+    SD_1, SD_2, SD_3, SD_4, SD_5, SD_6,  SD_7, SD_8, SD_9, SD_10, 
+    SD_11, SD_12, SD_13, SD_14, SD_15, SD_16, SD_17, 
  }

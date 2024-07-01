@@ -1,68 +1,106 @@
 // menu.js
 import "/import/1/menu/style.scss";
-import { SD_10 } from "/import/1/sound/script.js";
+import { init } from "/import/4/init/now.js";
+import { render_sound, SD_10 } from "/import/1/sound/script.js";
+
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");
-    itemModel.id = nameId;
+    if (nameId) { itemModel.id = nameId; }
     if (nameClass) { itemModel.className = nameClass; }
     if (text) { itemModel.textContent = text; }
-    if (func) { itemModel.addEventListener("click", func) }
+    if (func) { itemModel.addEventListener("click", func) }    
 //     if (child1) itemModel.appendChild(child1);
 //     if (child2) itemModel.append(child1, child2); 
     return itemModel;
 };
 
-const instruct_video = document.querySelector("#instruct_video");
-// instruct_video.style.opacity = 0;
-// instruct_video.innerHTML = `<source src="/page4-main/import/1/menu/0619-3.mp4" type="video/mp4">`
-const choice_menu = createDiv("choice_menu");
-const setup_menu = createDiv("setup_menu", "menu_btn", "setup");
-const play_menu = createDiv("play_menu", "menu_btn", "play");
+
+const level_2_menu = createDiv("level_2_menu", "menu_btn");
+
+const level_1_menu = createDiv("level_1_menu", "menu_btn");
+const volume_menu = createDiv("volume_menu", "menu_btn");
 const menu_btns = createDiv("menu_btns");
 const menu_img = createDiv("menu_img");
 const menuArea = createDiv("menuArea");
+const menu_bottom = createDiv("menu_bottom");
+
+const volume_add = createDiv("volume_add", 0, "+");
+const volume_1 = createDiv(0, "volume_slot", "-");
+const volume_2 = createDiv(0, "volume_slot", "-");
+const volume_3 = createDiv(0, "volume_slot", "-");
+const volume_4 = createDiv(0, "volume_slot", "-");
+const volume_5 = createDiv(0, "volume_slot", "-");
+const volume_slots = [volume_1, volume_2, volume_3, volume_4, volume_5];
+
+const volume_sub = createDiv("volume_sub", 0, "-");
 
 const instruct_div = createDiv("instruct_div");
-const instruct_yes = createDiv("instruct_yes", 0, "Play", () => {play_instruct()});
-const instruct_pass = createDiv("instruct_pass", 0, "Pass");
+const instruct_yes = createDiv("instruct_yes", 0, 0, () => {play_instruct()}); // 放到語言那裏了
+const instruct_pass = createDiv("instruct_pass");
 
 const warning_logo = createDiv("warning_logo");
 const logo_1 = createDiv("logo_1");
 const logoArea = createDiv("logoArea");
-
-// const next_tutorial = createDiv("next_tutorial");
-// const pass_instruct = createDiv("pass_instruct", "menu_btn", "passss");
-// const tutorial_1 = createDiv("tutorial_1");
 const tutorialArea = createDiv("tutorialArea");
 
+let volume_open = false; // volume的toggle
+
 const renderMenu = (app) => {
-    // tutorialArea.append(tutorial_1, , next_tutorial);
-    // logoArea.append(logo_1);
-    menu_btns.append(play_menu, setup_menu, choice_menu)
-    menuArea.append(menu_img, menu_btns,)
-    instruct_div.innerHTML = "Would you like to watch instruction ?";
+    menuArea.innerHTML = "";
+    menu_btns.innerHTML = "";
+    menu_btns.append(level_1_menu, level_2_menu, volume_menu);
+    menuArea.append(menu_img, menu_btns,);
+    volume_open = false;
+    render_volume();
     return app.appendChild(menuArea);
 }
-play_menu.addEventListener("click", () => {
+level_1_menu.addEventListener("click", () => {
     menuArea.innerHTML = "";
     menuArea.appendChild(instruct_div);
     instruct_div.append(instruct_yes, instruct_pass);
     SD_10.play();
-    // logo_1.className = "show_menu";
-    // logo_1.style.opacity = 0;
-    // warning_logo.style.opacity = 0;
 });
-const play_instruct = () => {
-    menuArea.remove(instruct_div);
-    instruct_video.play();
-    instruct_video.style.display = 'block';
+volume_menu.addEventListener("click", () => {
+    menu_bottom.innerHTML = "";
+    if (volume_open) {
+        volume_open = false;
+    } else {
+        menuArea.appendChild(menu_bottom);
+        menu_bottom.append(volume_sub, volume_1, volume_2, volume_3, volume_4, volume_5, volume_add);
+        volume_open = true;
+    }
     SD_10.play();
-} 
-instruct_video.addEventListener('ended', () => {
-    instruct_video.style.display = 'none';
-    instruct_pass.click();
-  });
+});
+
+
+volume_add.addEventListener("click", () => {
+    if (init.volume < volume_slots.length) {
+        init.volume += 1;
+        render_volume();
+    }
+});
+volume_sub.addEventListener("click", () => {
+    if (init.volume > 0) {
+        init.volume -= 1;
+        render_volume();
+    }
+});
+
+const render_volume = () => {
+    volume_slots.forEach((slot, index) => {
+        slot.textContent = (index < init.volume) ? "|" : "-";
+        render_sound();
+        SD_10.play();
+    });
+};
+
+// level_2_menu.addEventListener("click", () => {});
+const play_instruct = () => { // instruct_yes 放到語言那裏了
+    menuArea.remove(instruct_div);
+    SD_10.play();
+};
+
 let now_logo = 0;
 window.addEventListener("animationend", (event) => {
     if (event.animationName === "show_anim") {
@@ -85,4 +123,5 @@ window.addEventListener("animationend", (event) => {
     }
 });
 
-export { renderMenu, instruct_pass }
+export { renderMenu, instruct_pass,
+     instruct_div, instruct_yes, level_1_menu, level_2_menu, volume_menu,  }

@@ -1,7 +1,7 @@
 // 3/door.js
 
 import "/import/3/door/style.scss";
-import { now_data, body_values, init_anim } from "/import/4/init/now.js";
+import { now_data, body_values, init } from "/import/4/init/now.js";
 import { renderScreentext, valueStop } from "/import/3/computer/script.js";
 import { clearRequest } from "/import/3/window/script.js";
 import { SD_1, SD_2, SD_7, SD_8 } from "/import/1/sound/script.js";
@@ -35,12 +35,12 @@ const initDoor = (app) => { //初始
     doorDiv.className = "door_start";
     staff_door.style.opacity = 1;
     doorIdle_loop();
-    if (init_anim === 0) {
+    if (init.anim === 0) {
         staff_door.className = `right_1`;
         setTimeout(() => {
             staff_door.className = "bennet_jump";
         }, 1000);
-        init_anim += 1;
+        init.anim += 1;
     }
     return app.appendChild(doorDiv);
 }

@@ -41,6 +41,7 @@ const initWindow = (app) => {
     return app.appendChild(windowDiv);
 }
 const endWindow = () => {
+    SD_15.pause();
     if( now_data.win === false ) {
         windowDiv.innerHTML = "",
         windowDiv.appendChild(window_outLine);

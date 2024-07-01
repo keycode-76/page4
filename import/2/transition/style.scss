@@ -21,8 +21,10 @@ $snow3: url("/assets/img/menu/scene-32.png");
 #trans_snow {
     width: 640px;
     height: 480px;
-    animation: transSnow_anim .1s linear infinite;
+    background: white;
+    animation: transSnow_anim .06s linear infinite;
     filter: blur(1px);
+    backdrop-filter: blur(10px);
 }
 @keyframes showtrans_anim {
     40% { opacity: 1; } 
