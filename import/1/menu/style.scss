@@ -1,8 +1,8 @@
 // 1/menu.scss
 $menu: url("/assets/img/menu/start-1.png");
-$logo_1: url("/assets/img/menu/start-2.png");
-$logo_2: url("/assets/img/menu/start-3.png");
-$tutor_1: url("/assets/img/menu/start-4.png");
+// $logo_1: url("/assets/img/menu/start-2.png");
+// $logo_2: url("/assets/img/menu/start-3.png");
+// $tutor_1: url("/assets/img/menu/start-4.png");
 
 @keyframes show_anim {
     from { opacity: 0;}
@@ -57,25 +57,27 @@ $tutor_1: url("/assets/img/menu/start-4.png");
 }
 
 #menu_img {
-    width: 100%;
-    height: 100%;
+    width: 640px;
+    height: 300px;
+    // border: 2px solid white;
+    margin-bottom: 100px;
     background-image: $menu;
 }
 
-#logoArea {
-    width: 100%;
-    height: 100%; 
-    #logo_1 {
-        width: 100%;
-        height: 100%; 
-        background-image: $logo_1;
-    }
-    #warning_logo {
-        width: 100%;
-        height: 100%; 
-        background-image: $logo_2;
-    }
-}
+// #logoArea {
+//     width: 100%;
+//     height: 100%; 
+//     #logo_1 {
+//         width: 100%;
+//         height: 100%; 
+//         background-image: $logo_1;
+//     }
+//     #warning_logo {
+//         width: 100%;
+//         height: 100%; 
+//         background-image: $logo_2;
+//     }
+// }
 .show_menu {
     animation: show_anim 3s ;
 }
@@ -86,11 +88,11 @@ $tutor_1: url("/assets/img/menu/start-4.png");
     width: 100%;
     height: 100%;
 }
-#tutorial_1 {
-    width: 100%;
-    height: 100%; 
-    background-image: $tutor_1;
-}
+// #tutorial_1 {
+//     width: 100%;
+//     height: 100%; 
+//     background-image: $tutor_1;
+// }
 #pass_tutorial {
     position: absolute;
 }

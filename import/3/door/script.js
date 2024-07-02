@@ -4,7 +4,7 @@ import "/import/3/door/style.scss";
 import { now_data, body_values, init } from "/import/4/init/now.js";
 import { renderScreentext, valueStop } from "/import/3/computer/script.js";
 import { clearRequest } from "/import/3/window/script.js";
-import { SD_1, SD_2, SD_7, SD_8 } from "/import/1/sound/script.js";
+import { SD_1, SD_7, SD_8 } from "/import/1/sound/script.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");

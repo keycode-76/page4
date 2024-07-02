@@ -19,10 +19,8 @@ $snow3: url("/assets/img/menu/scene-32.png");
     animation: loading_anim 2.2s linear infinite;
 }
 #trans_snow {
-    width: 640px;
-    height: 480px;
     background: white;
-    animation: transSnow_anim .06s linear infinite;
+    animation: transSnow_anim .1s linear infinite;
     filter: blur(1px);
     backdrop-filter: blur(10px);
 }
@@ -32,9 +30,9 @@ $snow3: url("/assets/img/menu/scene-32.png");
 }
 
 @keyframes transSnow_anim {
-    0% { background-image: $snow1;  opacity: 0.3; }
-    50% { background-image: $snow2;  opacity: 0.1; }
-    100% { background-image: $snow3;  opacity: 0.3; }
+    0% { background-image: $snow1; background-size: cover;  opacity: 0.3; }
+    50% { background-image: $snow2; background-size: cover; opacity: 0.1; }
+    100% { background-image: $snow3; background-size: cover;  opacity: 0.3; }
 }
 @keyframes loading_anim {
     0% { opacity: 1; }

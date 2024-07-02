@@ -24,7 +24,19 @@ const initLanguage = (app) => {
     languageDiv.append(traditionalBtn, simplifiedBtn, spanishBtn, englishBtn);
     return app.appendChild(languageDiv);
 };
-export { initLanguage }
+const which_language = (text) => { // end, computer
+    switch (init.language) {
+        case "English":
+            return text.english;
+        case "Tradition-CN":
+            return text.traditional;
+        case "Simplified-CN":
+            return text.simplified;
+        case "Spanish":
+            return text.spanish;
+    }
+};
+export { initLanguage, which_language }
 
 // video area //
 const instruct_video_0 = document.querySelector("#instruct_video_0");
@@ -96,18 +108,18 @@ const language_data = {
 const clickLanguage = (language) => {
     init.language = language;
 
-    level_1_menu.textContent = which_language("lvl1");
-    level_2_menu.textContent = which_language("lvl2");
-    volume_menu.textContent = which_language("volume");
-    instruct_div.textContent = which_language("instruct_qz");
-    instruct_yes.textContent = which_language("play");
-    instruct_pass.textContent = which_language("pass");
-    trans_text.textContent = which_language("loading");
-    click_to_start.textContent = which_language("clickStart");
-    backToMenu_btn.textContent = which_language("backMenu");
+    level_1_menu.textContent = all_language("lvl1");
+    level_2_menu.textContent = all_language("lvl2");
+    volume_menu.textContent = all_language("volume");
+    instruct_div.textContent = all_language("instruct_qz");
+    instruct_yes.textContent = all_language("play");
+    instruct_pass.textContent = all_language("pass");
+    trans_text.textContent = all_language("loading");
+    click_to_start.textContent = all_language("clickStart");
+    backToMenu_btn.textContent = all_language("backMenu");
 };
 
-const which_language = (key) => {
+const all_language = (key) => {
     switch (init.language) {
         case "English":
             return language_data.english[key];
@@ -135,7 +147,7 @@ const which_language = (key) => {
 //     backMenu: { english: "Back to menu", traditional: "回到首頁", simplified: "返回首页", spanish: "Volver al menú" }
 // };
 
-// const which_language = (text) => { // 語言神器
+// const all_language = (text) => { // 語言神器
 //     switch (init.language) {
 //         case "English":
 //             return text.english;

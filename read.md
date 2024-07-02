@@ -21,6 +21,7 @@ base: '/你的repo名/', 
 npm run build
 git add dist -f
 git commit -m ""
+git commit -m ""
 git subtree push --prefix dist origin gh-pages
 
 再來到repo頁面 找setting > page

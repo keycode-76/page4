@@ -1,5 +1,5 @@
  // screen.scss
-// zindex 3
+// zindex 3 button
 $screen_tooth_1: url("/assets/img/screen/tooth-1.png");
 $screen_tooth_2: url("/assets/img/screen/tooth-2.png");
 
@@ -44,8 +44,6 @@ $screen_btn_push: url("/assets/img/screen/button-2.png");
 }
 #view_border {
     position: absolute;
-    width: 640px;
-    height: 480px;
     border: 5px solid blue;
     filter: blur(10px);
     z-index: 3;
@@ -55,6 +53,7 @@ $screen_btn_push: url("/assets/img/screen/button-2.png");
     div {
         background-image: $screen_btn_idle;
         pointer-events: auto;
+        z-index: 3;
     }    
     div:hover {
         background-image: $screen_btn_push;

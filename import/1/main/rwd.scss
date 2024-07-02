@@ -15,7 +15,6 @@
 //     // }
 // }
 
-
 @media (min-width: 961px) { // 1.6比例
     body {
         * {
@@ -26,66 +25,104 @@
     #app {
         width: 1760px;
         height: 768px;
+        #trans_snow {
+            width: 1024px;
+            height: 768px;
+        }
         #viewPort {
             width: 1024px;
             height: 768px;
+            &::before {
+                width: 992px;
+                margin-left: -2016px;
+            }
+            &::after {
+                width: 992px;
+                margin-left: 2016px;
+            }
+            #screenBtnDiv {
+                div {
+                    width: 64px;
+                    height: 147px;
+                }
+                #screenL {
+                    margin-right: 1016px;
+                }
+            }            
+            #view_border {
+                width: 1024px;
+                height: 768px;
+            }
             .fuzzy-overlay {
                 width: 1024px;
                 height: 768px;
             }
-        }
-        #viewPort::before {
-            width: 992px;
-            margin-left: -2016px;
-        }
-        #viewPort::after {
-            width: 992px;
-            margin-left: 2016px;
-        }
-        #screenBtnDiv {
-            div {
-                width: 64px;
-                height: 147px;
+            #view_lose {
+                &::before {
+                    width: 2048px;
+                    height: 160px;
+                    margin-bottom: 928px;
+                }
+                &::after {
+                    width: 2048px;
+                    height: 160px;
+                    margin-top: 928px;
+                }
             }
-            #screenL {
-                margin-right: 800px;
+            #view_lose_up {
+                width: 1024px;
+                height: 768px;
             }
-        }
-        #view_lose {
-            &::before {
-                width: 2048px;
-                height: 160px;
-                margin-bottom: 928px;
-            }
-            &::after {
-                width: 2048px;
-                height: 160px;
-                margin-top: 928px;
-            }
-        }
-        #view_lose_up {
-            width: 1024px;
-            height: 768px;
-        }
-        #view_lose_down {
-            width: 1024px;
-            height: 768px;
-        }        
+            #view_lose_down {
+                width: 1024px;
+                height: 768px;
+            }   
+        }     
+    }
+    .langBtn {
+        font-size: 32px;
+    }
+    .instruct_video {
+        width: 1024px;
+        height: 768px;
     }
     #menuArea {
         width: 1024px;
         height: 768px;
+        #menu_img {
+            width: 1024px;
+            height: 480px;
+            margin-bottom: 160px;
+        }
+        #menu_bottom {
+            margin-top: 608px;
+            .volume_slot {
+                width: 16px;
+                margin: 0px 3.2px;
+            }
+            #volume_add {
+                margin-left: 32px;
+            }
+            #volume_sub {
+                margin-right: 32px;
+            }
+        }
         #menu_btns {
-            margin-top: 350px;
-            margin-left: 500px;
+            margin-top: 480px;
         }
         .menu_btn {
-            width: 100px;
-            height: 30px;
+            width: 160px;
+            height: 48px;
+            margin: 0px 48px;
+        }
+        .menu_btn:hover::before {
+            width: 128px;
+            height: 32px;
         }
         #pass_tutorial {
-            margin-top: 400px;
+            margin-top: 640px;
         }
+        
     }
     #gameFilter {
         width: 1760px;
@@ -96,14 +133,68 @@
         height: 768px;
     }
     #endSceneDiv {
-        *{ 
-            width: 800px;
-            margin-bottom: 48px;
+        #challengeText {
+            font-size: 48px;
+            margin-bottom: 128px;
+        }
+        #scoreNum {
+            font-size: 56px;
+            margin-top: -112px;
+            margin-bottom: 80px;
+        }
+        #end_btns {
+            margin-bottom: 8px;
+        }
+        #end_btnText {
+            font-size: 40px;
+            margin-bottom: 128px;
+            letter-spacing: 3.2px;
+        }
+        #backtomenu_btn {
             font-size: 48px;
         }
-        .end_btn {
-            height: 32px;
+        .end_lock {
+            width: 128px;
+            height: 128px;
         }
+        .end_unlock {
+            width: 128px;
+            height: 128px;
+        }
+        .end_btn {
+            width: 128px;
+            height: 128px;
+        }
+        #diskDiv_1 {
+            width: 1024px;
+            height: 768px;
+            #disk_name {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 320px;
+                margin-right: 368px;
+            }
+            #disk_Xbtn {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 320px;
+                margin-left: 448px;
+            }
+            #diskPic_Xbtn {
+                width: 48px;
+                height: 48px;
+                margin-top: 720px;
+            }
+            .diskPic {
+                width: 96px;
+                height: 96px;
+                margin: 16px;
+            }
+        }
+        .diskPick_click {
+            width: 800px;
+            height: 480px;
+        }        
     }  
     #computerArea {
         width: 520px;
@@ -137,16 +228,16 @@
         margin-right: 112px;
         margin-bottom: 100px;
     }
-    
     #doorArea {
         width: 384px;
         height: 592px;
         #doorDiv {
             #doorFrame {
-                width: 384px;
-                height: 592px;
+                width: 408px;
+                height: 616px;
             }
             #door_btns {
+                margin-bottom: 128px;
                 #request_btns {
                     width: 96px;
                     height: 96px;
@@ -208,58 +299,76 @@
     #app {
         width: 1100px;
         height: 480px;
+        #trans_snow {
+            width: 640px;
+            height: 480px;
+        }
         #viewPort {
             width: 640px;
             height: 480px;
+            &::before {
+                width: 620px;
+                margin-left: -1260px;
+            }
+            &::after {
+                width: 620px;
+                margin-left: 1260px;
+            }
+            #screenBtnDiv {
+                div {
+                    width: 40px;
+                    height: 92px;
+                }
+                #screenL {
+                    margin-right: 635px;
+                }
+            }
+            #view_border {
+                width: 640px;
+                height: 480px;
+            }
             .fuzzy-overlay {
                 width: 640px;
                 height: 480px;
             }
-        }
-        #viewPort::before {
-            width: 620px;
-            margin-left: -1260px;
-        }
-        #viewPort::after {
-            width: 620px;
-            margin-left: 1260px;
-        }
-        #screenBtnDiv { //
-            div {
-                width: 40px;
-                height: 92px;
-                // margin-top: 300px;
-                z-index: 3;
+            #view_lose {
+                &::before {
+                    width: 1280px;
+                    height: 400px;
+                    margin-bottom: 880px;
+                }
+                &::after {
+                    width: 1280px;
+                    height: 400px;
+                    margin-top: 880px;
+                }
             }
-            #screenL {
-                margin-right: 635px;
+            #view_lose_up {
+                width: 640px;
+                height: 480px;
             }
-        }
-        #view_lose {
-            &::before {
-                width: 1280px;
-                height: 400px;
-                margin-bottom: 880px;
+            #view_lose_down {
+                width: 640px;
+                height: 480px;
             }
-            &::after {
-                width: 1280px;
-                height: 400px;
-                margin-top: 880px;
-            }
-        }
-        #view_lose_up {
-            width: 640px;
-            height: 480px;
-        }
-        #view_lose_down {
-            width: 640px;
-            height: 480px;
         }
     }
-    #menuArea { //
+    .langBtn { 
+        font-size: 20px;
+    }
+    .instruct_video { 
         width: 640px;
         height: 480px;
-        #menu_bottom { //
+    }
+    #menuArea { 
+        width: 640px;
+        height: 480px;
+        #menu_img { 
+            width: 640px;
+            height: 300px;
+            margin-bottom: 100px;
+        }
+        #menu_bottom { 
             margin-top: 380px;
             .volume_slot {
                 width: 10px;
@@ -298,18 +407,79 @@
         height: 480px;
     }
     #endSceneDiv {
-        
-        // font-size: 100px;
+        #challengeText {
+            font-size: 30px;
+            margin-bottom: 80px;
+        }
+        #scoreNum {
+            font-size: 35px;
+            margin-top: -70px;
+            margin-bottom: 50px;
+        }
+        #end_btns {
+            margin-bottom: 5px;
+        }
+        #end_btnText {
+            font-size: 25px;
+            margin-bottom: 80px;
+            letter-spacing: 2px;
+        }
+        #backtomenu_btn {
+            font-size: 30px;
+        }
+        .end_lock {
+            width: 80px;
+            height: 80px;
+        }
+        .end_unlock {
+            width: 80px;
+            height: 80px;
+        }
+        .end_btn {
+            width: 80px;
+            height: 80px;
+        }    
+        #diskDiv_1 {
+            width: 640px;
+            height: 480px;
+            #disk_name {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 200px;
+                margin-right: 230px;
+            }
+            #disk_Xbtn {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 200px;
+                margin-left: 280px;
+            }
+            #diskPic_Xbtn {
+                width: 30px;
+                height: 30px;
+                margin-top: 450px;
+            }
+            .diskPic {
+                width: 60px;
+                height: 60px;
+                margin: 10px;
+            }
+        }
+        .diskPick_click {
+            width: 500px;
+            height: 300px;
+        }
     }
     #doorArea {
         width: 240px;
         height: 370px;
         #doorDiv {
             #doorFrame {
-                width: 245px;
+                width: 255px;
                 height: 385px;
             }
             #door_btns {
+                margin-bottom: 80px;
                 #request_btns {
                     width: 60px;
                     height: 60px;

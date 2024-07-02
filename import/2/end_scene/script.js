@@ -3,7 +3,8 @@
 import "/import/2/end_scene/style.scss"
 import { back_menu, play_again } from "/import/1/main/main.js";
 import { now_data, body_values, init } from "/import/4/init/now.js";
-import { SD_10, SD_11, SD_12 } from "/import/1/sound/script.js";
+import { SD_10, SD_11, SD_12, SD_18, SD_19 } from "/import/1/sound/script.js";
+import { which_language } from "/import/1/language/script";
 
 const createDiv = (nameId, nameClass, text, func, hover, child1, child2) => {
     const itemModel = document.createElement("div");
@@ -66,19 +67,19 @@ const retry_iconBtn_1 = createDiv("retry_iconBtn_1", "end_btn", 0, () => { play_
 
 const disk_iconBtn_1 = createDiv("disk_iconBtn_1", "end_btn", 0, 0, () => {
     endBtn_hover({
-        english: "data: picture",
-        traditional: "資料: 照片紀錄",
-        simplified: "资料: 照片记录",
-        spanish: "datos: imagen"
+        english: "picture: check-in record",
+        traditional: "照片: 報到紀錄",
+        simplified: "照片: 报到记录",
+        spanish: "imagen: registro de entrada",
     });
 }, end_lock_1);
 
 const next_iconBtn_1 = createDiv("next_iconBtn_1", "end_btn", 0, 0, () => {
     endBtn_hover({
-        english: "one time ticket to challenge 2",
-        traditional: "單次票卷前往關卡二",
-        simplified: "单次票卷前往关卡二",
-        spanish: "boleto único para el desafío 2"
+        english: "data: background investigation",
+        traditional: "資料: 背景調查",
+        simplified: "资料: 背景调查",
+        spanish: "datos: investigación de antecedentes",
     });
 }, end_lock_2);
 
@@ -95,20 +96,6 @@ const init_endScene = (app) => {
     endBtn_idle();
     return app.appendChild(endSceneDiv);
 }
-const which_language = (text) => {
-    switch (init.language) {
-        case "English":
-            return text.english;
-        case "Tradition-CN":
-            return text.traditional;
-        case "Simplified-CN":
-            return text.simplified;
-        case "Spanish":
-            return text.spanish;
-        // default:
-        //     return text.english; // 初始語言
-    }
-};
 
 
 const endBtn_idle = () => {
@@ -151,6 +138,8 @@ const picture_click = (num) => {
     if (diskPicElement) {
         diskPicElement.className = "diskPick_click";
         diskDiv_1.appendChild(diskPic_Xbtn);
+        SD_18.currentTime = 0;
+        SD_18.play();
     } 
 }
 diskPic_Xbtn.addEventListener("click", () => {
@@ -159,8 +148,8 @@ diskPic_Xbtn.addEventListener("click", () => {
     diskPic_2.className = "diskPic";
     diskPic_3.className = "diskPic";
     diskPic_4.className = "diskPic";
-
-    SD_10.play();
+    SD_18.currentTime = 0;
+    SD_18.play();
 })
 next_iconBtn_1.addEventListener("click", () => {
 });
@@ -197,6 +186,8 @@ export { init_endScene,
 
 const renderEnd_content = () => {
     end_btns.append(retry_iconBtn_1, disk_iconBtn_1, next_iconBtn_1);
+    // end_lock_1.className = "end_lock";
+    // end_lock_2.className = "end_lock";
     if (now_data.win === true) {
         challengeText.textContent = which_language({
             english: "score",
@@ -214,13 +205,15 @@ const renderEnd_content = () => {
             if (body_values.hunger < 5) {score+=100};
             if (body_values.sanity > 5) {score+=100};
             num_anim(scoreNum, 0, score, 2000);
-            // console.log(score, now_data.play_time, body_values);
-            if (score >= 1000 && score < 1500) {
+            if (score >= 1000 && score < 1499) {
                 end_lock_1.className = "end_unlock";
-            } else if (score>=1500) {
+                SD_19.play();
+            } else if (score>1500) {
                 end_lock_1.className = "end_unlock";
                 end_lock_2.className = "end_unlock";
+                SD_19.play();
             }
+
         } else if(num === 2) {
             backToMenu_btn.style.opacity = 1;
         }

@@ -5,12 +5,18 @@ $end_unlock_width: calc(4200/3.75); //14
 $end_unlock_height: calc(300/3.75); //80
 
 $end_retry: url("/assets/img/end/slot-3.png");
-$end_next_1: url("/assets/img/end/slot-10.png");
+$end_next_1: url("/assets/img/end/slot-13.png");
 $end_disk_1: url("/assets/img/end/slot-12.png");
 $end_disk1: url("/assets/img/end/disk-1.jpg");
 
-@keyframes end_unlock_anim {
-    to { background-position-x: -#{$end_unlock_width}px; }}
+
+@media (min-width: 961px) { // 1.6比例
+    @keyframes end_unlock_anim {
+        to { background-image: $end_unlock; background-position-x: -#{$end_unlock_width*1.6}px; }}}
+
+@media (max-width: 960px) {
+    @keyframes end_unlock_anim {
+        to { background-image: $end_unlock; background-position-x: -#{$end_unlock_width}px; }}}
 
 @keyframes showEndScene_anim {
     0%{ opacity: 0; }
@@ -36,36 +42,27 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
 
 #challengeText {
     color: red;
-    font-size: 30px;
-    margin-bottom: 80px;
     animation: showEndScene_anim 1s linear;
 }
 #scoreNum {
-    font-size: 35px;
-    margin-top: -70px;
-    margin-bottom: 50px;
     animation: showEndScene_anim 1s linear;
 }
 #end_btns {
-    margin-bottom: 5px;
     animation: showEndScene_anim 1s linear;
 }
+
+
+
+
 @font-face {
     font-family: "GochiHand";
     src: url('/assets/font/GochiHand-Regular.ttf');
 }
 #end_btnText {
-    font-size: 25px;
-    margin-bottom: 80px;
     opacity: 0.5;
-    font-family: "GochiHand";
-
-    letter-spacing: 2px;
-    // color: orange;
+    font-family: "GochiHand", "Tekit", "Chen", "AaTao";
 }
 #backtomenu_btn {
-    font-size: 30px;
-    opacity: 0.2;
     &:hover {
         scale: 1.2;
         opacity: 0.8;
@@ -73,30 +70,22 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
 }
 .end_lock {
     position: absolute;
-    width: 80px;
-    height: 80px;
     background-image: $end_lock;
     // animation: end_unlock_anim 2s steps(14) infinite;
 }
 .end_unlock {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    background-image: $end_unlock;
-    animation: end_unlock_anim 3s steps(14);
+    // background-image: $end_unlock;
     pointer-events: none;
+    animation: end_unlock_anim 2s steps(14);
 }
 .end_lock_click {
     animation: lock_click_anim .2s linear infinite;
 }
 .end_btn {
-    // position: absolute;
-    width: 80px;
-    height: 80px;
     transition: all .5s;
     margin: 0 10px;
     opacity: 0.7;
-
     &:hover {
         scale: 1.2;
         opacity: 1;
@@ -116,53 +105,29 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
 
 #diskDiv_1 {
     position: absolute;
-    width: 640px;
-    height: 480px;
     background-color: black;
-    // flex-direction: column;
-    // z-index: 1;
     #disk_name {
         position: absolute;
-        width: 30px;
-        height: 30px;
-        margin-bottom: 200px;
-        margin-right: 230px;
         transform: scaleY(80%);
-        // opacity: 0.5;
     }
     #disk_Xbtn {
         position: absolute;
-        width: 30px;
-        height: 30px;
-        margin-bottom: 200px;
-        margin-left: 280px;
         transform: scaleY(80%);
-        // opacity: 0.5;
-        // border: 2px solid white;
     }
     #diskPic_Xbtn {
         position: absolute;
-        width: 30px;
-        height: 30px;
-        margin-top: 450px;
-        // margin-left: 600px;
         transform: scaleY(80%);
     }
     .diskPic {
-        width: 60px;
-        height: 60px;
-        margin: 10px;
-        // background-image: $end_disk1;
-        // background-color: white;
         border: 2px solid white;
         filter: blur(1.5px);
         opacity: 0.3;
         transition: all .5s;
-    }
-    .diskPic:hover{
-        scale: (1.1);
-        filter: blur(1px);
-        opacity: 0.6;
+        &:hover{
+            scale: (1.1);
+            filter: blur(1px);
+            opacity: 0.6;
+        }
     }
 }
 .diskPick_click {
@@ -174,11 +139,8 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
     height: 300px;
     margin-bottom: 100px;
     z-index: 1;
-    // scale: 1.2;
-
-        // filter: blur(1px);
-        // opacity: 0.8;
 }
+
 .disk_data_1 {
     background-image: $end_disk1;
 }.disk_data_2 {
