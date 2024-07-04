@@ -134,6 +134,7 @@ window.addEventListener("animationend", (event) => {
         door_btns.appendChild(request_btns);
         doorIdle_loop();
         request_complete();
+        now_data.complete_request+=1; // 完成任務統計
     } else if (event.animationName === "staff_back_anim") {
         staff_door.style.opacity = 0;
     } else if (event.animationName === "bennet_anim") {

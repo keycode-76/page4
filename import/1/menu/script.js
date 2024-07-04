@@ -16,14 +16,15 @@ const createDiv = (nameId, nameClass, text, func, child1, child2) => {
 };
 
 
-const level_2_menu = createDiv("level_2_menu", "menu_btn");
-
-const level_1_menu = createDiv("level_1_menu", "menu_btn");
-const volume_menu = createDiv("volume_menu", "menu_btn");
+const level_1_menu = createDiv("level_1_menu", "menu_btn", 0, () => { menu_btn_click("lv1") });
+const level_2_menu = createDiv("level_2_menu", "menu_btn", 0, () => { menu_btn_click("lv2") });
+const volume_menu = createDiv("volume_menu", "menu_btn", 0, () => { menu_btn_click("volume") });
 const menu_btns = createDiv("menu_btns");
 const menu_img = createDiv("menu_img");
 const menuArea = createDiv("menuArea");
 const menu_bottom = createDiv("menu_bottom");
+
+const lv2_working = createDiv("lv2_working");
 
 const volume_add = createDiv("volume_add", 0, "+");
 const volume_1 = createDiv(0, "volume_slot", "-");
@@ -44,34 +45,56 @@ const logo_1 = createDiv("logo_1");
 const logoArea = createDiv("logoArea");
 const tutorialArea = createDiv("tutorialArea");
 
-let volume_open = false; // volume的toggle
+let bottom_open = false; // volume的toggle
 
 const renderMenu = (app) => {
     menuArea.innerHTML = "";
     menu_btns.innerHTML = "";
     menu_btns.append(level_1_menu, level_2_menu, volume_menu);
     menuArea.append(menu_img, menu_btns,);
-    volume_open = false;
+    bottom_open = false;
     render_volume();
     return app.appendChild(menuArea);
 }
-level_1_menu.addEventListener("click", () => {
-    menuArea.innerHTML = "";
-    menuArea.appendChild(instruct_div);
-    instruct_div.append(instruct_yes, instruct_pass);
-    SD_10.play();
-});
-volume_menu.addEventListener("click", () => {
+// level_1_menu.addEventListener("click", () => {
+//     menuArea.innerHTML = "";
+//     menuArea.appendChild(instruct_div);
+//     instruct_div.append(instruct_yes, instruct_pass);
+//     SD_10.play();
+// });
+// level_2_menu.addEventListener("click", () => {
+//     menu_bottom.innerHTML = "";
+//     if (lv2_open) {
+//         lv2_open = false;
+//     } else {
+//         lv2_open = true;
+//     }
+//     SD_10.play();
+// });
+// volume_menu.addEventListener("click", () => {
+    
+// });
+
+const menu_btn_click = (name) => {
     menu_bottom.innerHTML = "";
-    if (volume_open) {
-        volume_open = false;
+    if (bottom_open) {
+        bottom_open = false;
     } else {
         menuArea.appendChild(menu_bottom);
-        menu_bottom.append(volume_sub, volume_1, volume_2, volume_3, volume_4, volume_5, volume_add);
-        volume_open = true;
+        if (name === "lv1") {
+            menuArea.innerHTML = "";
+            menuArea.appendChild(instruct_div);
+            instruct_div.append(instruct_yes, instruct_pass);
+        } else if (name === "lv2") {
+            menu_bottom.append(lv2_working);
+        } else if (name === "volume") {
+            menu_bottom.append(volume_sub, volume_1, volume_2, volume_3, volume_4, volume_5, volume_add);
+        }
+        bottom_open = true;
     }
     SD_10.play();
-});
+
+}
 
 
 volume_add.addEventListener("click", () => {
@@ -124,4 +147,4 @@ window.addEventListener("animationend", (event) => {
 });
 
 export { renderMenu, instruct_pass,
-     instruct_div, instruct_yes, level_1_menu, level_2_menu, volume_menu,  }
+     instruct_div, instruct_yes, level_1_menu, level_2_menu, volume_menu, lv2_working  }

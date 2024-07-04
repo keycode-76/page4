@@ -1,5 +1,48 @@
  // rwd
 
+/* 英文 */
+body[lang="en"] {
+    font-family: "ChakraPetch-Bold",;
+}
+#end_btnText[lang="en"] {
+    font-family: "GochiHand",;
+}
+#pic_text_detect[lang="en"] {
+    font-family: "GochiHand",;
+}
+/* 繁中 */
+body[lang="cnt"] {
+    font-family: "GenJyuu";
+}
+#end_btnText[lang="cnt"] {
+    font-family: "Tekit", "Chen",;
+}
+#pic_text_detect[lang="cnt"] {
+    font-family: "Tekit", "Chen",;
+}
+/* 簡中 */
+
+body[lang="cns"] {
+    font-family: "No82";
+}
+#end_btnText[lang="cns"] {
+    font-family: "AaTao";
+}
+#pic_text_detect[lang="cns"] {
+    font-family: "AaTao";
+}
+/* 西班牙語 */
+body[lang="es"] {
+    font-family: "ChakraPetch-Bold",;
+}
+#end_btnText[lang="es"] {
+    font-family: "GochiHand",;
+}
+#pic_text_detect[lang="es"] {
+    font-family: "GochiHand",;
+}
+
+
 
 // @media (max-width: 1920px) {
 //     // #app {
@@ -183,7 +226,7 @@
             #diskPic_Xbtn {
                 width: 48px;
                 height: 48px;
-                margin-top: 720px;
+                margin-top: 550px;
             }
             .diskPic {
                 width: 96px;
@@ -194,7 +237,18 @@
         .diskPick_click {
             width: 800px;
             height: 480px;
-        }        
+            margin-bottom: 160px;
+        }       
+        .pic_text {
+            width: 800px;
+            height: 480px;
+        }
+        #pic_text_detect {
+            width: 800px;
+            height: 480px;    
+            margin-bottom: 160px;
+        } 
+    
     }  
     #computerArea {
         width: 520px;
@@ -457,17 +511,27 @@
             #diskPic_Xbtn {
                 width: 30px;
                 height: 30px;
-                margin-top: 450px;
+                margin-top: 350px;
             }
             .diskPic {
                 width: 60px;
                 height: 60px;
                 margin: 10px;
             }
+            .pic_text {
+                width: 500px;
+                height: 300px;
+            }
         }
         .diskPick_click {
             width: 500px;
             height: 300px;
+            margin-bottom: 100px;
+        }
+        #pic_text_detect {
+            width: 500px;
+            height: 300px;       
+            margin-bottom: 100px;
         }
     }
     #doorArea {

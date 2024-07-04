@@ -1,23 +1,15 @@
  // end_scene.scss
 $end_lock: url("/assets/img/end/slot-4.png");
-$end_unlock: url("/assets/img/end/spritesheet.png");
-$end_unlock_width: calc(4200/3.75); //14
-$end_unlock_height: calc(300/3.75); //80
+$end_unlock: url("/assets/img/end/slot-0.png");
 
 $end_retry: url("/assets/img/end/slot-3.png");
 $end_next_1: url("/assets/img/end/slot-13.png");
 $end_disk_1: url("/assets/img/end/slot-12.png");
-$end_disk1: url("/assets/img/end/disk-1.jpg");
-
-
-@media (min-width: 961px) { // 1.6比例
-    @keyframes end_unlock_anim {
-        to { background-image: $end_unlock; background-position-x: -#{$end_unlock_width*1.6}px; }}}
-
-@media (max-width: 960px) {
-    @keyframes end_unlock_anim {
-        to { background-image: $end_unlock; background-position-x: -#{$end_unlock_width}px; }}}
-
+$end_disk1: url("/assets/img/end/disk (1).png");
+$end_disk2: url("/assets/img/end/disk (2).png");
+$end_disk3: url("/assets/img/end/disk (3).png");
+$end_disk4: url("/assets/img/end/disk (4).png");
+    
 @keyframes showEndScene_anim {
     0%{ opacity: 0; }
     100%{ opacity: 1; }
@@ -51,16 +43,8 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
     animation: showEndScene_anim 1s linear;
 }
 
-
-
-
-@font-face {
-    font-family: "GochiHand";
-    src: url('/assets/font/GochiHand-Regular.ttf');
-}
 #end_btnText {
     opacity: 0.5;
-    font-family: "GochiHand", "Tekit", "Chen", "AaTao";
 }
 #backtomenu_btn {
     &:hover {
@@ -71,13 +55,11 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
 .end_lock {
     position: absolute;
     background-image: $end_lock;
-    // animation: end_unlock_anim 2s steps(14) infinite;
 }
 .end_unlock {
     position: absolute;
-    // background-image: $end_unlock;
+    background-image: $end_unlock;
     pointer-events: none;
-    animation: end_unlock_anim 2s steps(14);
 }
 .end_lock_click {
     animation: lock_click_anim .2s linear infinite;
@@ -132,22 +114,32 @@ $end_disk1: url("/assets/img/end/disk-1.jpg");
 }
 .diskPick_click {
     position: absolute;
-    background-image: $end_disk1;
+    background-image: $end_disk2;
     background-color: white;
-
-    width: 500px;
-    height: 300px;
-    margin-bottom: 100px;
     z-index: 1;
 }
 
 .disk_data_1 {
     background-image: $end_disk1;
 }.disk_data_2 {
-    background-image: $end_disk1;
+    background-image: $end_disk2;
 }.disk_data_3 {
-    background-image: $end_disk1;
+    background-image: $end_disk3;
 }.disk_data_4 {
-    background-image: $end_disk1;
+    background-image: $end_disk4;
+}
+.pic_text {
+    position: absolute;
+    // margin-bottom: 100px;
+    /* border: solid white 2px; */
+    backdrop-filter: blur(5px) brightness(0.5);
+    // pointer-events: none;
+    // z-index: 1;
+}
+
+#pic_text_detect {
+    position: absolute;
+    z-index: 1;
+    // pointer-events: all;
 }
 

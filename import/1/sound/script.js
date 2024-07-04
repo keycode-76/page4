@@ -19,10 +19,8 @@ import snoozeFile from "/assets/sound/ending/snooze_2.wav";
 import heartbeatFile from "/assets/sound/heartbeat_2.wav";
 import suspenseFile from "/assets/sound/horror_2.wav";
 import tvSnowFile from "/assets/sound/tvSnow.wav";
-import pageFlipFile from "/assets/sound/ending/pageFlip.mp3"; // too small
+import pageFlipFile from "/assets/sound/ending/pageFlip.wav"; // too small
 import unlockFile from "/assets/sound/ending/unlock.wav"; // too small
-
-
 
 
 const SD_1 = new Audio(heyFile);
@@ -69,11 +67,19 @@ SD_18.pause();
 SD_19.pause();
 
 
-const instruct_video_0 = document.querySelector("#instruct_video_0");
-const instruct_video_1 = document.querySelector("#instruct_video_1");
+// const instruct_video_0 = document.querySelector("#instruct_video_0");
+// const instruct_video_1 = document.querySelector("#instruct_video_1");
+// const instruct_video_2 = document.querySelector("#instruct_video_2");
+// const instruct_video_3 = document.querySelector("#instruct_video_3");
+const instruct_videos = [
+    document.querySelector("#instruct_video_0"),
+    document.querySelector("#instruct_video_1"),
+    document.querySelector("#instruct_video_2"),
+    document.querySelector("#instruct_video_3")
+];
 
 const sound_array = [
-    instruct_video_0, instruct_video_1,
+    ...instruct_videos, 
     SD_1, SD_2, SD_3, SD_4, SD_5, SD_6,  SD_7, SD_8, SD_9, SD_10, 
     SD_11, SD_12, SD_13, SD_14, SD_15, SD_16, SD_17, SD_18, SD_19,
 ]
