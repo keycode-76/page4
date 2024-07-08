@@ -129,6 +129,10 @@ body[lang="es"] {
         width: 1024px;
         height: 768px;
     }
+    #logo_menu {
+        width: 192px;
+        height: 192px;
+    }
     #menuArea {
         width: 1024px;
         height: 768px;
@@ -162,6 +166,16 @@ body[lang="es"] {
             width: 128px;
             height: 32px;
         }
+        #credit_div {
+            width: 1024px;
+            height: 560px;
+            margin-bottom: 800px;
+            padding-top: 16px;
+            * {
+                margin: 4.8px 16px;
+            }
+        }
+        
         #pass_tutorial {
             margin-top: 640px;
         }
@@ -414,6 +428,10 @@ body[lang="es"] {
         width: 640px;
         height: 480px;
     }
+    #logo_menu {
+        width: 120px;
+        height: 120px;
+    }
     #menuArea { 
         width: 640px;
         height: 480px;
@@ -447,6 +465,15 @@ body[lang="es"] {
         .menu_btn:hover::before {
             width: 80px;
             height: 20px;
+        }
+        #credit_div {
+            width: 640px;
+            height: 350px;
+            margin-bottom: 500px;
+            padding-top: 10px;
+            * {
+                margin: 3px 10px;
+            }
         }
         #pass_tutorial {
             margin-top: 400px;

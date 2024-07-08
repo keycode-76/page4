@@ -1,9 +1,12 @@
 // 1/menu.scss
 $menu: url("/assets/img/menu/start-1.png");
-// $logo_1: url("/assets/img/menu/start-2.png");
-// $logo_2: url("/assets/img/menu/start-3.png");
-// $tutor_1: url("/assets/img/menu/start-4.png");
+$icon: url("/assets/img/icon/hmcc.png");
 
+@keyframes show_logo {
+    0% { opacity: 0;}
+    40% { opacity: 1;}
+    100% { opacity: 0;}
+}
 @keyframes show_anim {
     from { opacity: 0;}
     to { opacity: 1;}
@@ -11,6 +14,18 @@ $menu: url("/assets/img/menu/start-1.png");
 @keyframes disappear_anim {
     from { opacity: 1;}
     to { opacity: 0;}
+}
+#logo_div {
+    position: absolute;
+    background: black;
+    width: 100%;
+    height: 100%;
+    #logo_menu {
+        background-image: $icon;
+        animation: show_logo 5s linear;
+    z-index: 4;
+
+    }
 }
 
 #menuArea {
@@ -31,7 +46,7 @@ $menu: url("/assets/img/menu/start-1.png");
         opacity: 0.3;
     }
 }
-#menu_bottom { 
+#menu_bottom { // only volume
     position: absolute;
     .volume_slot {
         font-size: 80%;
@@ -46,6 +61,28 @@ $menu: url("/assets/img/menu/start-1.png");
 #lv2_working {
     font-size: 80%;
     color: blue;
+}
+
+#credit_div {
+    position: absolute;
+    flex-direction: column;
+    background-color: black;
+    pointer-events: none;
+    // overflow: auto;
+    .credit_title {
+        font-size: 50%;
+        flex-direction: column;
+        color: rgb(57, 57, 57);
+    }
+    label {
+        font-size: 100%;
+        color: white;
+    }
+    a {
+        font-size: 100%;
+        pointer-events: all;
+        color: red;
+    }
 }
 #instruct_div {
     flex-direction: column;
@@ -68,20 +105,6 @@ $menu: url("/assets/img/menu/start-1.png");
     background-image: $menu;
 }
 
-// #logoArea {
-//     width: 100%;
-//     height: 100%; 
-//     #logo_1 {
-//         width: 100%;
-//         height: 100%; 
-//         background-image: $logo_1;
-//     }
-//     #warning_logo {
-//         width: 100%;
-//         height: 100%; 
-//         background-image: $logo_2;
-//     }
-// }
 .show_menu {
     animation: show_anim 3s ;
 }

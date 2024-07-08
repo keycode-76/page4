@@ -1,7 +1,8 @@
 // language.js
 import "/import/1/language/style.scss";
 import { init } from "/import/4/init/now.js";
-import { level_1_menu, level_2_menu, volume_menu, instruct_div, instruct_yes, instruct_pass, lv2_working } from "/import/1/menu/script";
+import { level_1_menu, level_2_menu, volume_menu, credit_menu, 
+    instruct_div, instruct_yes, instruct_pass, lv2_working } from "/import/1/menu/script";
 import { trans_text } from "/import/2/transition/script";
 import { click_to_start } from "/import/3/computer/script";
 import { backToMenu_btn, pic_text_1, pic_text_2, pic_text_3, pic_text_4 } from "../../2/end_scene/script";
@@ -79,7 +80,7 @@ const language_data = {
         loading: "LOADING",
         clickStart: "Click to start",
         backMenu: "Back to menu",
-        stillWork : "Coming in August 2024",
+        stillWork : "Coming in September 2024",
         pic1: `ID Photo Session: A furry creature is having its ID photo taken.
         It looks somewhat nervous, seeming a bit unfamiliar with the process. 
         The background is a standard blue backdrop.`,
@@ -98,6 +99,7 @@ const language_data = {
         Important body structures resemble those of humans.
         Emotionally unstable at night, caution advised due to its strength and potential for aggression.
         Currently observed to have three types of emotions... [Not passed security clearance]`,
+        credit: "Credit",
     },
     traditional: {
         lvl1: "第一章節",
@@ -109,7 +111,7 @@ const language_data = {
         loading: "載入中",
         clickStart: "點擊開始",
         backMenu: "回到首頁",
-        stillWork : "將在2024年8月上線",
+        stillWork : "將在2024年9月上線",
         pic1: `證件照拍攝中: 一隻毛茸茸的人正在拍攝證件照。
         牠神情有些緊張，似乎有些不習慣。背景是一面標準的藍色背景布。`,
         pic2: `夜晚突發事件: 那傢伙舉起椅子防身，似乎受到了驚嚇。旁邊兩個工作人員正在努力安撫，讓牠不要激動。背景是一個藍色的房間，牆上的窗戶顯示出已經是黑夜。`,
@@ -125,6 +127,7 @@ const language_data = {
         身體重要構造與人類相似
         情緒在夜晚時特別不穩定，需留意其強大力量，具備攻擊危險
         目前觀測到的情緒有三種...[未通過安全審核]`,
+        credit: "工作人員",
     },
     simplified: {
         lvl1: "第一章节",
@@ -136,7 +139,7 @@ const language_data = {
         loading: "加载中",
         clickStart: "点击开始",
         backMenu: "返回首页",
-        stillWork : "将在2024年8月上线",
+        stillWork : "将在2024年9月上线",
         pic1: `证件照拍摄中: 一只毛茸茸的人正在拍摄证件照。 
         它神情有些紧张，似乎有些不习惯。背景是一面标准的蓝色背景布。`,
         pic2: `夜晚突发事件: 那家伙举起椅子防身，似乎受到了惊吓。 
@@ -150,6 +153,7 @@ const language_data = {
         外表特征-毛茸茸的浅色毛皮、左右脸上各两支触手、红色的鼻子。 
         身体重要构造与人类相似 情绪在夜晚时特别不稳定，需留意其强大力量，具备攻击危险 
         目前观测到的情绪有三种...[未通过安全审核]`,
+        credit: "工作人员",
     },
     spanish: {
         lvl1: "Capítulo 1",
@@ -161,7 +165,7 @@ const language_data = {
         loading: "CARGANDO",
         clickStart: "Haga clic para comenzar",
         backMenu: "Volver al menú",
-        stillWork : "Llegará en agosto de 2024",
+        stillWork : "Llegará en Septiembre de 2024",
         pic1: `Sesión de foto de identificación: 
         Una criatura peluda está siendo fotografiada para su identificación.
         Parece algo nerviosa, mostrándose un poco desconocida con el proceso.
@@ -181,6 +185,7 @@ const language_data = {
         Estructuras corporales importantes se asemejan a las de los humanos.
         Emocionalmente inestable por la noche, se recomienda precaución debido a su fuerza y potencial agresivo.
         Actualmente se observan tres tipos de emociones... [No ha pasado el control de seguridad]`,
+        credit: "Créditos",
     }
 };
 
@@ -200,6 +205,7 @@ const clickLanguage = (language) => {
     pic_text_2.textContent = all_language("pic2");
     pic_text_3.textContent = all_language("pic3");
     pic_text_4.textContent = all_language("pic4");
+    credit_menu.textContent = all_language("credit")
 
     switch (init.language) {
         case "English":
@@ -230,41 +236,3 @@ const all_language = (key) => {
             return language_data.english[key]; // 初始語言
     }
 };
-
-
-// // language area //
-// let country = { // 0, 1
-//     menu_play: ["Play","播放"],
-//     menu_volume: ["Volume", "音量"],
-//     instruct_div: ["Would you like to watch instruction ?", "是否播放教程?"],
-//     instruct_yes: ["Play", "撥放"],
-//     instruct_pass: ["Pass", "略過"],
-//     loading: ["LOADING", "載入中"],
-//     clickStart: ["click to start", "點擊開始"],
-//     backMenu: [" Back to menu", "回到首頁"],
-// }
-
-// const clickLanguage = (text) => {
-//     init.language = text;
-//     if (text === "English") {
-//         play_menu.textContent = country.menu_play[0];
-//         volume_menu.textContent = country.menu_volume[0];
-//         instruct_div.textContent = country.instruct_div[0];
-//         instruct_yes.textContent = country.instruct_yes[0];
-//         instruct_pass.textContent = country.instruct_pass[0];
-//         trans_text.textContent = country.loading[0];
-//         click_to_start.textContent = country.clickStart[0];
-//         backToMenu_btn.textContent = country.backMenu[0];
-
-//     } else if (text === "Chinese") {
-//         play_menu.textContent = country.menu_play[1];
-//         volume_menu.textContent = country.menu_volume[1];
-//         instruct_div.textContent = country.instruct_div[1];
-//         instruct_yes.textContent = country.instruct_yes[1];
-//         instruct_pass.textContent = country.instruct_pass[1];
-//         trans_text.textContent = country.loading[1];
-//         click_to_start.textContent = country.clickStart[1];
-//         backToMenu_btn.textContent = country.backMenu[1];
-//     }
-// };
-
