@@ -50,7 +50,7 @@ const instruct_div = createDiv("instruct_div");
 const instruct_yes = createDiv("instruct_yes", 0, 0, () => {play_instruct()}); // 放到語言那裏了
 const instruct_pass = createDiv("instruct_pass");
 
-const warning_logo = createDiv("warning_logo");
+// const warning_logo = createDiv("warning_logo");
 const logo_menu = createDiv("logo_menu");
 const logo_div = createDiv("logo_div");
 
@@ -148,16 +148,16 @@ const play_instruct = () => { // instruct_yes 放到語言那裏了
     SD_10.play();
 };
 
-let now_logo = 0;
-window.addEventListener("animationend", (event) => {
-    if (event.animationName === "show_anim") {
-        if(now_logo === 0) {
-            event.target.className = "disappear_menu";
-        } else if (now_logo === 1) {
-            warning_logo.className = "disappear_menu";
-        }
-    } 
-});
+// let now_logo = 0;
+// window.addEventListener("animationend", (event) => {
+//     if (event.animationName === "show_anim") {
+//         if(now_logo === 0) {
+//             event.target.className = "disappear_menu";
+//         } else if (now_logo === 1) {
+//             warning_logo.className = "disappear_menu";
+//         }
+//     } 
+// });
 
 export { render_icon, renderMenu, instruct_pass,
      instruct_div, instruct_yes, level_1_menu, level_2_menu, volume_menu, credit_menu, lv2_working  }

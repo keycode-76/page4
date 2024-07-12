@@ -26,11 +26,9 @@ const view_lose = createDiv("view_lose");
 const view_win = createDiv("view_win");
 const view_border = createDiv("view_border");
 
-
 const screenBtnDiv = createDiv("screenBtnDiv");
 const screenL = createDiv("screenL");
 const screenR = createDiv("screenR");
-
 
 let e = 0;
 let screenLimit = 220;
@@ -78,6 +76,8 @@ window.addEventListener("animationend", (event) => {
         view_lose.appendChild(view_lose_cover);
     }
 });
+screenL.addEventListener('click', () => { screenL.onmouseenter});
+screenR.addEventListener('click', () => { screenR.onmouseenter});
 
 screenL.addEventListener('mouseenter', () => {
 if (window.innerWidth > 960) 

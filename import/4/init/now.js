@@ -34,7 +34,7 @@ let playtimer;
 const startPlaytimer = () => {
     playtimer = setInterval(() => {
         now_data.play_time+=1;
-        console.log(now_data.play_time, now_data.complete_request)
+        // console.log(now_data.play_time, now_data.complete_request)
     }, 1500);
 };
 const init = {

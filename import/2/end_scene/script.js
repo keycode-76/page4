@@ -45,8 +45,9 @@ const end_lock_1 = createDiv("end_lock_1", 0, 0, (event) => {its_lock(event, 1)}
 const end_lock_2 = createDiv("end_lock_2", 0, 0, (event) => {its_lock(event, 2)});
 
 const end_btns = createDiv("end_btns");
-const diskDiv_1 = createDiv("diskDiv_1",);
-const disk_name = createDiv("disk_name", 0, "Picture");
+const disk_open = createDiv("disk_open",);
+
+const disk_name = createDiv("disk_name", 0);
 const disk_Xbtn = createDiv("disk_Xbtn", 0, "X");
 
 const pic_text_1 = createDiv(0, "pic_text")
@@ -59,6 +60,11 @@ const diskPic_1 = createDiv("diskPic_1", "diskPic", 0, () => { picture_click(1)}
 const diskPic_2 = createDiv("diskPic_2", "diskPic", 0, () => { picture_click(2)}, );
 const diskPic_3 = createDiv("diskPic_3", "diskPic", 0, () => { picture_click(3)}, );
 const diskPic_4 = createDiv("diskPic_4", "diskPic", 0, () => { picture_click(4)}, );
+const diskPic_5 = createDiv("diskPic_5", "diskPic", 0, () => { picture_click(5)}, );
+const diskPic_6 = createDiv("diskPic_6", "diskPic", 0, () => { picture_click(6)}, );
+const diskPic_7 = createDiv("diskPic_7", "diskPic", 0, () => { picture_click(7)}, );
+const diskPic_8 = createDiv("diskPic_8", "diskPic", 0, () => { picture_click(8)}, );
+const diskPic_9 = createDiv("diskPic_9", "diskPic", 0,  );
 
 const diskPic_Xbtn = createDiv("diskPic_Xbtn", 0, "X");
 const end_btnText = createDiv("end_btnText");
@@ -80,8 +86,7 @@ const disk_iconBtn_1 = createDiv("disk_iconBtn_1", "end_btn", 0, 0, () => {
         spanish: "imagen: registro de entrada",
     });
 }, 0, end_lock_1);
-
-const next_iconBtn_1 = createDiv("next_iconBtn_1", "end_btn", 0, 0, () => {
+const disk_iconBtn_2 = createDiv("disk_iconBtn_2", "end_btn", 0, 0, () => {
     endBtn_hover({
         english: "data: background investigation",
         traditional: "資料: 背景調查",
@@ -89,7 +94,6 @@ const next_iconBtn_1 = createDiv("next_iconBtn_1", "end_btn", 0, 0, () => {
         spanish: "datos: investigación de antecedentes",
     });
 }, 0, end_lock_2);
-
 
 const init_endScene = (app) => {
     endSceneDiv.innerHTML = "";
@@ -131,13 +135,13 @@ const endBtn_idle = () => {
 }
 const endBtn_hover = (text) => {
     end_btnText.textContent = which_language(text);
+    disk_name.textContent = which_language(text);
     SD_12.currentTime = 0;
     SD_12.play();
 }
 
-
 const renderEnd_content = () => {
-    end_btns.append(retry_iconBtn_1, disk_iconBtn_1, next_iconBtn_1);
+    end_btns.append(retry_iconBtn_1, disk_iconBtn_1, disk_iconBtn_2);
     if (now_data.win === true) {
         challengeText.textContent = which_language({
             english: "score",
@@ -191,20 +195,57 @@ const renderEnd_content = () => {
     } else { return; }
     num+=1;
 }
+const its_lock = (event, num) => { //endlock
+    event.target.parentElement.classList.add("end_lock_click");
+    if(num === 1) {
+        end_btnText.textContent = which_language({
+            english: `unlock for ${init.score_1} score`,
+            traditional: `分數未達${init.score_1}`,
+            simplified: `分数未达${init.score_1}`,
+            spanish: `Desbloquear por ${init.score_1} puntos`
+        });
+    } else if (num === 2) {
+        end_btnText.textContent = which_language({
+            english: `unlock for ${init.score_2} score`,
+            traditional: `分數未達${init.score_2}`,
+            simplified: `分数未达${init.score_2}`,
+            spanish: `Desbloquear por ${init.score_2} puntos`
+        });
+    }
+    setTimeout(() => {
+        event.target.parentElement.classList.remove("end_lock_click");
+        endBtn_idle();
+    }, 1000);
+    SD_10.pause();
+    SD_11.currentTime = 0;
+    SD_11.play();
+};
 disk_iconBtn_1.addEventListener("click", () => {
     if (end_lock_1.className === "end_lock") return;
-    diskDiv_1.innerHTML = "";
-    diskDiv_1.append(disk_name, disk_Xbtn);
-    diskDiv_1.append(diskPic_1, diskPic_2, diskPic_3, diskPic_4);
+    disk_open.innerHTML = "";
+    disk_open.append(disk_name, disk_Xbtn);
+    disk_open.append(diskPic_1, diskPic_2, diskPic_3, diskPic_4);
     const diskPics = document.querySelectorAll(".diskPic");
     diskPics.forEach(element => {
         element.className = "diskPic";
     });
-    endSceneDiv.appendChild(diskDiv_1);
+    endSceneDiv.appendChild(disk_open);
+    SD_10.play();
+});
+disk_iconBtn_2.addEventListener("click", () => {
+    if (end_lock_1.className === "end_lock") return;
+    disk_open.innerHTML = "";
+    disk_open.append(disk_name, disk_Xbtn);
+    disk_open.append(diskPic_5, diskPic_6, diskPic_7, diskPic_8, diskPic_9);
+    const diskPics = document.querySelectorAll(".diskPic");
+    diskPics.forEach(element => {
+        element.className = "diskPic";
+    });
+    endSceneDiv.appendChild(disk_open);
     SD_10.play();
 });
 disk_Xbtn.addEventListener("click", () => {
-    endSceneDiv.removeChild(diskDiv_1);
+    endSceneDiv.removeChild(disk_open);
     SD_10.play();
 });
 let pic_click_num = 0;
@@ -213,7 +254,7 @@ const picture_click = (num) => {
     const diskPicElement = document.querySelector(`#diskPic_${num}`);
     if (diskPicElement) {
         diskPicElement.className = `diskPick_click disk_data_${num}`;
-        diskDiv_1.append(diskPic_Xbtn, pic_text_detect);
+        disk_open.append(diskPic_Xbtn, pic_text_detect);
         pic_click_num = num;
         pictrue_hover();
         SD_18.currentTime = 0;
@@ -243,44 +284,32 @@ const picture_leave = () => {
     pic_text_detect.innerHTML = "";
 };
 diskPic_Xbtn.addEventListener("click", () => {
-    diskDiv_1.removeChild(diskPic_Xbtn);
-    diskDiv_1.removeChild(pic_text_detect);
+    disk_open.removeChild(diskPic_Xbtn);
+    disk_open.removeChild(pic_text_detect);
     diskPic_1.className = "diskPic";
     diskPic_2.className = "diskPic";
     diskPic_3.className = "diskPic";
     diskPic_4.className = "diskPic";
+    diskPic_5.className = "diskPic";
+    diskPic_6.className = "diskPic";
+    diskPic_7.className = "diskPic";
+    diskPic_8.className = "diskPic";
+    diskPic_9.className = "diskPic";
+    
     pic_click_num = 0;
     SD_18.currentTime = 0;
     SD_18.play();
 });
-next_iconBtn_1.addEventListener("click", () => {
-});
 
-const its_lock = (event, num) => { //endlock
-    event.target.parentElement.classList.add("end_lock_click");
-    if(num === 1) {
-        end_btnText.textContent = which_language({
-            english: `unlock for ${init.score_1} score`,
-            traditional: `分數未達${init.score_1}`,
-            simplified: `分数未达${init.score_1}`,
-            spanish: `Desbloquear por ${init.score_1} puntos`
-        });
-    } else if (num === 2) {
-        end_btnText.textContent = which_language({
-            english: `unlock for ${init.score_2} score`,
-            traditional: `分數未達${init.score_2}`,
-            simplified: `分数未达${init.score_2}`,
-            spanish: `Desbloquear por ${init.score_2} puntos`
-        });
-    }
-    setTimeout(() => {
-        event.target.parentElement.classList.remove("end_lock_click");
-        endBtn_idle();
-    }, 1000);
-    SD_10.pause();
-    SD_11.currentTime = 0;
-    SD_11.play();
-};
+diskPic_9.addEventListener("click", () => {
+    const video = document.querySelector("#disk2_video");
+    video.play();
+    video.style.display = 'block';
+    video.addEventListener("ended", () => {
+        video.style.display = "none";
+        diskPic_Xbtn.click();
+    });
+});
 
 export { init_endScene,
     backToMenu_btn, pic_text_1, pic_text_2, pic_text_3, pic_text_4

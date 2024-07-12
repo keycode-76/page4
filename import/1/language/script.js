@@ -44,7 +44,7 @@ const instruct_videos = [
     document.querySelector("#instruct_video_0"),
     document.querySelector("#instruct_video_1"),
     document.querySelector("#instruct_video_2"),
-    document.querySelector("#instruct_video_3")
+    document.querySelector("#instruct_video_3"),
 ];
 
 const languageMap = {

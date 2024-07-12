@@ -129,6 +129,10 @@ body[lang="es"] {
         width: 1024px;
         height: 768px;
     }
+    .disk_video {
+        width: 1024px;
+        height: 768px;
+    }
     #logo_menu {
         width: 192px;
         height: 192px;
@@ -222,20 +226,20 @@ body[lang="es"] {
             width: 128px;
             height: 128px;
         }
-        #diskDiv_1 {
+        #disk_open {
             width: 1024px;
             height: 768px;
             #disk_name {
-                width: 48px;
+                width: 400px;
                 height: 48px;
                 margin-bottom: 320px;
-                margin-right: 368px;
+                margin-right: 240px;
             }
             #disk_Xbtn {
                 width: 48px;
                 height: 48px;
                 margin-bottom: 320px;
-                margin-left: 448px;
+                margin-left: 608px;
             }
             #diskPic_Xbtn {
                 width: 48px;
@@ -355,8 +359,6 @@ body[lang="es"] {
         margin-bottom: 230px;
     }    
 }
-
-
 @media (max-width: 960px) {
     body {
         * {
@@ -425,6 +427,10 @@ body[lang="es"] {
         font-size: 20px;
     }
     .instruct_video { 
+        width: 640px;
+        height: 480px;
+    }
+    .disk_video {
         width: 640px;
         height: 480px;
     }
@@ -520,20 +526,20 @@ body[lang="es"] {
             width: 80px;
             height: 80px;
         }    
-        #diskDiv_1 {
+        #disk_open {
             width: 640px;
             height: 480px;
             #disk_name {
-                width: 30px;
+                width: 250px;
                 height: 30px;
                 margin-bottom: 200px;
-                margin-right: 230px;
+                margin-right: 150px;
             }
             #disk_Xbtn {
                 width: 30px;
                 height: 30px;
                 margin-bottom: 200px;
-                margin-left: 280px;
+                margin-left: 380px;
             }
             #diskPic_Xbtn {
                 width: 30px;

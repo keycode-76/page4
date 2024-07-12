@@ -23,8 +23,7 @@ $icon: url("/assets/img/icon/hmcc.png");
     #logo_menu {
         background-image: $icon;
         animation: show_logo 5s linear;
-    z-index: 4;
-
+        // z-index: 4;
     }
 }
 

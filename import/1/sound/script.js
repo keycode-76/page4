@@ -66,16 +66,12 @@ SD_17.pause();
 SD_18.pause();
 SD_19.pause();
 
-
-// const instruct_video_0 = document.querySelector("#instruct_video_0");
-// const instruct_video_1 = document.querySelector("#instruct_video_1");
-// const instruct_video_2 = document.querySelector("#instruct_video_2");
-// const instruct_video_3 = document.querySelector("#instruct_video_3");
 const instruct_videos = [
     document.querySelector("#instruct_video_0"),
     document.querySelector("#instruct_video_1"),
     document.querySelector("#instruct_video_2"),
-    document.querySelector("#instruct_video_3")
+    document.querySelector("#instruct_video_3"),
+    document.querySelector("#disk2_video")
 ];
 
 const sound_array = [

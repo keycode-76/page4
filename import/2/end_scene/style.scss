@@ -3,12 +3,16 @@ $end_lock: url("/assets/img/end/slot-4.png");
 $end_unlock: url("/assets/img/end/slot-0.png");
 
 $end_retry: url("/assets/img/end/slot-3.png");
-$end_next_1: url("/assets/img/end/slot-13.png");
 $end_disk_1: url("/assets/img/end/slot-12.png");
+$end_disk_2: url("/assets/img/end/slot-13.png");
 $end_disk1: url("/assets/img/end/disk (1).png");
 $end_disk2: url("/assets/img/end/disk (2).png");
 $end_disk3: url("/assets/img/end/disk (3).png");
 $end_disk4: url("/assets/img/end/disk (4).png");
+$end_disk5: url("/assets/img/end/disk (1).png");
+$end_disk6: url("/assets/img/end/disk (2).png");
+$end_disk7: url("/assets/img/end/disk (3).png");
+$end_disk8: url("/assets/img/end/disk (4).png");
     
 @keyframes showEndScene_anim {
     0%{ opacity: 0; }
@@ -42,7 +46,6 @@ $end_disk4: url("/assets/img/end/disk (4).png");
 #end_btns {
     animation: showEndScene_anim 1s linear;
 }
-
 #end_btnText {
     opacity: 0.5;
 }
@@ -78,19 +81,20 @@ $end_disk4: url("/assets/img/end/disk (4).png");
 #retry_iconBtn_1 {
     background-image: $end_retry;
 }
-#next_iconBtn_1 {
-    background-image: $end_next_1;
+#disk_iconBtn_2 {
+    background-image: $end_disk_2;
 }
 #disk_iconBtn_1 {
     background-image: $end_disk_1;
 }
 
-#diskDiv_1 {
+#disk_open {
     position: absolute;
     background-color: black;
     #disk_name {
         position: absolute;
         transform: scaleY(80%);
+        justify-content: start;
     }
     #disk_Xbtn {
         position: absolute;
@@ -127,6 +131,18 @@ $end_disk4: url("/assets/img/end/disk (4).png");
     background-image: $end_disk3;
 }.disk_data_4 {
     background-image: $end_disk4;
+}.disk_data_5 {
+    background-image: $end_disk5;
+}.disk_data_6 {
+    background-image: $end_disk6;
+}.disk_data_7 {
+    background-image: $end_disk7;
+}.disk_data_8 {
+    background-image: $end_disk8;
+}.disk_video {
+    position: absolute;
+    pointer-events: none;
+    display: none;
 }
 .pic_text {
     position: absolute;
