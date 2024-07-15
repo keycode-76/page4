@@ -76,13 +76,18 @@ window.addEventListener("animationend", (event) => {
         view_lose.appendChild(view_lose_cover);
     }
 });
-screenL.addEventListener('click', () => { screenL.onmouseenter});
-screenR.addEventListener('click', () => { screenR.onmouseenter});
+screenL.addEventListener('mousedown', () => { screenL.onmouseenter});
+screenR.addEventListener('mousedown', () => { screenR.onmouseenter});
+screenR.addEventListener('mouseup', () => { screenR.onmouseleave});
+screenL.addEventListener('mouseup', () => { screenL.onmouseleave});
+
 
 screenL.addEventListener('mouseenter', () => {
-if (window.innerWidth > 960) 
-    { screenLimit = 360; intervalTime = 30;
-} else { screenLimit = 220; intervalTime = 50; }
+if (window.innerWidth > 960) { 
+    screenLimit = 360; intervalTime = 30;
+} else if (window.innerWidth > 450 && window.innerWidth < 960) {
+    screenLimit = 220; intervalTime = 50; 
+} else { screenLimit = 110; intervalTime = 100;}
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
         if (e < screenLimit) {
@@ -103,9 +108,11 @@ screenL.addEventListener('mouseleave', () => {
     SD_5.play();
 });
 screenR.addEventListener('mouseenter', () => {
-if (window.innerWidth > 960) 
-    { screenLimit = 360; intervalTime = 30;
-} else { screenLimit = 220; intervalTime = 50; }
+if (window.innerWidth > 960) { 
+    screenLimit = 360; intervalTime = 30;
+} else if (window.innerWidth > 450 && window.innerWidth < 960) {
+    screenLimit = 220; intervalTime = 50; 
+} else { screenLimit = 110; intervalTime = 100;}
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
         if (e > -screenLimit) {

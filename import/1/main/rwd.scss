@@ -1,63 +1,7 @@
  // rwd
 
-/* 英文 */
-body[lang="en"] {
-    font-family: "ChakraPetch-Bold",;
-}
-#end_btnText[lang="en"] {
-    font-family: "GochiHand",;
-}
-#pic_text_detect[lang="en"] {
-    font-family: "GochiHand",;
-}
-/* 繁中 */
-body[lang="cnt"] {
-    font-family: "GenJyuu";
-}
-#end_btnText[lang="cnt"] {
-    font-family: "Tekit", "Chen",;
-}
-#pic_text_detect[lang="cnt"] {
-    font-family: "Tekit", "Chen",;
-}
-/* 簡中 */
-
-body[lang="cns"] {
-    font-family: "No82";
-}
-#end_btnText[lang="cns"] {
-    font-family: "AaTao";
-}
-#pic_text_detect[lang="cns"] {
-    font-family: "AaTao";
-}
-/* 西班牙語 */
-body[lang="es"] {
-    font-family: "ChakraPetch-Bold",;
-}
-#end_btnText[lang="es"] {
-    font-family: "GochiHand",;
-}
-#pic_text_detect[lang="es"] {
-    font-family: "GochiHand",;
-}
-
-
-
-// @media (max-width: 1920px) {
-//     // #app {
-//     //     width: 2750px;
-//     //     height: 1200px;
-//     //     border: solid green;
-//     // }
-//     // #viewPort {
-//     //     width: 1600px;
-//     // }
-//     // #backGround {
-//     //     height: 1200px;
-//     // }
-// }
-
+$width_1: 1024px;
+$height_1: 768px;
 @media (min-width: 961px) { // 1.6比例
     body {
         * {
@@ -67,14 +11,14 @@ body[lang="es"] {
     }
     #app {
         width: 1760px;
-        height: 768px;
+        height: $height_1;
         #trans_snow {
-            width: 1024px;
-            height: 768px;
+            width: $width_1;
+            height: $height_1;
         }
         #viewPort {
-            width: 1024px;
-            height: 768px;
+            width: $width_1;
+            height: $height_1;
             &::before {
                 width: 992px;
                 margin-left: -2016px;
@@ -93,12 +37,12 @@ body[lang="es"] {
                 }
             }            
             #view_border {
-                width: 1024px;
-                height: 768px;
+                width: $width_1;
+                height: $height_1;
             }
             .fuzzy-overlay {
-                width: 1024px;
-                height: 768px;
+                width: $width_1;
+                height: $height_1;
             }
             #view_lose {
                 &::before {
@@ -113,12 +57,12 @@ body[lang="es"] {
                 }
             }
             #view_lose_up {
-                width: 1024px;
-                height: 768px;
+                width: $width_1;
+                height: $height_1;
             }
             #view_lose_down {
-                width: 1024px;
-                height: 768px;
+                width: $width_1;
+                height: $height_1;
             }   
         }     
     }
@@ -126,22 +70,22 @@ body[lang="es"] {
         font-size: 32px;
     }
     .instruct_video {
-        width: 1024px;
-        height: 768px;
+        width: $width_1;
+        height: $height_1;
     }
     .disk_video {
-        width: 1024px;
-        height: 768px;
+        width: $width_1;
+        height: $height_1;
     }
     #logo_menu {
         width: 192px;
         height: 192px;
     }
     #menuArea {
-        width: 1024px;
-        height: 768px;
+        width: $width_1;
+        height: $height_1;
         #menu_img {
-            width: 1024px;
+            width: $width_1;
             height: 480px;
             margin-bottom: 160px;
         }
@@ -171,7 +115,7 @@ body[lang="es"] {
             height: 32px;
         }
         #credit_div {
-            width: 1024px;
+            width: $width_1;
             height: 560px;
             margin-bottom: 800px;
             padding-top: 16px;
@@ -179,7 +123,12 @@ body[lang="es"] {
                 margin: 4.8px 16px;
             }
         }
-        
+        #instruct_div {
+            font-size: 40px;
+            div {
+                margin-top: 80px;
+            }
+        }
         #pass_tutorial {
             margin-top: 640px;
         }
@@ -187,11 +136,11 @@ body[lang="es"] {
     }
     #gameFilter {
         width: 1760px;
-        height: 768px;
+        height: $height_1;
     }
     #backGround {
         width: 1760px;
-        height: 768px;
+        height: $height_1;
     }
     #endSceneDiv {
         #challengeText {
@@ -227,8 +176,8 @@ body[lang="es"] {
             height: 128px;
         }
         #disk_open {
-            width: 1024px;
-            height: 768px;
+            width: $width_1;
+            height: $height_1;
             #disk_name {
                 width: 400px;
                 height: 48px;
@@ -263,7 +212,7 @@ body[lang="es"] {
         }
         #pic_text_detect {
             width: 800px;
-            height: 480px;    
+            height: 560px;    
             margin-bottom: 160px;
         } 
     
@@ -296,7 +245,7 @@ body[lang="es"] {
     }
     #computerShadow {
         width: 640px; 
-        height: 640px; 
+        height: 640px;
         margin-right: 112px;
         margin-bottom: 100px;
     }
@@ -359,7 +308,9 @@ body[lang="es"] {
         margin-bottom: 230px;
     }    
 }
-@media (max-width: 960px) {
+$width_2: 640px;
+$height_2: 480px;
+@media (max-width: 960px) and (min-width: 451px) {
     body {
         * {
             font-size: 20px;
@@ -368,14 +319,14 @@ body[lang="es"] {
     }
     #app {
         width: 1100px;
-        height: 480px;
+        height: $height_2;
         #trans_snow {
-            width: 640px;
-            height: 480px;
+            width: $width_2;
+            height: $height_2;
         }
         #viewPort {
-            width: 640px;
-            height: 480px;
+            width: $width_2;
+            height: $height_2;
             &::before {
                 width: 620px;
                 margin-left: -1260px;
@@ -394,12 +345,12 @@ body[lang="es"] {
                 }
             }
             #view_border {
-                width: 640px;
-                height: 480px;
+                width: $width_2;
+                height: $height_2;
             }
             .fuzzy-overlay {
-                width: 640px;
-                height: 480px;
+                width: $width_2;
+                height: $height_2;
             }
             #view_lose {
                 &::before {
@@ -414,12 +365,12 @@ body[lang="es"] {
                 }
             }
             #view_lose_up {
-                width: 640px;
-                height: 480px;
+                width: $width_2;
+                height: $height_2;
             }
             #view_lose_down {
-                width: 640px;
-                height: 480px;
+                width: $width_2;
+                height: $height_2;
             }
         }
     }
@@ -427,22 +378,22 @@ body[lang="es"] {
         font-size: 20px;
     }
     .instruct_video { 
-        width: 640px;
-        height: 480px;
+        width: $width_2;
+        height: $height_2;
     }
     .disk_video {
-        width: 640px;
-        height: 480px;
+        width: $width_2;
+        height: $height_2;
     }
     #logo_menu {
         width: 120px;
         height: 120px;
     }
     #menuArea { 
-        width: 640px;
-        height: 480px;
+        width: $width_2;
+        height: $height_2;
         #menu_img { 
-            width: 640px;
+            width: $width_2;
             height: 300px;
             margin-bottom: 100px;
         }
@@ -461,7 +412,6 @@ body[lang="es"] {
         }
         #menu_btns {
             margin-top: 300px;
-            // margin-left: 500px;
         }
         .menu_btn {
             width: 100px;
@@ -473,7 +423,7 @@ body[lang="es"] {
             height: 20px;
         }
         #credit_div {
-            width: 640px;
+            width: $width_2;
             height: 350px;
             margin-bottom: 500px;
             padding-top: 10px;
@@ -481,17 +431,23 @@ body[lang="es"] {
                 margin: 3px 10px;
             }
         }
+        #instruct_div {
+            font-size: 25px;
+            div {
+                margin-top: 50px;
+            }
+        }
         #pass_tutorial {
             margin-top: 400px;
         }
     }
     #gameFilter { 
-        width: 1100px;
-        height: 480px;
+        width: 1100p3;
+        height: $height_2;
     }
     #backGround {
         width: 1100px;
-        height: 480px;
+        height: $height_2;
     }
     #endSceneDiv {
         #challengeText {
@@ -527,8 +483,8 @@ body[lang="es"] {
             height: 80px;
         }    
         #disk_open {
-            width: 640px;
-            height: 480px;
+            width: $width_2;
+            height: $height_2;
             #disk_name {
                 width: 250px;
                 height: 30px;
@@ -589,7 +545,6 @@ body[lang="es"] {
             }
         }
     }
-
     #computerArea { 
         width: 325px;
         height: 360px;
@@ -658,4 +613,347 @@ body[lang="es"] {
         margin-left: 730px;
         margin-bottom: 160px;
     }
+}
+$width_3: 320px;
+$height_3: 240px;
+@media (max-width: 450px) {
+    body {
+        * {
+            font-size: 10px;
+        }
+    }
+    #app {
+        width: 550px;
+        height: $height_3;
+        #trans_snow {
+            width: $width_3;
+            height: $height_3;
+        }
+        #viewPort {
+            width: $width_3;
+            height: $height_3;
+            &::before {
+                width: 310px;
+                margin-left: -630px;
+            }
+            &::after {
+                width: 310px;
+                margin-left: 630px;
+            }
+            #screenBtnDiv {
+                div {
+                    width: 20px;
+                    height: 46px;
+                }
+                #screenL {
+                    margin-right: 317.5px;
+                }
+            }
+            #view_border {
+                width: $width_3;
+                height: $height_3;
+            }
+            .fuzzy-overlay {
+                width: $width_3;
+                height: $height_3;
+            }
+            #view_lose {
+                &::before {
+                    width: 640px;
+                    height: 200px;
+                    margin-bottom: 440px;
+                }
+                &::after {
+                    width: 640px;
+                    height: 200px;
+                    margin-top: 440px;
+                }
+            }
+            #view_lose_up {
+                width: $width_3;
+                height: $height_3;
+            }
+            #view_lose_down {
+                width: $width_3;
+                height: $height_3;
+            }
+        }
+    }
+    .langBtn {
+        font-size: 20px;
+    }
+    .instruct_video {
+        width: $width_3;
+        height: $height_3;
+    }
+    .disk_video {
+        width: $width_3;
+        height: $height_3;
+    }
+    #logo_menu {
+        width: 60px;
+        height: 60px;
+    }
+    #menuArea {
+        width: $width_3;
+        height: $height_3;
+        #menu_img {
+            width: $width_2;
+            height: 150px;
+            margin-bottom: 50px;
+        }
+        #menu_bottom {
+            margin-top: 190px;
+            .volume_slot {
+                width: 5px;
+                margin: 0px 1px;
+            }
+            #volume_add {
+                margin-left: 10px;
+            }
+            #volume_sub {
+                margin-right: 10px;
+            }
+        }
+        #menu_btns {
+            margin-top: 150px;
+        }
+        .menu_btn {
+            width: 50px;
+            height: 15px;
+            margin: 0px 15px;
+        }
+        .menu_btn:hover::before {
+            width: 40px;
+            height: 10px;
+        }
+        #credit_div {
+            width: $width_2;
+            height: 175px;
+            margin-bottom: 250px;
+            padding-top: 5px;
+            * {
+                margin: 1.5px 5px;
+            }
+        }
+        #instruct_div {
+            font-size: 12px;
+            div {
+                margin-top: 25px;
+            }
+        }
+        #pass_tutorial {
+            margin-top: 200px;
+        }
+    }
+    #gameFilter {
+        width: 550px;
+        height: $height_3;
+    }
+    #backGround {
+        width: 550px;
+        height: $height_3;
+    }
+    #endSceneDiv {
+        #challengeText {
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+        #scoreNum {
+            font-size: 17.5px;
+            margin-top: -35px;
+            margin-bottom: 25px;
+        }
+        #end_btns {
+            margin-bottom: 2.5px;
+        }
+        #end_btnText {
+            font-size: 12.5px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        #backtomenu_btn {
+            font-size: 15px;
+        }
+        .end_lock {
+            width: 40px;
+            height: 40px;
+        }
+        .end_unlock {
+            width: 40px;
+            height: 40px;
+        }
+        .end_btn {
+            width: 40px;
+            height: 40px;
+        }
+        #disk_open {
+            width: $width_3;
+            height: $height_3;
+            #disk_name {
+                width: 125px;
+                height: 15px;
+                margin-bottom: 100px;
+                margin-right: 75px;
+            }
+            #disk_Xbtn {
+                width: 15px;
+                height: 15px;
+                margin-bottom: 100px;
+                margin-left: 190px;
+            }
+            #diskPic_Xbtn {
+                width: 15px;
+                height: 15px;
+                margin-top: 175px;
+            }
+            .diskPic {
+                width: 30px;
+                height: 30px;
+                margin: 5px;
+            }
+            .pic_text {
+                width: 250px;
+                height: 150px;
+            }
+        }
+        .diskPick_click {
+            width: 250px;
+            height: 150px;
+            margin-bottom: 50px;
+        }
+        #pic_text_detect {
+            width: 250px;
+            height: 150px;
+            margin-bottom: 50px;
+        }
+    }
+    #doorArea {
+        width: 120px;
+        height: 185px;
+        #doorDiv {
+            #doorFrame {
+                width: 127.5px;
+                height: 192.5px;
+            }
+            #door_btns {
+                margin-bottom: 40px;
+                #request_btns {
+                    width: 30px;
+                    height: 30px;
+                }
+                .request_btn {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    #computerArea {
+        width: 162.5px;
+        height: 180px;
+        padding-bottom: 15px;
+        margin: 0px 40px 0px;
+        #computerDiv {
+            margin-bottom: 15px;
+            .screen_text {
+                width: 125px;
+                height: 25px;
+            }
+            #sleepyDiv {
+                height: 20px;
+                margin-bottom: 5px;
+            }
+        }
+        #wallPaper {
+            width: 75px;
+            height: 75px;
+        }
+        #click_to_start {
+            margin-top: 50px;
+            font-size: 25px;
+        }
+    }
+    #computerShadow {
+        width: 200px;
+        height: 200px;
+        margin-right: 35px;
+        margin-bottom: 10px;
+    }
+    #tableArea {
+        width: 500px;
+        height: 75px;
+        margin-top: 165px;
+        margin-left: 50px;
+    }
+    #windowArea {
+        width: 135px;
+        height: 145px;
+        margin-bottom: 70px;
+        #roomDiv {
+            width: 135px;
+            height: 145px;
+        }
+        #window_outLine {
+            width: 135px;
+            height: 145px;
+        }
+        #window_blink {
+            width: 135px;
+            height: 145px;
+        }
+        #face_rg {
+            width: 135px;
+            height: 145px;
+        }
+        #face_state {
+            width: 135px;
+            height: 145px;
+        }
+    }
+    #windowShadow {
+        width: 150px;
+        height: 160px;
+        margin-left: 365px;
+        margin-bottom: 80px;
+    }
+}
+
+
+/* 英文 */
+body[lang="en"] {
+    font-family: "ChakraPetch-Bold",;
+} #end_btnText[lang="en"] {
+    font-family: "GochiHand",;
+} #pic_text_detect[lang="en"] {
+    font-family: "GochiHand",;
+}
+
+/* 繁中 */
+body[lang="cnt"] {
+    font-family: "GenJyuu";
+} #end_btnText[lang="cnt"] {
+    font-family: "Tekit", "Chen",;
+} #pic_text_detect[lang="cnt"] {
+    font-family: "Tekit", "Chen",;
+}
+
+/* 簡中 */
+body[lang="cns"] {
+    font-family: "No82";
+}
+#end_btnText[lang="cns"] {
+    font-family: "AaTao";
+}
+#pic_text_detect[lang="cns"] {
+    font-family: "AaTao";
+}
+
+/* 西班牙語 */
+body[lang="es"] {
+    font-family: "ChakraPetch-Bold",;
+} #end_btnText[lang="es"] {
+    font-family: "GochiHand",;
+} #pic_text_detect[lang="es"] {
+    font-family: "GochiHand",;
 }

@@ -39,8 +39,8 @@ const credit_div = createDiv("credit_div");
 
 let credit_list = [
     { title: "instruction music", text: "Adolf & The Bohemians - Old Bohemians Dance (1936)", type: "label"},
-    { title: "HMCC Official", text: "HMCC.official", type: "a", link: "https://www.instagram.com/hmcc.official?igsh=MW5ybnFuemd3aWxmYg==",},
-    { title: "Video source", text: "Nota TV show", type: "a", link: "",},
+    { title: "HMCC Official", text: "HMCC official", type: "a", link: "https://www.instagram.com/hmcc.official?igsh=MW5ybnFuemd3aWxmYg==",},
+    { title: "Video source", text: "Eye eel echo", type: "a", link: "https://www.youtube.com/@eyeeelecho",},
     { title: "font/fuente", text: "ChakraPetch-Bold", text2:"GochiHand-Regular", type: "label"},
     { title: "字體", text: "GenJyuuGothicL-Bold", text2:"ChenYuluoyan-Thin", type: "label"},
     { title: "字体", text: "No.82-ShangShouJianHeiCuTi", text2:"AaTaoTaoWuLongNaiLaoSu", type: "label"},
@@ -147,17 +147,6 @@ const play_instruct = () => { // instruct_yes 放到語言那裏了
     menuArea.remove(instruct_div);
     SD_10.play();
 };
-
-// let now_logo = 0;
-// window.addEventListener("animationend", (event) => {
-//     if (event.animationName === "show_anim") {
-//         if(now_logo === 0) {
-//             event.target.className = "disappear_menu";
-//         } else if (now_logo === 1) {
-//             warning_logo.className = "disappear_menu";
-//         }
-//     } 
-// });
 
 export { render_icon, renderMenu, instruct_pass,
      instruct_div, instruct_yes, level_1_menu, level_2_menu, volume_menu, credit_menu, lv2_working  }
