@@ -79,9 +79,9 @@ window.addEventListener("animationend", (event) => {
 
 const renderLimit = () => {
     if (window.innerWidth > 960) { 
-        screenLimit = 360; intervalTime = 30;
+        screenLimit = 110; intervalTime = 30; //360 220
     } else if (window.innerWidth > 500 && window.innerWidth < 960) {
-        screenLimit = 220; intervalTime = 50; 
+        screenLimit = 110; intervalTime = 50; 
     } else { 
         screenLimit = 110; intervalTime = 100;}
 }
