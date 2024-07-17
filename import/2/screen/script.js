@@ -76,18 +76,34 @@ window.addEventListener("animationend", (event) => {
         view_lose.appendChild(view_lose_cover);
     }
 });
-screenL.addEventListener('mousedown', () => { screenL.onmouseenter});
-screenR.addEventListener('mousedown', () => { screenR.onmouseenter});
-screenR.addEventListener('mouseup', () => { screenR.onmouseleave});
-screenL.addEventListener('mouseup', () => { screenL.onmouseleave});
+screenL.addEventListener('mousemove', () => { 
+    // let timer;
+    console.log("e")
 
+    // clearInterval(timer);
+    renderL();
+    // timer = setTimeout(() => {
+    // }, 500);
+});
+screenR.addEventListener('mousemove', () => { 
+    renderR();
+});
+screenL.addEventListener('mouseup', () => { renderLeave();
+    screenL.onmouseleave;
+});
+screenR.addEventListener('mouseup', () => { renderLeave();
+    screenR.onmouseleave;
+});
 
-screenL.addEventListener('mouseenter', () => {
-if (window.innerWidth > 960) { 
-    screenLimit = 360; intervalTime = 30;
-} else if (window.innerWidth > 450 && window.innerWidth < 960) {
-    screenLimit = 220; intervalTime = 50; 
-} else { screenLimit = 110; intervalTime = 100;}
+const renderLimit = () => {
+    if (window.innerWidth > 960) { 
+        screenLimit = 360; intervalTime = 30;
+    } else if (window.innerWidth > 450 && window.innerWidth < 960) {
+        screenLimit = 220; intervalTime = 50; 
+    } else { screenLimit = 110; intervalTime = 100;}
+}
+const renderL = () => {
+    renderLimit();
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
         if (e < screenLimit) {
@@ -100,29 +116,17 @@ if (window.innerWidth > 960) {
     SD_3.currentTime = 0;
     SD_3.play();
     SD_4.play();
-});
-screenL.addEventListener('mouseleave', () => {
-    clearInterval(intervalId);
-    SD_4.pause();
-    SD_5.currentTime = 0;
-    SD_5.play();
-});
-screenR.addEventListener('mouseenter', () => {
-if (window.innerWidth > 960) { 
-    screenLimit = 360; intervalTime = 30;
-} else if (window.innerWidth > 450 && window.innerWidth < 960) {
-    screenLimit = 220; intervalTime = 50; 
-} else { screenLimit = 110; intervalTime = 100;}
+}
+const renderR = () => {
+    renderLimit();
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
         if (e > -screenLimit) {
         e-=step;
         const gameArea = document.querySelector("#gameArea");
         gameArea.style.transform = `translateX(${e}px)`;
-        // } else {
-        //     clearInterval(intervalId);
         }
-        if(e< -140 && now_data.request != "") {
+        if(e < -140 && now_data.request != "") {
             if(shock_sound === false) {
                 SD_16.play();
                 shock_sound = true;
@@ -132,13 +136,17 @@ if (window.innerWidth > 960) {
     SD_3.currentTime = 0;
     SD_3.play();
     SD_4.play();
-});
-screenR.addEventListener('mouseleave', () => {
+}
+const renderLeave = () => {
     clearInterval(intervalId);
     SD_4.pause();
     SD_5.currentTime = 0;
     SD_5.play();
-});
+}
+// screenL.addEventListener('mouseenter', () => {renderL();});
+// screenL.addEventListener('mouseleave', () => {renderLeave();});
+// screenR.addEventListener('mouseenter', () => {renderR();});
+// screenR.addEventListener('mouseleave', () => {renderLeave();});
 
  
  

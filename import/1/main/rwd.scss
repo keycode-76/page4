@@ -619,7 +619,7 @@ $height_3: 240px;
 @media (max-width: 450px) {
     body {
         * {
-            font-size: 10px;
+            font-size: 15px;
         }
     }
     #app {
@@ -642,11 +642,13 @@ $height_3: 240px;
             }
             #screenBtnDiv {
                 div {
-                    width: 20px;
-                    height: 46px;
+                    width: 150px;
+                    height: 80px;
+                    margin-top: 350px;
+
                 }
                 #screenL {
-                    margin-right: 317.5px;
+                    margin-right: 20px;
                 }
             }
             #view_border {
