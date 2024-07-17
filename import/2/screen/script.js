@@ -77,14 +77,13 @@ window.addEventListener("animationend", (event) => {
     }
 });
 
-
 const renderLimit = () => {
     if (window.innerWidth > 960) { 
         screenLimit = 360; intervalTime = 30;
-    } else if (window.innerWidth > 450 && window.innerWidth < 960) {
+    } else if (window.innerWidth > 500 && window.innerWidth < 960) {
         screenLimit = 220; intervalTime = 50; 
     } else { 
-        screenLimit = 80; intervalTime = 100;}
+        screenLimit = 110; intervalTime = 100;}
 }
 const renderL = () => {
     renderLimit();

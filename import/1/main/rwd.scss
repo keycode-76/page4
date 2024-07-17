@@ -77,18 +77,6 @@ $height_1: 768px;
     .langBtn {
         font-size: 32px;
     }
-    .instruct_video {
-        width: $width_1;
-        height: $height_1;
-    }
-    .disk_video {
-        width: $width_1;
-        height: $height_1;
-    }
-    #logo_menu {
-        width: 192px;
-        height: 192px;
-    }
     #menuArea {
         width: $width_1;
         height: $height_1;
@@ -132,7 +120,6 @@ $height_1: 768px;
             }
         }
         #instruct_div {
-            font-size: 40px;
             div {
                 margin-top: 80px;
             }
@@ -141,6 +128,18 @@ $height_1: 768px;
             margin-top: 640px;
         }
         
+    }
+    .instruct_video {
+        width: $width_1;
+        height: $height_1;
+    }
+    .disk_video {
+        width: $width_1;
+        height: $height_1;
+    }
+    #logo_menu {
+        width: 192px;
+        height: 192px;
     }
     #gameFilter {
         width: 1760px;
@@ -398,18 +397,6 @@ $height_2: 480px;
     .langBtn { 
         font-size: 20px;
     }
-    .instruct_video { 
-        width: $width_2;
-        height: $height_2;
-    }
-    .disk_video {
-        width: $width_2;
-        height: $height_2;
-    }
-    #logo_menu {
-        width: 120px;
-        height: 120px;
-    }
     #menuArea { 
         width: $width_2;
         height: $height_2;
@@ -453,7 +440,6 @@ $height_2: 480px;
             }
         }
         #instruct_div {
-            font-size: 25px;
             div {
                 margin-top: 50px;
             }
@@ -461,6 +447,18 @@ $height_2: 480px;
         #pass_tutorial {
             margin-top: 400px;
         }
+    }
+    .instruct_video { 
+        width: $width_2;
+        height: $height_2;
+    }
+    .disk_video {
+        width: $width_2;
+        height: $height_2;
+    }
+    #logo_menu {
+        width: 120px;
+        height: 120px;
     }
     #gameFilter { 
         width: 1100p3;
@@ -646,7 +644,7 @@ $height_2: 480px;
 }
 $width_3: 320px;
 $height_3: 240px;
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     body {
         * {
             font-size: 15px;
@@ -717,18 +715,6 @@ $height_3: 240px;
     .langBtn {
         font-size: 20px;
     }
-    .instruct_video {
-        width: $width_3;
-        height: $height_3;
-    }
-    .disk_video {
-        width: $width_3;
-        height: $height_3;
-    }
-    #logo_menu {
-        width: 60px;
-        height: 60px;
-    }
     #menuArea {
         width: $width_3;
         height: $height_3;
@@ -772,7 +758,6 @@ $height_3: 240px;
             }
         }
         #instruct_div {
-            font-size: 12px;
             div {
                 margin-top: 25px;
             }
@@ -780,6 +765,18 @@ $height_3: 240px;
         #pass_tutorial {
             margin-top: 200px;
         }
+    }
+    .instruct_video {
+        width: $width_3;
+        height: $height_3;
+    }
+    .disk_video {
+        width: $width_3;
+        height: $height_3;
+    }
+    #logo_menu {
+        width: 60px;
+        height: 60px;
     }
     #gameFilter {
         width: 550px;

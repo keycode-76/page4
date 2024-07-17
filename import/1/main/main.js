@@ -18,9 +18,9 @@ document.querySelectorAll(".langBtn").forEach(button => {
     button.addEventListener("click", () => {
         app.innerHTML = "";
         initScreen(app);
-        // renderMenu(app);
-        // render_icon(app);
-        importGame(app);
+        renderMenu(app);
+        render_icon(app);
+        // importGame(app);
         SD_10.play();
     });
 });
