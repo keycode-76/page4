@@ -6,7 +6,7 @@ let body_values = {}
 const init_nowData = () =>{
     clearInterval(playtimer);
     body_values = {
-        sleepy: 0,
+        sleepy: 4,
         active:0,
         hunger: 0,
         sanity: 10,

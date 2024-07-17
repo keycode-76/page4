@@ -76,24 +76,7 @@ window.addEventListener("animationend", (event) => {
         view_lose.appendChild(view_lose_cover);
     }
 });
-screenL.addEventListener('mousemove', () => { 
-    // let timer;
-    console.log("e")
 
-    // clearInterval(timer);
-    renderL();
-    // timer = setTimeout(() => {
-    // }, 500);
-});
-screenR.addEventListener('mousemove', () => { 
-    renderR();
-});
-screenL.addEventListener('mouseup', () => { renderLeave();
-    screenL.onmouseleave;
-});
-screenR.addEventListener('mouseup', () => { renderLeave();
-    screenR.onmouseleave;
-});
 
 const renderLimit = () => {
     if (window.innerWidth > 960) { 
@@ -143,10 +126,26 @@ const renderLeave = () => {
     SD_5.currentTime = 0;
     SD_5.play();
 }
-// screenL.addEventListener('mouseenter', () => {renderL();});
-// screenL.addEventListener('mouseleave', () => {renderLeave();});
-// screenR.addEventListener('mouseenter', () => {renderR();});
-// screenR.addEventListener('mouseleave', () => {renderLeave();});
+screenL.addEventListener('click', () => { 
+    let timer;
+    clearInterval(timer);
+    renderL();
+    timer = setTimeout(() => {
+        renderLeave();
+    }, 800);
+});
+screenR.addEventListener('click', () => { 
+    let timer;
+    clearInterval(timer);
+    renderR();
+    timer = setTimeout(() => {
+        renderLeave();
+    }, 800);
+});
+screenL.addEventListener('mouseenter', () => {renderL();});
+screenR.addEventListener('mouseenter', () => {renderR();});
+screenL.addEventListener('mouseleave', () => {renderLeave();});
+screenR.addEventListener('mouseleave', () => {renderLeave();});
 
  
  

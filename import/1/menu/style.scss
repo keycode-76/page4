@@ -85,9 +85,7 @@ $icon: url("/assets/img/icon/hmcc.png");
 }
 #instruct_div {
     flex-direction: column;
-    // font-size: 25px;
     div {
-        // margin-top: 50px;
         opacity: 0.5;
         &:hover {
             scale: 1.2;
@@ -99,7 +97,6 @@ $icon: url("/assets/img/icon/hmcc.png");
 #menu_img {
     width: 640px;
     height: 300px;
-    // border: 2px solid white;
     margin-bottom: 100px;
     background-image: $menu;
 }
@@ -114,11 +111,6 @@ $icon: url("/assets/img/icon/hmcc.png");
     width: 100%;
     height: 100%;
 }
-// #tutorial_1 {
-//     width: 100%;
-//     height: 100%; 
-//     background-image: $tutor_1;
-// }
 #pass_tutorial {
     position: absolute;
 }

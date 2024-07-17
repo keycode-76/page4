@@ -1,5 +1,9 @@
  // rwd
 
+$screen_btn_idle: url("/assets/img/screen/button-1.png");
+$screen_btn_push: url("/assets/img/screen/button-2.png");
+$screen_btn_idle_mobile: url("/assets/img/screen/button-3.png");
+$screen_btn_push_mobile: url("/assets/img/screen/button-4.png");
 $width_1: 1024px;
 $height_1: 768px;
 @media (min-width: 961px) { // 1.6比例
@@ -31,6 +35,10 @@ $height_1: 768px;
                 div {
                     width: 64px;
                     height: 147px;
+                    background-image: $screen_btn_idle;
+                    &:hover{
+                        background-image: $screen_btn_push;
+                    }
                 }
                 #screenL {
                     margin-right: 1016px;
@@ -339,6 +347,10 @@ $height_2: 480px;
                 div {
                     width: 40px;
                     height: 92px;
+                    background-image: $screen_btn_idle;
+                    &:hover{
+                        background-image: $screen_btn_push;
+                    }
                 }
                 #screenL {
                     margin-right: 635px;
@@ -624,7 +636,7 @@ $height_3: 240px;
     }
     #app {
         width: 550px;
-        height: $height_3;
+        height: 500px;
         #trans_snow {
             width: $width_3;
             height: $height_3;
@@ -645,7 +657,10 @@ $height_3: 240px;
                     width: 150px;
                     height: 80px;
                     margin-top: 350px;
-
+                    background-image: $screen_btn_idle_mobile;
+                    &:hover{
+                        background-image: $screen_btn_push_mobile;
+                    }
                 }
                 #screenL {
                     margin-right: 20px;
@@ -758,11 +773,10 @@ $height_3: 240px;
     }
     #endSceneDiv {
         #challengeText {
-            font-size: 15px;
-            margin-bottom: 40px;
+        font-size: 20px;
+        margin-bottom: 40px;
         }
         #scoreNum {
-            font-size: 17.5px;
             margin-top: -35px;
             margin-bottom: 25px;
         }
@@ -770,13 +784,13 @@ $height_3: 240px;
             margin-bottom: 2.5px;
         }
         #end_btnText {
-            font-size: 12.5px;
+            font-size: 25px;
             margin-bottom: 40px;
             letter-spacing: 1px;
         }
         #backtomenu_btn {
-            font-size: 15px;
-        }
+        font-size: 20px;
+    }
         .end_lock {
             width: 40px;
             height: 40px;
@@ -841,12 +855,13 @@ $height_3: 240px;
             #door_btns {
                 margin-bottom: 40px;
                 #request_btns {
-                    width: 30px;
-                    height: 30px;
+                    width: 50px;
+                    height: 50px;
                 }
                 .request_btn {
-                    width: 30px;
-                    height: 30px;
+                    width: 45px;
+                    height: 45px;
+                    z-index: 1;
                 }
             }
         }

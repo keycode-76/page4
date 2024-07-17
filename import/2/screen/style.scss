@@ -2,9 +2,7 @@
 // zindex 3 button
 $screen_tooth_1: url("/assets/img/screen/tooth-1.png");
 $screen_tooth_2: url("/assets/img/screen/tooth-2.png");
-
-$screen_btn_idle: url("/assets/img/screen/button-1.png");
-$screen_btn_push: url("/assets/img/screen/button-2.png");
+// 按鈕的圖片在rwd
 
 @keyframes lose_screenUp_anim {
     0% { opacity: 0; transform: translateY(50%) scale(1.2)};
@@ -48,15 +46,14 @@ $screen_btn_push: url("/assets/img/screen/button-2.png");
     filter: blur(10px);
     z-index: 3;
 }
+
 #screenBtnDiv {
     border: none;
     div {
-        background-image: $screen_btn_idle;
         pointer-events: auto;
         z-index: 3;
     }    
     div:hover {
-        background-image: $screen_btn_push;
         pointer-events: auto;
     }  
     #screenL {

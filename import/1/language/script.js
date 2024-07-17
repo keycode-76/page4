@@ -81,15 +81,9 @@ const language_data = {
         clickStart: "Click to start",
         backMenu: "Back to menu",
         stillWork : "Coming in September 2024",
-        pic1: `ID Photo Session: A furry creature is having its ID photo taken.
-        It looks somewhat nervous, seeming a bit unfamiliar with the process. 
-        The background is a standard blue backdrop.`,
-        pic2: `Nighttime Incident: The creature is holding up a chair defensively, appearing startled.
-        Two staff members are attempting to calm it down. The background is a blue room, 
-        with windows on the wall indicating it's nighttime.`,
-        pic3: `In the Laboratory: In a bright room, the creature is seated on a chair.
-        Two researchers are facing it, and it appears calm, cooperating well with the researchers.
-        There is a black window on the wall of the room, which has soft-textured walls.`,
+        pic1: `This year's eating contest has invited the hungry Bennet.`,
+        pic2: `The facial features of Bennet with low sanity.`,
+        pic3: `The staff playing cards with the active Bennet.`,
         pic4: `Document Snapshot:
         Name: Bennet
         Height: 2 meters
@@ -112,12 +106,9 @@ const language_data = {
         clickStart: "點擊開始",
         backMenu: "回到首頁",
         stillWork : "將在2024年9月上線",
-        pic1: `證件照拍攝中: 一隻毛茸茸的人正在拍攝證件照。
-        牠神情有些緊張，似乎有些不習慣。背景是一面標準的藍色背景布。`,
-        pic2: `夜晚突發事件: 那傢伙舉起椅子防身，似乎受到了驚嚇。旁邊兩個工作人員正在努力安撫，讓牠不要激動。背景是一個藍色的房間，牆上的窗戶顯示出已經是黑夜。`,
-        pic3: `研究室中: 一個明亮的房間內，那傢伙坐在椅子上。
-        兩位研究人員面對著牠，牠看起來情緒平穩，十分配合研究員。
-        房間牆上有一面黑色的窗戶，牆壁是柔軟的質地組成。`,
+        pic1: `這一屆的大胃王挑戰現場請來了飢餓的Bennet。`,
+        pic2: `理智過低的Bennet臉部特徵。`,
+        pic3: `執行員和活耀的Bennet打撲克牌。`,
         pic4: `文件側拍:
         名字-Bennet
         身高-2米
@@ -140,12 +131,9 @@ const language_data = {
         clickStart: "点击开始",
         backMenu: "返回首页",
         stillWork : "将在2024年9月上线",
-        pic1: `证件照拍摄中: 一只毛茸茸的人正在拍摄证件照。 
-        它神情有些紧张，似乎有些不习惯。背景是一面标准的蓝色背景布。`,
-        pic2: `夜晚突发事件: 那家伙举起椅子防身，似乎受到了惊吓。 
-        旁边两个工作人员正在努力安抚，让它不要激动。背景是一个蓝色的房间，墙上的窗户显示出已经是黑夜。`,
-        pic3: `研究室中: 一个明亮的房间内，那家伙坐在椅子上。
-        两位研究人员面对着它，它看起来情绪平稳，十分配合研究员。房间墙上有一面黑色的窗户，墙壁是柔软的质地组成。`,
+        pic1: `这一届的大胃王挑战现场请来了饥饿的Bennet。`,
+        pic2: `理智过低的Bennet脸部特征。`,
+        pic3: `执行员和活跃的Bennet打扑克牌。`,
         pic4: `文件侧拍: 名字-Bennet 
         身高-2米 
         体重-160公斤 
@@ -166,16 +154,9 @@ const language_data = {
         clickStart: "Haga clic para comenzar",
         backMenu: "Volver al menú",
         stillWork : "Llegará en Septiembre de 2024",
-        pic1: `Sesión de foto de identificación: 
-        Una criatura peluda está siendo fotografiada para su identificación.
-        Parece algo nerviosa, mostrándose un poco desconocida con el proceso.
-        El fondo es un telón azul estándar.`,
-        pic2: `Incidente nocturno: La criatura sostiene una silla defensivamente, pareciendo sorprendida.
-        Dos miembros del personal están tratando de calmarla. El fondo es una habitación azul,
-        con ventanas en la pared que indican que es de noche.`,
-        pic3: `En el laboratorio: En una habitación luminosa, la criatura está sentada en una silla.
-        Dos investigadores la están observando, y parece tranquila, cooperando bien con los investigadores.
-        Hay una ventana negra en la pared de la habitación, que tiene paredes de textura suave.`,
+        pic1: `El desafío de comer de este año ha invitado a Bennet hambriento.`,
+        pic2: `Las características faciales de Bennet con baja cordura.`,
+        pic3: `El personal jugando a las cartas con Bennet activo.`,
         pic4: `Instantánea del documento:
         Nombre: Bennet
         Altura: 2 metros
