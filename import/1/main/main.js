@@ -7,7 +7,7 @@ import { render_icon, renderMenu, instruct_pass } from "/import/1/menu/script.js
 import { importGame } from "/import/2/game/script.js";
 import { init_trans } from "/import/2/transition/script.js";
 import { SD_10 } from "/import/1/sound/script.js";
-import { init_nowData } from "/import/4/init/now.js";
+import { init_nowData, renderLimitScreen } from "/import/4/init/now.js";
 import { initLanguage } from "../language/script";
 
 const app = document.querySelector("#app");
@@ -16,6 +16,7 @@ initLanguage(app);
 
 document.querySelectorAll(".langBtn").forEach(button => {
     button.addEventListener("click", () => {
+        renderLimitScreen();
         app.innerHTML = "";
         initScreen(app);
         renderMenu(app);

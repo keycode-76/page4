@@ -2,7 +2,7 @@
 
 import "/import/2/screen/style.scss"
 import { snow_overlay } from "/import/5/snow/script.js";
-import { now_data } from "/import/4/init/now.js";
+import { now_data, init } from "/import/4/init/now.js";
 import { SD_3, SD_4, SD_5, SD_13, SD_16 } from "/import/1/sound/script.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
@@ -31,9 +31,7 @@ const screenL = createDiv("screenL");
 const screenR = createDiv("screenR");
 
 let e = 0;
-let screenLimit = 220;
 let step = 10;
-let intervalTime = 80; // 时间间隔，单位毫秒
 let intervalId = null;
 let shock_sound = false; // 讓驚嚇音效不要一直觸發
 
@@ -77,34 +75,24 @@ window.addEventListener("animationend", (event) => {
     }
 });
 
-const renderLimit = () => {
-    if (window.innerWidth > 960) { 
-        screenLimit = 110; intervalTime = 30; //360 220
-    } else if (window.innerWidth > 500 && window.innerWidth < 960) {
-        screenLimit = 110; intervalTime = 50; 
-    } else { 
-        screenLimit = 110; intervalTime = 100;}
-}
 const renderL = () => {
-    renderLimit();
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
-        if (e < screenLimit) {
+        if (e < init.screenLimit) {
         e+=step;
         const gameArea = document.querySelector("#gameArea")
         gameArea.style.transform = `translateX(${e}px)`;
         shock_sound = false;
         }
-    }, intervalTime);
+    }, init.intervalTime);
     SD_3.currentTime = 0;
     SD_3.play();
     SD_4.play();
 }
 const renderR = () => {
-    renderLimit();
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
-        if (e > -screenLimit) {
+        if (e > -init.screenLimit) {
         e-=step;
         const gameArea = document.querySelector("#gameArea");
         gameArea.style.transform = `translateX(${e}px)`;
@@ -115,7 +103,7 @@ const renderR = () => {
                 shock_sound = true;
             }
         }
-    }, intervalTime);
+    }, init.intervalTime);
     SD_3.currentTime = 0;
     SD_3.play();
     SD_4.play();

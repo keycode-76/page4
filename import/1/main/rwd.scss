@@ -9,7 +9,7 @@ $height_1: 768px;
 @media (min-width: 961px) { // 1.6比例
     body {
         * {
-            font-size: 32px;
+            font-size: 35px;
         }
         
     }
@@ -102,9 +102,9 @@ $height_1: 768px;
             margin-top: 480px;
         }
         .menu_btn {
-            width: 160px;
+            width: 200px;
             height: 48px;
-            margin: 0px 48px;
+            margin: 0px 20px;
         }
         .menu_btn:hover::before {
             width: 128px;
@@ -329,7 +329,7 @@ $height_2: 480px;
 @media (max-width: 960px) and (min-width: 451px) {
     body {
         * {
-            font-size: 20px;
+            font-size: 25px;
         }
         
     }
@@ -647,7 +647,7 @@ $height_3: 240px;
 @media (max-width: 500px) {
     body {
         * {
-            font-size: 15px;
+            font-size: 20px;
         }
     }
     #app {
@@ -712,8 +712,8 @@ $height_3: 240px;
             }
         }
     }
-    .langBtn {
-        font-size: 20px;
+    #languageDiv {
+        flex-direction: column;
     }
     #menuArea {
         width: $width_3;

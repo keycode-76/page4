@@ -30,6 +30,17 @@ const init_nowData = () =>{
 // 最佳: 33秒過關 7完成
 // 最佳: 36秒過關 8完成 3700
 
+const renderLimitScreen = () => {
+    if (window.innerWidth > 960) { 
+        init.screenLimit = 360; init.intervalTime = 30; //360 220
+    } else if (window.innerWidth > 500 && window.innerWidth < 960) {
+        init.screenLimit = 220; init.intervalTime = 50; 
+    } else { 
+        init.screenLimit = 110; init.intervalTime = 100;}
+}
+
+let screenLimit = 220;
+let intervalTime = 80; // 时间间隔，单位毫秒
 let playtimer;
 const startPlaytimer = () => {
     playtimer = setInterval(() => {
@@ -40,10 +51,12 @@ const init = {
     anim: 0,//遊戲動畫初始化
     language: "English",
     volume: 3,
+    screenLimit: 110,
+    intervalTime: 100,
     bonus_time: 5000, 
     bonus_value: 500,
     bonus_value_big: 2000,
     score_1: 3400,
     score_2: 4900,
   };
-export { now_data, body_values, init_nowData, startPlaytimer, playtimer, init }
+export { now_data, body_values, init_nowData, startPlaytimer, playtimer, init ,renderLimitScreen}
