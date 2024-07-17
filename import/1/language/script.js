@@ -81,18 +81,10 @@ const language_data = {
         clickStart: "Click to start",
         backMenu: "Back to menu",
         stillWork : "Coming in September 2024",
-        pic1: `This year's eating contest has invited the hungry Bennet.`,
+        pic1: `Lunch time in the monitoring room.`,
         pic2: `The facial features of Bennet with low sanity.`,
         pic3: `The staff playing cards with the active Bennet.`,
-        pic4: `Document Snapshot:
-        Name: Bennet
-        Height: 2 meters
-        Weight: 160 kilograms
-        Species: Unknown
-        Physical Features: Furry light-colored fur, two tentacles on each side of the face, red nose.
-        Important body structures resemble those of humans.
-        Emotionally unstable at night, caution advised due to its strength and potential for aggression.
-        Currently observed to have three types of emotions... [Not passed security clearance]`,
+        pic4: `This year's eating contest has invited the hungry Bennet.`,
         credit: "Credit",
     },
     traditional: {
@@ -106,18 +98,10 @@ const language_data = {
         clickStart: "點擊開始",
         backMenu: "回到首頁",
         stillWork : "將在2024年9月上線",
-        pic1: `這一屆的大胃王挑戰現場請來了飢餓的Bennet。`,
+        pic1: `監控室的午餐時間。`,
         pic2: `理智過低的Bennet臉部特徵。`,
         pic3: `執行員和活耀的Bennet打撲克牌。`,
-        pic4: `文件側拍:
-        名字-Bennet
-        身高-2米
-        體重-160公斤
-        物種-不清楚
-        外表特徵-毛茸茸的淺色毛皮、左右臉上各兩支觸手、紅色的鼻子。
-        身體重要構造與人類相似
-        情緒在夜晚時特別不穩定，需留意其強大力量，具備攻擊危險
-        目前觀測到的情緒有三種...[未通過安全審核]`,
+        pic4: `這一屆的大胃王挑戰現場請來了飢餓的Bennet。`,
         credit: "工作人員",
     },
     simplified: {
@@ -131,16 +115,10 @@ const language_data = {
         clickStart: "点击开始",
         backMenu: "返回首页",
         stillWork : "将在2024年9月上线",
-        pic1: `这一届的大胃王挑战现场请来了饥饿的Bennet。`,
+        pic1: `监控室的午餐时间。`,
         pic2: `理智过低的Bennet脸部特征。`,
         pic3: `执行员和活跃的Bennet打扑克牌。`,
-        pic4: `文件侧拍: 名字-Bennet 
-        身高-2米 
-        体重-160公斤 
-        物种-不清楚 
-        外表特征-毛茸茸的浅色毛皮、左右脸上各两支触手、红色的鼻子。 
-        身体重要构造与人类相似 情绪在夜晚时特别不稳定，需留意其强大力量，具备攻击危险 
-        目前观测到的情绪有三种...[未通过安全审核]`,
+        pic4: `这一届的大胃王挑战现场请来了饥饿的Bennet。`,
         credit: "工作人员",
     },
     spanish: {
@@ -154,18 +132,10 @@ const language_data = {
         clickStart: "Haga clic para comenzar",
         backMenu: "Volver al menú",
         stillWork : "Llegará en Septiembre de 2024",
-        pic1: `El desafío de comer de este año ha invitado a Bennet hambriento.`,
+        pic1: `La hora del almuerzo en la sala de monitoreo.`,
         pic2: `Las características faciales de Bennet con baja cordura.`,
         pic3: `El personal jugando a las cartas con Bennet activo.`,
-        pic4: `Instantánea del documento:
-        Nombre: Bennet
-        Altura: 2 metros
-        Peso: 160 kilogramos
-        Especie: Desconocida
-        Características físicas: Pelaje peludo de color claro, dos tentáculos a cada lado de la cara, nariz roja.
-        Estructuras corporales importantes se asemejan a las de los humanos.
-        Emocionalmente inestable por la noche, se recomienda precaución debido a su fuerza y potencial agresivo.
-        Actualmente se observan tres tipos de emociones... [No ha pasado el control de seguridad]`,
+        pic4: `El desafío de comer de este año ha invitado a Bennet hambriento.`,
         credit: "Créditos",
     }
 };

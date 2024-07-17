@@ -6,7 +6,7 @@ let body_values = {}
 const init_nowData = () =>{
     clearInterval(playtimer);
     body_values = {
-        sleepy: 4,
+        sleepy: 0,
         active:0,
         hunger: 0,
         sanity: 10,
@@ -34,7 +34,6 @@ let playtimer;
 const startPlaytimer = () => {
     playtimer = setInterval(() => {
         now_data.play_time+=1;
-        // console.log(now_data.play_time, now_data.complete_request)
     }, 1500);
 };
 const init = {
@@ -44,7 +43,7 @@ const init = {
     bonus_time: 5000, 
     bonus_value: 500,
     bonus_value_big: 2000,
-    score_1: 3500,
-    score_2: 5000,
+    score_1: 3400,
+    score_2: 4900,
   };
 export { now_data, body_values, init_nowData, startPlaytimer, playtimer, init }

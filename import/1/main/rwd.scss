@@ -201,12 +201,25 @@ $height_1: 768px;
             #diskPic_Xbtn {
                 width: 48px;
                 height: 48px;
-                margin-top: 550px;
+                margin-top: 500px;
+            }
+            #disk_video_Xbtn {
+                width: 48px;
+                height: 48px;
+                margin-top: 820px;
             }
             .diskPic {
                 width: 96px;
                 height: 96px;
                 margin: 16px;
+            }
+            .pic_text {
+                width: 800px;
+                height: 480px;
+            }
+            .disk_2 {
+                width: 800px;
+                height: 480px;
             }
         }
         .diskPick_click {
@@ -214,10 +227,6 @@ $height_1: 768px;
             height: 480px;
             margin-bottom: 160px;
         }       
-        .pic_text {
-            width: 800px;
-            height: 480px;
-        }
         #pic_text_detect {
             width: 800px;
             height: 560px;    
@@ -512,7 +521,12 @@ $height_2: 480px;
             #diskPic_Xbtn {
                 width: 30px;
                 height: 30px;
-                margin-top: 350px;
+                margin-top: 300px;
+            }
+            #disk_video_Xbtn {
+                width: 30px;
+                height: 30px;
+                margin-top: 550px;
             }
             .diskPic {
                 width: 60px;
@@ -520,6 +534,10 @@ $height_2: 480px;
                 margin: 10px;
             }
             .pic_text {
+                width: 500px;
+                height: 300px;
+            }
+            .disk_2 {
                 width: 500px;
                 height: 300px;
             }
@@ -773,10 +791,11 @@ $height_3: 240px;
     }
     #endSceneDiv {
         #challengeText {
-        font-size: 20px;
-        margin-bottom: 40px;
+            font-size: 20px;
+            margin-bottom: 40px;
         }
         #scoreNum {
+            font-size: 20px;
             margin-top: -35px;
             margin-bottom: 25px;
         }
@@ -789,8 +808,8 @@ $height_3: 240px;
             letter-spacing: 1px;
         }
         #backtomenu_btn {
-        font-size: 20px;
-    }
+            font-size: 20px;
+        }
         .end_lock {
             width: 40px;
             height: 40px;
@@ -819,9 +838,15 @@ $height_3: 240px;
                 margin-left: 190px;
             }
             #diskPic_Xbtn {
+                font-size: 20px;
                 width: 15px;
                 height: 15px;
-                margin-top: 175px;
+                margin-top: 300px;
+            }
+            #disk_video_Xbtn {
+                width: 15px;
+                height: 15px;
+                margin-top: 300px;
             }
             .diskPic {
                 width: 30px;
@@ -829,18 +854,23 @@ $height_3: 240px;
                 margin: 5px;
             }
             .pic_text {
-                width: 250px;
-                height: 150px;
+                font-size: 20px;
+                width: 320px;
+                height: 190px;
+            }
+            .disk_2 {
+                width: 320px;
+                height: 190px;
             }
         }
         .diskPick_click {
-            width: 250px;
-            height: 150px;
+            width: 320px;
+            height: 190px;
             margin-bottom: 50px;
         }
         #pic_text_detect {
-            width: 250px;
-            height: 150px;
+            width: 320px;
+            height: 190px;
             margin-bottom: 50px;
         }
     }

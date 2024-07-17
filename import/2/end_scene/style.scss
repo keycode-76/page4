@@ -9,10 +9,14 @@ $end_disk1: url("/assets/img/end/disk (1).png");
 $end_disk2: url("/assets/img/end/disk (2).png");
 $end_disk3: url("/assets/img/end/disk (3).png");
 $end_disk4: url("/assets/img/end/disk (4).png");
-$end_disk5: url("/assets/img/end/disk (1).png");
-$end_disk6: url("/assets/img/end/disk (2).png");
-$end_disk7: url("/assets/img/end/disk (3).png");
-$end_disk8: url("/assets/img/end/disk (4).png");
+$end_disk5: url("/assets/img/end/disk (5).jpg");
+$end_disk6: url("/assets/img/end/disk (6).jpg");
+$end_disk7: url("/assets/img/end/disk (7).jpg");
+$end_disk8: url("/assets/img/end/disk (8).jpg");
+$end_disk5-1: url("/assets/img/end/disk (5-1).jpg");
+$end_disk6-1: url("/assets/img/end/disk (6-1).jpg");
+$end_disk7-1: url("/assets/img/end/disk (7-1).jpg");
+$end_disk8-1: url("/assets/img/end/disk (8-1).jpg");
     
 @keyframes showEndScene_anim {
     0%{ opacity: 0; }
@@ -104,6 +108,11 @@ $end_disk8: url("/assets/img/end/disk (4).png");
         position: absolute;
         transform: scaleY(80%);
     }
+    #disk_video_Xbtn {
+        position: absolute;
+        transform: scaleY(80%);
+    }
+    
     .diskPic {
         border: 2px solid white;
         filter: blur(1.5px);
@@ -139,6 +148,14 @@ $end_disk8: url("/assets/img/end/disk (4).png");
     background-image: $end_disk7;
 }.disk_data_8 {
     background-image: $end_disk8;
+}.disk_data_5-1 {
+    background-image: $end_disk5-1;
+}.disk_data_6-1 {
+    background-image: $end_disk6-1;
+}.disk_data_7-1 {
+    background-image: $end_disk7-1;
+}.disk_data_8-1 {
+    background-image: $end_disk8-1;
 }.disk_video {
     position: absolute;
     pointer-events: none;
@@ -146,8 +163,11 @@ $end_disk8: url("/assets/img/end/disk (4).png");
 }
 .pic_text {
     position: absolute;
-    backdrop-filter: blur(.5px) brightness(0.8);
+    backdrop-filter: blur(.5px) brightness(0.6);
     animation: all 2s linear;
+}
+.disk_2 {
+    position: absolute;
 }
 
 #pic_text_detect {

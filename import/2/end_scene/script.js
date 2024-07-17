@@ -54,19 +54,25 @@ const pic_text_1 = createDiv(0, "pic_text")
 const pic_text_2 = createDiv(0, "pic_text")
 const pic_text_3 = createDiv(0, "pic_text")
 const pic_text_4 = createDiv(0, "pic_text")
-const pic_text_detect = createDiv("pic_text_detect", 0, 0, 0, ()=> {pictrue_hover()}, ()=> { picture_leave()})
+const pic_1_5 = createDiv(0, "disk_2 disk_data_5-1")
+const pic_1_6 = createDiv(0, "disk_2 disk_data_6-1")
+const pic_1_7 = createDiv(0, "disk_2 disk_data_7-1")
+const pic_1_8 = createDiv(0, "disk_2 disk_data_8-1")
 
-const diskPic_1 = createDiv("diskPic_1", "diskPic", 0, () => { picture_click(1)}, );
-const diskPic_2 = createDiv("diskPic_2", "diskPic", 0, () => { picture_click(2)}, );
-const diskPic_3 = createDiv("diskPic_3", "diskPic", 0, () => { picture_click(3)}, );
-const diskPic_4 = createDiv("diskPic_4", "diskPic", 0, () => { picture_click(4)}, );
-const diskPic_5 = createDiv("diskPic_5", "diskPic", 0, () => { picture_click(5)}, );
-const diskPic_6 = createDiv("diskPic_6", "diskPic", 0, () => { picture_click(6)}, );
-const diskPic_7 = createDiv("diskPic_7", "diskPic", 0, () => { picture_click(7)}, );
-const diskPic_8 = createDiv("diskPic_8", "diskPic", 0, () => { picture_click(8)}, );
+const pic_text_detect = createDiv("pic_text_detect", 0, 0, ()=> {pictrue_click()})
+
+const diskPic_1 = createDiv("diskPic_1", "diskPic", 0, () => { picture_icon_click(1)}, );
+const diskPic_2 = createDiv("diskPic_2", "diskPic", 0, () => { picture_icon_click(2)}, );
+const diskPic_3 = createDiv("diskPic_3", "diskPic", 0, () => { picture_icon_click(3)}, );
+const diskPic_4 = createDiv("diskPic_4", "diskPic", 0, () => { picture_icon_click(4)}, );
+const diskPic_5 = createDiv("diskPic_5", "diskPic", 0, () => { picture_icon_click(5)}, );
+const diskPic_6 = createDiv("diskPic_6", "diskPic", 0, () => { picture_icon_click(6)}, );
+const diskPic_7 = createDiv("diskPic_7", "diskPic", 0, () => { picture_icon_click(7)}, );
+const diskPic_8 = createDiv("diskPic_8", "diskPic", 0, () => { picture_icon_click(8)}, );
 const diskPic_9 = createDiv("diskPic_9", "diskPic", 0,  );
 
 const diskPic_Xbtn = createDiv("diskPic_Xbtn", 0, "X");
+const disk_video_Xbtn = createDiv("disk_video_Xbtn", 0, "X");
 const end_btnText = createDiv("end_btnText");
 const backToMenu_btn = createDiv("backtomenu_btn", 0, 0, () => {back_menu()});
 const retry_iconBtn_1 = createDiv("retry_iconBtn_1", "end_btn", 0, () => { play_again() }, () => {
@@ -77,21 +83,20 @@ const retry_iconBtn_1 = createDiv("retry_iconBtn_1", "end_btn", 0, () => { play_
         spanish: "reintentar"
     });
 });
-
 const disk_iconBtn_1 = createDiv("disk_iconBtn_1", "end_btn", 0, 0, () => {
     endBtn_hover({
-        english: "picture: check-in record",
-        traditional: "照片: 報到紀錄",
-        simplified: "照片: 报到记录",
-        spanish: "imagen: registro de entrada",
+        english: "data: The usual appearance",
+        traditional: "資料: 平日的樣子",
+        simplified: "资料: 平日的样子",
+        spanish: "datos: La apariencia habitual",
     });
 }, 0, end_lock_1);
 const disk_iconBtn_2 = createDiv("disk_iconBtn_2", "end_btn", 0, 0, () => {
     endBtn_hover({
-        english: "data: background investigation",
-        traditional: "資料: 背景調查",
-        simplified: "资料: 背景调查",
-        spanish: "datos: investigación de antecedentes",
+        english: "data: True appearance",
+        traditional: "資料: 真實樣貌",
+        simplified: "资料: 真实样貌",
+        spanish: "datos: Apariencia real",
     });
 }, 0, end_lock_2);
 
@@ -250,18 +255,17 @@ disk_Xbtn.addEventListener("click", () => {
 });
 let pic_click_num = 0;
 
-const picture_click = (num) => {
+const picture_icon_click = (num) => {
     const diskPicElement = document.querySelector(`#diskPic_${num}`);
     if (diskPicElement) {
         diskPicElement.className = `diskPick_click disk_data_${num}`;
         disk_open.append(diskPic_Xbtn, pic_text_detect);
         pic_click_num = num;
-        pictrue_hover();
         SD_18.currentTime = 0;
         SD_18.play();
     } 
 };
-const pictrue_hover = () => {
+const pictrue_click = () => {
     pic_text_detect.innerHTML = "";
     switch (pic_click_num) {
         case 1:
@@ -276,9 +280,26 @@ const pictrue_hover = () => {
         case 4:
             pic_text_detect.appendChild(pic_text_4);
             break;
+        case 5:
+            pic_text_detect.appendChild(pic_1_5);
+            break;
+        case 6:
+            pic_text_detect.appendChild(pic_1_6);
+            break;
+        case 7:
+            pic_text_detect.appendChild(pic_1_7);
+            break;
+        case 8:  
+            pic_text_detect.appendChild(pic_1_8);
+            break;
         default:
             return;
     }
+    let timer;
+    clearInterval(timer);
+    timer = setTimeout(() => {
+        picture_leave();
+    }, 1000);
 };
 const picture_leave = () => {
     pic_text_detect.innerHTML = "";
@@ -303,12 +324,19 @@ diskPic_Xbtn.addEventListener("click", () => {
 
 diskPic_9.addEventListener("click", () => {
     const video = document.querySelector("#disk2_video");
+    video.currentTime = 0;
     video.play();
     video.style.display = 'block';
+    disk_open.appendChild(disk_video_Xbtn);
     video.addEventListener("ended", () => {
         video.style.display = "none";
-        diskPic_Xbtn.click();
+        disk_video_Xbtn.click();
     });
+    disk_video_Xbtn.addEventListener("click", () => { 
+        video.style.display = "none"; 
+        video.pause();
+        disk_open.removeChild(disk_video_Xbtn);
+    })
 });
 
 export { init_endScene,
