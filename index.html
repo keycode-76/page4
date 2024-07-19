@@ -5,10 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/page4/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bennet's Bedtime</title>
-    <script type="module" crossorigin src="/page4/assets/index-lP_2lGnj.js"></script>
-    <link rel="stylesheet" crossorigin href="/page4/assets/index-B7mhug-R.css">
+    <script type="module" crossorigin src="/page4/assets/index-NjzU8Dwj.js"></script>
+    <link rel="stylesheet" crossorigin href="/page4/assets/index-B4_VBVKB.css">
   </head>
+  <style>
+    @keyframes loading {
+      0% { opacity: 1;}
+      50% { opacity: 0;}
+    }
+    #loading{
+      position: absolute;
+      margin: 50% 50%;
+      color:white;
+      animation: loading 1s infinite;
+    }
+  </style>
   <body>
+    <label id="loading">loading</label>
     <div id="app"></div>
     <video id="instruct_video_0" class="instruct_video">
       <source src="/page4/assets/0703-en-C3t6TwlQ.mp4" type="video/mp4">
