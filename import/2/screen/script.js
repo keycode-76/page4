@@ -28,6 +28,7 @@ const view_border = createDiv("view_border");
 
 const screenBtnDiv = createDiv("screenBtnDiv");
 const screenL = createDiv("screenL");
+const screenM = createDiv("screenM");
 const screenR = createDiv("screenR");
 
 let e = 0;
@@ -44,7 +45,11 @@ const initScreen  = (app) => {
     app.appendChild(viewPort);
 }
 const startScreen = () => {
-    screenBtnDiv.append(screenL, screenR, );
+    if (init.screenLimit<220) {
+        screenBtnDiv.append(screenL, screenM, screenR );
+    }  else {
+        screenBtnDiv.append(screenL, screenR )
+    }
     viewPort.appendChild(screenBtnDiv);
 }
 export { initScreen, startScreen, clearScreen, endScreen }
@@ -74,7 +79,6 @@ window.addEventListener("animationend", (event) => {
         view_lose.appendChild(view_lose_cover);
     }
 });
-
 const renderL = () => {
     clearInterval(intervalId); // 确保没有其他定时器在运行
     intervalId = setInterval(() => {
@@ -120,7 +124,7 @@ screenL.addEventListener('click', () => {
     renderL();
     timer = setTimeout(() => {
         renderLeave();
-    }, 800);
+    }, 2000);
 });
 screenR.addEventListener('click', () => { 
     let timer;
@@ -128,12 +132,13 @@ screenR.addEventListener('click', () => {
     renderR();
     timer = setTimeout(() => {
         renderLeave();
-    }, 800);
+    }, 2000);
 });
 screenL.addEventListener('mouseenter', () => {renderL();});
 screenR.addEventListener('mouseenter', () => {renderR();});
 screenL.addEventListener('mouseleave', () => {renderLeave();});
 screenR.addEventListener('mouseleave', () => {renderLeave();});
+screenM.addEventListener('click', () => {renderLeave();});
 
  
  

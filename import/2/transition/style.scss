@@ -1,9 +1,5 @@
 // transtion.js
 
-$snow1: url("/assets/img/menu/scene-30.png");
-$snow2: url("/assets/img/menu/scene-31.png");
-$snow3: url("/assets/img/menu/scene-32.png");
-
 #transDiv{
     position: absolute;
     background: black;
@@ -30,9 +26,9 @@ $snow3: url("/assets/img/menu/scene-32.png");
 }
 
 @keyframes transSnow_anim {
-    0% { background-image: $snow1; background-size: cover;  opacity: 0.3; }
-    50% { background-image: $snow2; background-size: cover; opacity: 0.1; }
-    100% { background-image: $snow3; background-size: cover;  opacity: 0.3; }
+    0% { background-size: cover;  opacity: 0.3; }
+    50% { background-size: cover; opacity: 0.1; }
+    100% { background-size: cover;  opacity: 0.3; }
 }
 @keyframes loading_anim {
     0% { opacity: 1; }

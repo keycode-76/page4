@@ -4,6 +4,7 @@ $screen_btn_idle: url("/assets/img/screen/button-1.png");
 $screen_btn_push: url("/assets/img/screen/button-2.png");
 $screen_btn_idle_mobile: url("/assets/img/screen/button-3.png");
 $screen_btn_push_mobile: url("/assets/img/screen/button-4.png");
+$screen_btn_middle: url("/assets/img/screen/button-5.png");
 $width_1: 1024px;
 $height_1: 768px;
 @media (min-width: 961px) { // 1.6比例
@@ -647,7 +648,7 @@ $height_3: 240px;
 @media (max-width: 500px) {
     body {
         * {
-            font-size: 20px;
+            font-size: 18px;
         }
     }
     #app {
@@ -670,16 +671,16 @@ $height_3: 240px;
             }
             #screenBtnDiv {
                 div {
-                    width: 150px;
+                    width: 100px;
                     height: 80px;
-                    margin-top: 350px;
+                    margin: 350px 5px 0px;
                     background-image: $screen_btn_idle_mobile;
                     &:hover{
                         background-image: $screen_btn_push_mobile;
                     }
                 }
-                #screenL {
-                    margin-right: 20px;
+                #screenM {
+                    background-image: $screen_btn_middle;
                 }
             }
             #view_border {
@@ -719,12 +720,14 @@ $height_3: 240px;
         width: $width_3;
         height: $height_3;
         #menu_img {
-            width: $width_2;
+            width: 300px;
             height: 150px;
-            margin-bottom: 50px;
+            margin-top: 30px;
+            margin-right: 10px;
         }
         #menu_bottom {
-            margin-top: 190px;
+            margin-top: 300px;
+            background: black;
             .volume_slot {
                 width: 5px;
                 margin: 0px 1px;
@@ -735,27 +738,34 @@ $height_3: 240px;
             #volume_sub {
                 margin-right: 10px;
             }
+            #credit_div {
+                width: $width_2;
+                height: 175px;
+                margin-top: 200px;
+                background: black;
+                // padding-top: 5px;
+                * {
+                    margin: 1.5px 5px;
+                }
+            }
         }
         #menu_btns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             margin-top: 150px;
+            margin-right: 50px;
+            text-align: start;
         }
         .menu_btn {
-            width: 50px;
-            height: 15px;
-            margin: 0px 15px;
+            font-size: 15px;
+            width: 100px;
+            margin: 5px 5px;
+            display: block;
+            border: 1px white ;
         }
         .menu_btn:hover::before {
             width: 40px;
             height: 10px;
-        }
-        #credit_div {
-            width: $width_2;
-            height: 175px;
-            margin-bottom: 250px;
-            padding-top: 5px;
-            * {
-                margin: 1.5px 5px;
-            }
         }
         #instruct_div {
             div {

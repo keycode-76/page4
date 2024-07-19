@@ -34,13 +34,12 @@ const volume_4 = createDiv(0, "volume_slot", "-");
 const volume_5 = createDiv(0, "volume_slot", "-");
 const volume_slots = [volume_1, volume_2, volume_3, volume_4, volume_5];
 const volume_sub = createDiv("volume_sub", 0, "-");
-
 const credit_div = createDiv("credit_div");
 
 let credit_list = [
-    { title: "instruction music", text: "Adolf & The Bohemians - Old Bohemians Dance (1936)", type: "label"},
-    { title: "HMCC Official", text: "HMCC official", type: "a", link: "https://www.instagram.com/hmcc.official?igsh=MW5ybnFuemd3aWxmYg==",},
+    { title: "HMCC Official", text: "HMCC official", type: "a", link: "https://www.instagram.com/hmcc__official?igsh=MW5ybnFuemd3aWxmYg==",},
     { title: "Video source", text: "Eye eel echo", type: "a", link: "https://www.youtube.com/@eyeeelecho",},
+    { title: "instruction music", text: "Adolf & The Bohemians - Old Bohemians Dance (1936)", type: "label"},
     { title: "font/fuente", text: "ChakraPetch-Bold", text2:"GochiHand-Regular", type: "label"},
     { title: "字體", text: "GenJyuuGothicL-Bold", text2:"ChenYuluoyan-Thin", type: "label"},
     { title: "字体", text: "No.82-ShangShouJianHeiCuTi", text2:"AaTaoTaoWuLongNaiLaoSu", type: "label"},
