@@ -39,8 +39,6 @@ const renderLimitScreen = () => {
         init.screenLimit = 110; init.intervalTime = 100;}
 }
 
-let screenLimit = 220;
-let intervalTime = 80; // 时间间隔，单位毫秒
 let playtimer;
 const startPlaytimer = () => {
     playtimer = setInterval(() => {
@@ -56,7 +54,7 @@ const init = {
     bonus_time: 5000, 
     bonus_value: 500,
     bonus_value_big: 2000,
-    score_1: 3400,
-    score_2: 4900,
+    score_1: 4000,
+    score_2: 5600,
   };
 export { now_data, body_values, init_nowData, startPlaytimer, playtimer, init ,renderLimitScreen}

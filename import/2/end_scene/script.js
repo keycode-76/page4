@@ -144,60 +144,40 @@ const endBtn_hover = (text) => {
     SD_12.currentTime = 0;
     SD_12.play();
 }
-
 const renderEnd_content = () => {
     end_btns.append(retry_iconBtn_1, disk_iconBtn_1, disk_iconBtn_2);
-    if (now_data.win === true) {
-        challengeText.textContent = which_language({
-            english: "score",
-            traditional: "分數",
-            simplified: "分数",
-            spanish: "puntuación"
-        });
-        if(num === 0) {
-            endSceneDiv.append(challengeText); 
-        } else if(num === 1) {
-            endSceneDiv.append(scoreNum, end_btns, end_btnText, backToMenu_btn);
-            backToMenu_btn.style.opacity = 0;
-            console.log(now_data.play_time*100, now_data.complete_request*10 )
-            let score = init.bonus_time - (now_data.play_time*80);
-            if (score<0) score = 0;
-            score += (now_data.complete_request*100);
-            console.log(body_values)
-            if (body_values.active < 5) {score+=init.bonus_value};
-            if (body_values.hunger < 5) {score+=init.bonus_value};
-            if (body_values.sanity > 5) {score+=init.bonus_value};
-            if (body_values.active < 3 && body_values.hunger < 3 && body_values.sanity > 7) {
-                score+=init.bonus_value_big };
-            num_anim(scoreNum, 0, score, 2000);
-            if (score >= init.score_1 && score < init.score_2) {
-                end_lock_1.className = "end_unlock";
-                SD_19.play();
-            } else if (score>init.score_2) {
-                end_lock_1.className = "end_unlock";
-                end_lock_2.className = "end_unlock";
-                SD_19.play();
-            }
-        } else if(num === 2) {
-            backToMenu_btn.style.opacity = 1;
+    challengeText.textContent = which_language({
+        english: "score",
+        traditional: "分數",
+        simplified: "分数",
+        spanish: "puntuación"
+    });
+    if(num === 0) {
+        endSceneDiv.append(challengeText); 
+    } else if(num === 1) {
+        endSceneDiv.append(scoreNum, end_btns, end_btnText, backToMenu_btn);
+        backToMenu_btn.style.opacity = 0;
+        let score = init.bonus_time - (now_data.play_time*80);
+        if (score<0) score = 0;
+        score += (now_data.complete_request*100);
+        if (body_values.active < 5) {score+=init.bonus_value}; // 500
+        if (body_values.hunger < 5) {score+=init.bonus_value};
+        if (body_values.sanity > 5) {score+=init.bonus_value};
+        if (body_values.active < 3 && body_values.hunger < 3 && body_values.sanity > 7) {
+            score+=init.bonus_value_big }; // 2000
+        if (now_data.win === true) {score+=1000;} // win 1000
+        num_anim(scoreNum, 0, score, 2000);
+        if (score >= init.score_1 && score < init.score_2) {
+            end_lock_1.className = "end_unlock";
+            SD_19.play();
+        } else if (score>init.score_2) {
+            end_lock_1.className = "end_unlock";
+            end_lock_2.className = "end_unlock";
+            SD_19.play();
         }
-
-    } else if (now_data.win === false) {
-        challengeText.textContent = which_language({
-            english: "lost connect",
-            traditional: "訊號丟失",
-            simplified: "信号丢失",
-            spanish: "se perdió la conexión"
-        });
-        if(num === 0) {
-            endSceneDiv.append(challengeText); 
-        } else if(num === 1) {
-            endSceneDiv.append(end_btns, end_btnText, backToMenu_btn);
-            backToMenu_btn.style.opacity = 0;
-        } else if(num === 2) {
-            backToMenu_btn.style.opacity = 1;
-        } 
-    } else { return; }
+    } else if(num === 2) {
+        backToMenu_btn.style.opacity = 1;
+    }
     num+=1;
 }
 const its_lock = (event, num) => { //endlock
@@ -238,7 +218,7 @@ disk_iconBtn_1.addEventListener("click", () => {
     SD_10.play();
 });
 disk_iconBtn_2.addEventListener("click", () => {
-    if (end_lock_1.className === "end_lock") return;
+    if (end_lock_2.className === "end_lock") return;
     disk_open.innerHTML = "";
     disk_open.append(disk_name, disk_Xbtn);
     disk_open.append(diskPic_5, diskPic_6, diskPic_7, diskPic_8, diskPic_9);

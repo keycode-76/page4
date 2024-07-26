@@ -14,7 +14,6 @@ $window-shadow: url("/assets/img/windowShadow.png");
         pointer-events: none;
         opacity: 0.8;
         background-image: $filter;
-        // z-index: 3; // only 2
     }
 }
 #backGround {
@@ -44,32 +43,3 @@ $window-shadow: url("/assets/img/windowShadow.png");
     position: absolute;
     background-image: $window-shadow;
 }
-
-// #buttonsArea {
-//     position: absolute;
-//     width: 250px;
-//     height: 120px;
-//     margin-top: 220px;
-//     margin-left: 800px;
-// }
-// #lightArea {
-//     position: absolute;
-//     width: 40px;
-//     height: 50px;
-//     margin-top: 220px;
-//     margin-left: 450px;
-// }
-
-
-// #rulesArea {
-//     position: absolute;
-//     width: 80px;
-//     height: 100px;
-//     margin-right: 480px;
-// }
-// #fileArea {
-//     position: absolute;
-//     width: 450px;
-//     height: 400px;
-//     margin-top: 80px;
-// }

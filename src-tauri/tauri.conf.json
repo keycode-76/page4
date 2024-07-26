@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "whatstherequest",
+    "productName": "BennetsBedtime",
     "version": "0.1.0"
   },
   "tauri": {
@@ -58,7 +58,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "whatstherequest",
+        "title": "BennetsBedtime",
         "width": 800
       }
     ]

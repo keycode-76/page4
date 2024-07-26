@@ -7,11 +7,9 @@ const transDiv = document.createElement("div");
 const trans_text = document.createElement("div");
 const trans_snow = document.createElement("div");
 
-
 const init_trans = (app) => {
     transDiv.innerHTML = "";
     transDiv.className = "";
-    // trans_text.textContent = "LOADING";
     transDiv.id= "transDiv";
     trans_text.id= "trans_text";
     trans_snow.id = "trans_snow";
@@ -19,7 +17,7 @@ const init_trans = (app) => {
     transDiv.append(trans_text);
     loading_show();
     return app.appendChild(transDiv);
-}
+};
  
 const loading_show = () => { //endlock
     setTimeout(() => {

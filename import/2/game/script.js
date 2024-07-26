@@ -8,7 +8,7 @@ import { initWindow } from "/import/3/window/script.js";
 import { renderButtons } from "/import/3/buttons/script.js";
 import { initDoor } from "/import/3/door/script.js";
 import { init_endScene } from "/import/2/end_scene/script.js";
-import { now_data, init_nowData } from "/import/4/init/now.js";
+import { init_nowData } from "/import/4/init/now.js";
 
 const createDiv = (nameId, nameClass, text, func, child1, child2) => {
     const itemModel = document.createElement("div");
@@ -31,10 +31,6 @@ const computerShadow = createDiv("computerShadow");
 
 const tableArea = createDiv("tableArea");
 const buttonsArea = createDiv("buttonsArea");
-const rulesArea = createDiv("rulesArea");
-
-const lightArea = createDiv("lightArea");
-const fileArea = createDiv("fileArea");
 
 const windowArea = createDiv("windowArea");
 const windowShadow = createDiv("windowShadow");
@@ -51,7 +47,7 @@ const importGame = (app) => {
     gameArea.append(backGround, gameFilter);
     app.append(gameArea);
     initScreen(app);
-}
+};
 
 window.addEventListener("animationend", (event) => {
     

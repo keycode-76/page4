@@ -2,7 +2,7 @@
 
 import "/import/3/door/style.scss";
 import { now_data, body_values, init } from "/import/4/init/now.js";
-import { renderScreentext, valueStop } from "/import/3/computer/script.js";
+import { renderScreentext } from "/import/3/computer/script.js";
 import { clearRequest } from "/import/3/window/script.js";
 import { SD_1, SD_7, SD_8 } from "/import/1/sound/script.js";
 
@@ -43,10 +43,10 @@ const initDoor = (app) => { //初始
         init.anim += 1;
     }
     return app.appendChild(doorDiv);
-}
+};
 const door_request = () => {
     door_btns.appendChild(request_btns);
-}
+};
 const endDoor = (num) => { //結束 
     stopDoorIdle_loop();
     door_btns.innerHTML = "";
@@ -62,7 +62,7 @@ const endDoor = (num) => { //結束
     } else {
         staff_door.className = "back_1"; // win
     }
-}
+};
 let sp_Max = 8000;
 let sp_Min = 100;
 let doorTimer_blink;
@@ -88,7 +88,6 @@ request_btns.addEventListener("click", () => { //點擊請求
     SD_1.play();
 });
 const renderStaff = (text, action) => { //執行請求 
-    // if (now_data.request === 0) return;
     if (action) now_data.action = action;
     stopDoorIdle_loop();
     if(text === "left") {
@@ -100,11 +99,10 @@ const renderStaff = (text, action) => { //執行請求
         
     } else if(text === "right") {
         staff_door.className = `${text}_1`;   
-        // SD_2.play();
         SD_8.play();
     }
     door_btns.innerHTML = "";
-}
+};
 const request_complete = () => { //完成請求
     if (now_data.action === "hunger") {
         body_values.hunger -= 2;
@@ -119,13 +117,12 @@ const request_complete = () => { //完成請求
     if (now_data.request === now_data.action) { 
         now_data.request = "";
         body_values.sleepy += 1;
-        // valueStop(now_data.action);
-        // valueTimer(now_data.action, now_data.sp_normal);
         clearRequest();
     }
     renderScreentext();
     now_data.action = "";
-}
+};
+
 window.addEventListener("animationend", (event) => {
     if (event.animationName === "staff_right_anim") {
         renderStaff("left");

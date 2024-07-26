@@ -24,7 +24,6 @@ const face_state = createDiv("face_state");
 const window_blink = createDiv("window_blink");
 const face_rg = createDiv("face_rg");
 
-// const window_light = createDiv("window_light");
 const window_outLine = createDiv("window_outLine");
 
 const windowDiv = createDiv("windowDiv");

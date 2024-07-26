@@ -50,7 +50,6 @@ click_to_start.addEventListener("click", () => {
     startPlaytimer(); // now.js
 });
 
-
 let timers = {};
 const valueTimer = (valueName, speed) => {
     timers[valueName] = setInterval(() => {
@@ -105,8 +104,6 @@ const which_language = (text) => {
             return text.simplified;
         case "Spanish":
             return text.spanish;
-        // default:
-        //     return text.english; // 初始語言
     }
 };
 

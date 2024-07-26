@@ -11,10 +11,6 @@ $icon: url("/assets/img/icon/hmcc.png");
     from { opacity: 0;}
     to { opacity: 1;}
 }
-// @keyframes disappear_anim {
-//     from { opacity: 1;}
-//     to { opacity: 0;}
-// }
 #logo_div {
     position: absolute;
     background: black;
@@ -100,10 +96,4 @@ $icon: url("/assets/img/icon/hmcc.png");
 
 .show_menu {
     animation: show_anim 3s ;
-}
-// .disappear_menu {
-//     animation: disappear_anim 2s;
-// }
-#pass_tutorial {
-    position: absolute;
 }

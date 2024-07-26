@@ -23,6 +23,8 @@ const spanishBtn = createDiv("spanishBtn", "langBtn", "Español", () => { clickL
 const initLanguage = (app) => {
     languageDiv.innerHTML = "";
     languageDiv.append(traditionalBtn, simplifiedBtn, spanishBtn, englishBtn);
+    document.getElementById("loading").textContent = "";
+    document.getElementById("loading").style.animation = "none";
     return app.appendChild(languageDiv);
 };
 const which_language = (text) => { // end, computer

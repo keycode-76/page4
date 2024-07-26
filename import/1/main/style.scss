@@ -30,7 +30,9 @@
     src: url('/assets/font/AaTaoTaoWuLongNaiLaoSu.ttf'); 
 }
 // window.resizeTo(800, 600);
-
+html {
+    cursor: url("/assets/img/icon1.png"), auto;
+}
 body {
     height: 100vh;
     margin: 0;
